@@ -81,47 +81,44 @@ export class MenuCard {
           link: '/tutorials',
         },
         {
-          name: 'Core Subjects',
-          link: '/subjects',
+          name: 'Generative AI',
+          link: '/ai',
         },
         {
           name: 'Interview Questions',
           link: '/interview',
         },
         {
-          name: 'Free Quizzes',
-          link: '/quiz',
+          name: 'Communication Skills',
+          link: '/communication',
         },
         {
-          name: 'Roadmaps',
-          link: '/roadmap',
+          name: 'DSA & Algorithms',
+          link: '/dsa',
         },
       ],
     },
 
     {
-      label: 'Resources',
+      label: 'Resources ',
       hasDropdown: true,
       dropdownItems: [
         {
-          name: 'Blog',
+          name: 'eBooks Library',
+          link: '/ebook',
+        },
+        {
+          name: 'Kids Learning',
+          link: '/kids',
+        },
+
+        {
+          name: 'Webinars & Events',
           link: '/blog',
         },
         {
-          name: 'About',
-          link: '/about',
-        },
-        {
-          name: 'Community',
-          link: '/community',
-        },
-        {
-          name: 'Online Compiler',
-          link: '/compiler',
-        },
-        {
-          name: 'Developer Tools',
-          link: '/tools',
+          name: 'Become a Member',
+          link: '/become-a-member',
         },
       ],
     },
