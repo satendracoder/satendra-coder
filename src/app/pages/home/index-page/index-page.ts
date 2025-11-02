@@ -28,18 +28,19 @@ import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
 })
 export class IndexPage {
   private seo = inject(SSeo);
+
   titleSeo: string =
-    'Satendra Coder – Learn Coding, AI/ML, DSA, Kids Learning & Communication';
+    'Satendra Coder – Learn Full Stack Development, Generative AI, DSA, and Communication Skills';
+
   description: string =
-    'Master coding, DSA, AI/ML & communication with Satendra Coder. Interactive tutorials, quizzes, roadmaps, kids coding & free eBooks for learners.';
+    'Satendra Coder is your complete learning hub to master Full Stack Development, Generative AI, DSA, and Communication Skills. Explore hands-on coding tutorials, AI-powered tools, interview preparation, kids-friendly courses, and fintech-focused projects to grow as a modern developer.';
+
   keywords: string =
-    'Satendra Coder,Coding tutorials for beginners,Java & Angular learning,AI/ML tutorials online,DSA interview preparation,Computer Science fundamentals,Kids coding courses online,Fun maths & coding for kids,Communication skills for developers,Learn English for IT professionals,Online compiler for coding,Programming learning roadmaps';
+    'Satendra Coder, Full Stack Development, Generative AI, Java and Angular tutorials, DSA interview preparation, Fintech engineer learning, AI for developers, Coding for beginners, Computer Science basics, Kids coding courses, Communication skills for developers, English speaking for IT professionals, Free programming eBooks, Learning roadmaps for coders, Satendra Rajput';
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.seo.updateMeta({
-      title: this.titleSeo || this.titleSeo.slice(0, 150),
+      title: this.titleSeo,
       description: this.description,
       keywords: this.keywords,
       url: 'https://satendracoder.com',
