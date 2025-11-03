@@ -1,0 +1,157 @@
+/* overlay wrapper at bottom right */
+.whoam-wrap {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none; /* allow clicks only on card */
+  z-index: 1000;
+  animation: fadeInUp 300ms ease-out;
+}
+
+/* popup card */
+.whoam-card {
+  pointer-events: auto;
+  width: min(96%, 420px);
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+.whoam-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background-color: #0891b2;
+  //background: linear-gradient(90deg, #0891b2, #f97316);
+  color: #fff;
+}
+
+.whoam-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* close */
+.whoam-close {
+  background: transparent;
+  border: none;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  color: #fff;
+}
+
+/* body */
+.whoam-body {
+  padding: 14px;
+  font-size: 14px;
+  color: #222;
+}
+
+/* profile section */
+.whoam-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.whoam-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #0891b2;
+  flex-shrink: 0;
+}
+
+.whoam-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.whoam-name {
+  margin: 0;
+  font-weight: 800;
+  font-size: 15px;
+  color: #f97316;
+}
+
+.whoam-desc {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 13.5px;
+}
+
+/* footer */
+.whoam-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  gap: 5px;
+}
+
+.whoam-action {
+  background: #0891b2;
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.whoam-action:hover {
+  background: #f97316;
+}
+
+/* animation */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* responsive */
+@media (max-width: 420px) {
+  .whoam-card {
+    width: calc(100% - 24px);
+    border-radius: 10px;
+  }
+
+  .whoam-body {
+    padding: 12px;
+  }
+
+  .whoam-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .whoam-name {
+    font-size: 14px;
+  }
+}

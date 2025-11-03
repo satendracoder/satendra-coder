@@ -1,0 +1,40 @@
+<!-- Container shown only when visible is true in parent using *ngIf -->
+<div class="whoam-wrap" *ngIf="visible" (animationend)="opened()" role="dialog" aria-live="polite"
+    aria-label="{{ title }}">
+    <div class="whoam-card">
+        <header class="whoam-header">
+            <h3 class="whoam-title">Who I Am</h3>
+            <button class="whoam-close" (click)="close()" aria-label="Close popup">&times;</button>
+        </header>
+
+        <div class="whoam-body">
+            <div class="whoam-profile">
+                <img src="/assets/images/global/sate_1.png" alt="Profile" class="whoam-img" />
+                <div class="whoam-info">
+                    <p class="whoam-name">Satendra Rajput</p>
+                    <p class="whoam-desc">
+                        I'm a <strong>Software Engineer</strong> specializing in <strong>Java</strong> and
+                        <strong>Angular</strong>,
+                        focused on building scalable, high-performance web applications with clean design
+                        and great user experience.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="whoam-footer">
+            <button class="whoam-action" routerLink="" (click)="close()">
+                🔗 <a href="https://me.satendracoder.com/" target="_blank" rel="noopener noreferrer">
+                    Portfolio
+                </a>
+            </button>
+            <button class="whoam-action" routerLink="" (click)="close()" style="background-color: #f97316;">
+                <a href="https://www.finequick.com/" target="_blank" rel="noopener noreferrer">
+                    🏢 Fine Quick (Founder)
+                </a>
+            </button>
+
+        </footer>
+    </div>
+</div>

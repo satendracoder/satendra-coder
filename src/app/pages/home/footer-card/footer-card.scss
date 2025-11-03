@@ -183,8 +183,8 @@
 // What link
 .fixed-button_whatsapp {
   position: fixed;
-  bottom: 120px;
-  right: -205px;
+  bottom: 10%;
+  right: -20px;
   z-index: 999;
   transition: 0.5s all ease-in;
 
@@ -193,14 +193,14 @@
   }
 
   &:hover {
-    right: -22px;
+    right: -20px;
   }
 
   .whatsapp-button {
     display: flex;
     justify-content: stretch;
     align-items: center;
-    background-color: #002777;
+    background-color: #f97316;
     color: white;
     padding: 6px 25px 6px 12px;
     text-decoration: none;
@@ -210,110 +210,16 @@
     letter-spacing: 1px;
 
     img {
-      width: 20px;
+      width: 25px;
       margin-right: 10px;
       /* Space between icon and text */
       font-size: 18px;
       /* Adjust icon size if needed */
+      border-radius: 50px;
     }
 
     &:hover {
-      opacity: 0.8;
-    }
-  }
-}
-
-// What link button_aks_me_anything
-.fixed-button_aks_me_anything {
-  position: fixed;
-  bottom: 70px;
-  right: -150px;
-  z-index: 999;
-  transition: 0.5s all ease-in;
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-
-  &:hover {
-    right: -22px;
-  }
-
-  .whatsapp-button_button_aks_me_anything {
-    display: flex;
-    justify-content: stretch;
-    align-items: center;
-    padding: 6px 25px 6px 12px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(1, 108, 128, 0.2);
-
-    img {
-      width: 20px;
-      margin-right: 10px;
-      /* Space between icon and text */
-      font-size: 18px;
-      /* Adjust icon size if needed */
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-}
-
-// What link donate
-.fixed-button_donate {
-  position: fixed;
-  bottom: 20px;
-  right: -150px;
-  z-index: 999;
-  transition: 0.5s all ease-in;
-
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-
-  &:hover {
-    right: -22px;
-  }
-
-  .whatsapp-donate {
-    display: flex;
-    justify-content: stretch;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 25px 6px 12px;
-    text-decoration: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    background: #f97316;
-    color: #002777;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(1, 108, 128, 0.2);
-
-    img {
-      width: 20px;
-      margin-right: 10px;
-      /* Space between icon and text */
-      font-size: 18px;
-      /* Adjust icon size if needed */
-    }
-
-    &:hover {
-      opacity: 0.8;
+      opacity: 0.9;
     }
   }
 }

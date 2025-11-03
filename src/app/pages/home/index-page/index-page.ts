@@ -9,6 +9,7 @@ import { FaqCard } from '../faq-card/faq-card';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { SSeo } from '../../../core/service/other/seo/s-seo';
 import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
+import { WhoIAmComponent } from '../../../shared/components/global/who-i-am/who-i-am.component';
 
 @Component({
   selector: 'app-index-page',
@@ -22,12 +23,14 @@ import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
     MenuCard,
     MateriallistModule,
     LatestBlogCard,
+    WhoIAmComponent,
   ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',
 })
 export class IndexPage {
   private seo = inject(SSeo);
+  show = true;
 
   titleSeo: string =
     'Satendra Coder – Learn Full Stack Development, Generative AI, DSA, and Communication Skills';
