@@ -43,7 +43,7 @@ export class BlogLayout {
     });
 
     this.blogService.getAllBlogs().subscribe((res) => {
-      console.log(res);
+      //console.log(res);
 
       this.blogs = res;
     });

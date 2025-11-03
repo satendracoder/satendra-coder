@@ -17,10 +17,10 @@ export class BecomeMember {
 
   onSubmit(form: any) {
     if (form.valid) {
-      console.log('Form Data:', form.value);
+      //console.log('Form Data:', form.value);
       this.becomeapi.becomeMember(form.value).subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           this.toaster.show(res?.message, 'success');
           form.resetForm();
         },

@@ -6,28 +6,25 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
   selector: 'app-compiler-setting',
   imports: [MateriallistModule],
   templateUrl: './compiler-setting.html',
-  styleUrl: './compiler-setting.scss'
+  styleUrl: './compiler-setting.scss',
 })
 export class CompilerSetting {
-isDarkTheme: boolean = false;
-  constructor( private themeService: STheme){}
+  isDarkTheme: boolean = false;
+  constructor(private themeService: STheme) {}
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.isDarkTheme();
   }
 
   isDarkModeMethod() {
-    debugger
+    debugger;
     this.themeService.isDarkTheme();
     this.isDarkTheme = this.themeService.isDarkTheme();
   }
 
-
-  onReset() {
-
-  }
+  onReset() {}
 
   onSave() {
-    console.log('Settings saved:');
+    //console.log('Settings saved:');
   }
 }

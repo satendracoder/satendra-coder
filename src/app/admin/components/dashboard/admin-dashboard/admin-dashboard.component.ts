@@ -23,8 +23,8 @@ export class AdminDashboardComponent {
 
   ngOnInit() {
     this.currentUser = this.adminService?.getCurrentUser();
-    console.log('AdminService:', this.adminService);
-    console.log('Current User:', this.adminService?.getCurrentUser());
+    //console.log('AdminService:', this.adminService);
+    //console.log('Current User:', this.adminService?.getCurrentUser());
     this.loadStats();
   }
 

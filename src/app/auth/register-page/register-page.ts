@@ -43,16 +43,16 @@ export class RegisterPage {
         .register(this.registerForm.value)
         .subscribe((response) => {
           try {
-            console.log('Parsed Response:', response);
+            //console.log('Parsed Response:', response);
             this.toaster.show(response?.message, 'success');
             this.registerForm.reset();
             this.loginCard();
           } catch (error) {
-            console.log('Response is not JSON:', response);
+            //console.log('Response is not JSON:', response);
           }
         });
     } else {
-      console.log('Form is invalid');
+      //console.log('Form is invalid');
     }
   }
 

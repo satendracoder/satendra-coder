@@ -40,7 +40,7 @@ export class SAuth {
 
   // Reset Password Api
   resetPassword(token: string, newPassword: string): Observable<any> {
-    console.log('Resetting password with token:', token);
+    //console.log('Resetting password with token:', token);
 
     return this.http.post<any>(
       APIEndPoint.Auth.resetPassword,

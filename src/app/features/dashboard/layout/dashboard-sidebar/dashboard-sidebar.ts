@@ -35,9 +35,9 @@ export class DashboardSidebar {
     const containerWidth = 240;
     const clickableEdge = 20;
     if (event.offsetX > containerWidth - clickableEdge) {
-      console.log('Clicked on the right edge (pseudo-element).');
+      //console.log('Clicked on the right edge (pseudo-element).');
     } else {
-      console.log('Clicked somewhere else in container.');
+      //console.log('Clicked somewhere else in container.');
     }
   }
 

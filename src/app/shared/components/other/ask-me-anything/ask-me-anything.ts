@@ -52,10 +52,10 @@ export class AskMeAnything {
   submitMemberForm(form: NgForm) {
     if (form.valid) {
       debugger;
-      console.log('Contact Submitted:', this.memberData);
+      //console.log('Contact Submitted:', this.memberData);
       this.sAskapi.sendMessage(this.memberData).subscribe({
         next: (res) => {
-          console.log(res);
+          // console.log(res);
           this.toaster.show(res?.message, 'success');
           form.resetForm();
         },

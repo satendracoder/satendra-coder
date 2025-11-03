@@ -83,7 +83,7 @@ export class SettingComponent {
       this.isSaving = false;
 
       // Show success message (you can implement a toast service)
-      console.log('Settings saved successfully');
+      //console.log('Settings saved successfully');
     }, 1500);
   }
 

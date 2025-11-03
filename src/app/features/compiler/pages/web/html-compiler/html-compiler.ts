@@ -1,24 +1,27 @@
-import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { CompilerSetting } from '../../compiler-setting/compiler-setting';
 import { MatDialog } from '@angular/material/dialog';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { CompilerHeader } from "../../compiler-header/compiler-header";
+import { CompilerHeader } from '../../compiler-header/compiler-header';
 import { MateriallistModule } from '../../../../../shared/materiallist/materiallist-module';
-
-
 
 @Component({
   selector: 'app-html-compiler',
   imports: [CompilerHeader, MateriallistModule],
   templateUrl: './html-compiler.html',
-  styleUrl: './html-compiler.scss'
+  styleUrl: './html-compiler.scss',
 })
 export class HtmlCompiler {
-
-currentLanguage: string = 'JavaScript';
+  currentLanguage: string = 'JavaScript';
   output: string = '';
-  AllCompilersData:any = '';
+  AllCompilersData: any = '';
 
   constructor(
     private renderer: Renderer2,
@@ -30,14 +33,12 @@ currentLanguage: string = 'JavaScript';
   ) {
     const navigation = this._router.getCurrentNavigation();
     this.AllCompilersData = navigation?.extras.state?.['data'];
-    console.log(this.AllCompilersData);
+    //console.log(this.AllCompilersData);
   }
-
 
   onLanguageChange(lang: string) {
     this.currentLanguage = lang;
   }
-
 
   isDragging: boolean = false;
   startX: number = 0;
@@ -92,8 +93,6 @@ currentLanguage: string = 'JavaScript';
     document.removeEventListener('mouseup', this.onMouseUp.bind(this));
   }
 
-
-
   isLanguageDropdownOpen = false;
   isFileDropdownOpen = false;
   selectedLanguage = 'C++'; // Default selected value
@@ -109,22 +108,20 @@ currentLanguage: string = 'JavaScript';
   }
 
   selectOption(option: string) {
-    console.log(`Selected: ${option}`);
+    // console.log(`Selected: ${option}`);
     this.selectedLanguage = option;
     // Close all dropdowns after selecting an option
     this.isLanguageDropdownOpen = false;
     this.isFileDropdownOpen = false;
-
   }
 
-  closeDropdown(event:string): void {
-    if(event === 'language') {
+  closeDropdown(event: string): void {
+    if (event === 'language') {
       this.isLanguageDropdownOpen = false;
-    } else if(event === 'file') {
+    } else if (event === 'file') {
       this.isFileDropdownOpen = false;
     }
   }
-
 
   @HostListener('document:click', ['$event'])
   handleOutsideClick(event: Event) {
@@ -138,7 +135,6 @@ currentLanguage: string = 'JavaScript';
     this.output = output;
   }
 
-
   // Open Settings Modal
   openEditorSettings() {
     this.dialog.open(CompilerSetting, {
@@ -150,10 +146,19 @@ currentLanguage: string = 'JavaScript';
     // Set the title of the page
     this.title.setTitle(this.AllCompilersData?.title);
     // Add or update meta tags
-    this.meta.updateTag({ name: 'description', content: this.AllCompilersData?.description });
-    this.meta.updateTag({ name: 'keywords', content: this.AllCompilersData?.keywords });
+    this.meta.updateTag({
+      name: 'description',
+      content: this.AllCompilersData?.description,
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: this.AllCompilersData?.keywords,
+    });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
-    this.meta.updateTag({ name: "Founder & CTO", content: "Satendra Rajput(SDE)" });
-    this.meta.updateTag({ name: "Co-Founder", content: "Arslan Shahid" });
+    this.meta.updateTag({
+      name: 'Founder & CTO',
+      content: 'Satendra Rajput(SDE)',
+    });
+    this.meta.updateTag({ name: 'Co-Founder', content: 'Arslan Shahid' });
   }
 }

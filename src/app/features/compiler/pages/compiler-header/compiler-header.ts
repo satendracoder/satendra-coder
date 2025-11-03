@@ -9,39 +9,35 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
   selector: 'app-compiler-header',
   imports: [MateriallistModule],
   templateUrl: './compiler-header.html',
-  styleUrl: './compiler-header.scss'
+  styleUrl: './compiler-header.scss',
 })
 export class CompilerHeader {
-
-AllheaderData: any = ''; // @_header set menu
+  AllheaderData: any = ''; // @_header set menu
 
   constructor(
     private elementRef: ElementRef,
     private _router: Router,
     private dialog: MatDialog,
     private editorService: SCompilers
-
   ) {
     const navigation = this._router.getCurrentNavigation();
     this.AllheaderData = navigation?.extras.state?.['data'];
-    console.log(this.AllheaderData);
+    //console.log(this.AllheaderData);
   }
-
 
   ngOnInit(): void {}
 
   // @_Open Settings Modal
   openEditorSettings() {
-    debugger
+    debugger;
     this.dialog.open(CompilerSetting, {
       width: '600px',
     });
   }
 
-
   // @_Close Dropdown
   closeDropdown(event: string): void {
-    debugger
+    debugger;
     if (event === 'language') {
       this.isLanguageDropdownOpen = false;
     } else if (event === 'file') {
@@ -57,7 +53,6 @@ AllheaderData: any = ''; // @_header set menu
     }
   }
 
-
   isLanguageDropdownOpen = false;
   isFileDropdownOpen = false;
   selectedLanguage = 'C++'; // Default language
@@ -72,7 +67,6 @@ AllheaderData: any = ''; // @_header set menu
     }
   }
 
-
   // @_Get Data from Click Methods
   selectOption(option: string) {
     this.selectedLanguage = option;
@@ -80,7 +74,6 @@ AllheaderData: any = ''; // @_header set menu
     this.isLanguageDropdownOpen = false;
   }
 
-  
   newFile() {
     this.editorService.resetFileContent(); // Clear editor content
     this.isFileDropdownOpen = false;
@@ -115,4 +108,3 @@ AllheaderData: any = ''; // @_header set menu
     this.isFileDropdownOpen = false;
   }
 }
-

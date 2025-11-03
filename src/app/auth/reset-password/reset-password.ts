@@ -49,7 +49,7 @@ export class ResetPassword {
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.token = params['token'];
-      console.log('Token from query param:', this.token);
+      //console.log('Token from query param:', this.token);
     });
   }
 
@@ -62,7 +62,7 @@ export class ResetPassword {
 
   onSubmit() {
     if (this.resetForm.valid) {
-      console.log('Form Submitted!', this.resetForm.value);
+      //console.log('Form Submitted!', this.resetForm.value);
       this.apiAuth
         .resetPassword(this.token, this.resetForm.controls['password'].value)
         .subscribe({

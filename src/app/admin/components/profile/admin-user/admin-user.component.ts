@@ -56,9 +56,9 @@ export class AdminUserComponent {
 
     forkJoin([name$, phone$, designation$]).subscribe(
       ([userResponse, postsResponse, settingsResponse]) => {
-        console.log('User:', userResponse);
-        console.log('Posts:', postsResponse);
-        console.log('Settings:', settingsResponse);
+        //console.log('User:', userResponse);
+        //onsole.log('Posts:', postsResponse);
+        //console.log('Settings:', settingsResponse);
         this.isEditing = false;
       },
       (error) => {
@@ -83,7 +83,7 @@ export class AdminUserComponent {
 
   deleteAccount() {
     if (this.deleteConfirmation === 'DELETE') {
-      console.log('Account deleted');
+      //console.log('Account deleted');
       this.showDeleteConfirmation = false;
     }
   }

@@ -41,7 +41,7 @@ export class NpmPackDetails {
       // Metadata
       this.npmService.getPackageMetadata(pkg).subscribe((data) => {
         this.metadata.set(data);
-        console.log(data, 'jkjsagjh');
+        // console.log(data, 'jkjsagjh');
 
         const latest = data['dist-tags']?.latest ?? '';
         this.latestVersion.set(latest);

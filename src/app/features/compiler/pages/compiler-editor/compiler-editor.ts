@@ -6,21 +6,16 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
   selector: 'app-compiler-editor',
   imports: [MateriallistModule],
   templateUrl: './compiler-editor.html',
-  styleUrl: './compiler-editor.scss'
+  styleUrl: './compiler-editor.scss',
 })
 export class CompilerEditor {
-
- constructor(
-    private editorService: SCompilers
-  ) { }
-
+  constructor(private editorService: SCompilers) {}
 
   @Input() selectedLanguage = 'C++'; // Default language
   code = ''; // Editor content
   fileContent = ''; // Default file content
   lineNumbers: number[] = [];
   fileName: string = 'main.cpp'; // File name displayed in the heading
-
 
   ngOnInit(): void {
     this.updateLineNumbers();
@@ -46,7 +41,7 @@ export class CompilerEditor {
   }
 
   onLanguageChange(language: string) {
-    console.log(`Language changed to: ${language}`);
+    //console.log(`Language changed to: ${language}`);
     const defaultCode: { [key: string]: string } = {
       'C++': '#include <iostream>\nint main() {\n\treturn 0;\n}',
       C: '#include <stdio.h>\nint main() {\n\treturn 0;\n}',
