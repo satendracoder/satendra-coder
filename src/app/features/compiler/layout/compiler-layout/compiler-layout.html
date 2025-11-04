@@ -1,13 +1,13 @@
-@if (this.router.url === '/compiler') {
 <div class="main-layout">
     <app-menu-card></app-menu-card>
+
+    @if (router.url === '/compiler') {
     <app-compiler-banner></app-compiler-banner>
     <app-compiler-list></app-compiler-list>
+    } @else {
+    <router-outlet></router-outlet>
+    }
+
     <app-global-contact></app-global-contact>
     <app-footer-card></app-footer-card>
 </div>
-} @else {
-<div class="main-layout">
-    <router-outlet></router-outlet>
-</div>
-}

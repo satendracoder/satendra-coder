@@ -9,9 +9,5 @@
     <app-footer-card></app-footer-card>
 </div>
 
-<app-who-i-am [visible]="show" (visibleChange)="show = $event" [autoHideMs]="5000">
-    <!-- Custom content -->
-    <div>
-        <p>Hello — main Satendra, Angular dev. Main reusable popup component ka demo content hu.</p>
-    </div>
+<app-who-i-am [visible]="showWhoIAm" (visibleChange)="showWhoIAm = $event" [autoHideMs]="5000">
 </app-who-i-am>

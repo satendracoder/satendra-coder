@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Input,
   Renderer2,
   ViewChild,
 } from '@angular/core';
@@ -11,10 +12,12 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { CompilerHeader } from '../../compiler-header/compiler-header';
 import { MateriallistModule } from '../../../../../shared/materiallist/materiallist-module';
+import { SCompilers } from '../../../service/s-compilers';
+import { CompilerEditor } from '../../compiler-editor/compiler-editor';
 
 @Component({
   selector: 'app-html-compiler',
-  imports: [CompilerHeader, MateriallistModule],
+  imports: [CompilerHeader, MateriallistModule, CompilerEditor],
   templateUrl: './html-compiler.html',
   styleUrl: './html-compiler.scss',
 })
@@ -22,6 +25,11 @@ export class HtmlCompiler {
   currentLanguage: string = 'JavaScript';
   output: string = '';
   AllCompilersData: any = '';
+  @Input() selectedLanguage = 'C++'; // Default language
+  code = ''; // Editor content
+  fileContent = ''; // Default file content
+  lineNumbers: number[] = [];
+  fileName: string = 'main.cpp'; // File name displayed in the heading
 
   constructor(
     private renderer: Renderer2,
@@ -29,7 +37,8 @@ export class HtmlCompiler {
     private _router: Router,
     private meta: Meta,
     private title: Title,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private editorService: SCompilers
   ) {
     const navigation = this._router.getCurrentNavigation();
     this.AllCompilersData = navigation?.extras.state?.['data'];
@@ -95,7 +104,7 @@ export class HtmlCompiler {
 
   isLanguageDropdownOpen = false;
   isFileDropdownOpen = false;
-  selectedLanguage = 'C++'; // Default selected value
+  //selectedLanguage = 'C++'; // Default selected value
 
   toggleDropdown(type: string) {
     if (type === 'language') {
@@ -160,5 +169,17 @@ export class HtmlCompiler {
       content: 'Satendra Rajput(SDE)',
     });
     this.meta.updateTag({ name: 'Co-Founder', content: 'Arslan Shahid' });
+  }
+
+  onFileUpload(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.code = reader.result as string;
+        this.editorService.setFileContent(this.code); // Notify service
+      };
+      reader.readAsText(file);
+    }
   }
 }

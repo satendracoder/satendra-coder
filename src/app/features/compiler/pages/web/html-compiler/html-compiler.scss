@@ -1,182 +1,289 @@
 .main-layout {
+  display: flex;
+  // height: 100vh !important;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  background-color: transparent;
+
+  .app-compiler-sidebar {
+    width: 230px; // Sidebar width
+    //background-color: #f4f4f4;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+  }
+
+  .main-content {
+    width: 100dvw;
+    flex: 1;
     display: flex;
-    height: 100vh !important;
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-    background-color: transparent;
+    flex-direction: column;
+    padding: 0px;
+    background-color: var(--secondary-background) !important;
 
+    .main-compiler-content {
+      display: flex;
+      flex: 1;
+      gap: 0px;
+      position: relative;
+      background-color: var(--background-color);
 
-    .app-compiler-sidebar {
-        width: 230px; // Sidebar width
-        //background-color: #f4f4f4;
-        padding: 20px;
-        position: fixed;
-        top: 0;
-        height: 100vh;
-        z-index: 2;
-    }
-
-    .main-content {
-        width: 100dvw;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+      .left-part,
+      .right-part {
+        flex: auto;
         padding: 0px;
-        background-color: var(--secondary-background) !important;
+        min-height: 500px;
+        position: relative;
+        box-shadow: 0px 0px 2px var(--text-color);
+      }
 
-        .main-compiler-content {
-            display: flex;
+      .left-part {
+        border-right: none;
+        box-shadow: 0px 0px 2px var(--text-color);
+      }
+
+      .right-part {
+        .compiler_output {
+          width: 100%;
+          height: 100%; // Full viewport height
+          display: flex;
+          flex-direction: column;
+          // background-color: #1e1e1e;
+          color: white;
+
+          .compiler_output__top,
+          .compiler_output__footer {
             flex: 1;
-            gap: 0px;
+            overflow-x: hidden;
+            transition: height 0.2s ease-in-out; // Smooth height adjustment
             position: relative;
-            background-color: var(--background-color);
+          }
 
-            .left-part,
-            .right-part {
-                flex: auto;
-                padding: 0px;
-                min-height: 200px;
-                position: relative;
-                box-shadow: 0px 0px 2px var(--text-color);
+          .compiler_output__top {
+            //background-color: lightblue;
+            height: 50%;
+            overflow: auto;
 
+            h3 {
+              margin-bottom: 0px;
             }
 
-            .left-part {
-                border-right: none;
-                box-shadow: 0px 0px 2px var(--text-color);
+            &::-webkit-scrollbar {
+              width: 8px;
             }
 
-            .right-part {
-                .compiler_output {
-                    width: 100%;
-                    height: 100%; // Full viewport height
-                    display: flex;
-                    flex-direction: column;
-                    // background-color: #1e1e1e;
-                    color: white;
-
-
-                    .compiler_output__top,
-                    .compiler_output__footer {
-                        flex: 1;
-                        overflow-x: hidden;
-                        transition: height 0.2s ease-in-out; // Smooth height adjustment
-                        position: relative;
-                    }
-
-                    .compiler_output__top {
-                        //background-color: lightblue;
-                        height: 50%;
-                        overflow: auto;
-
-                        h3 {
-                            margin-bottom: 0px;
-                        }
-
-                        &::-webkit-scrollbar {
-                            width: 8px;
-                        }
-
-                        &::-webkit-scrollbar-thumb {
-                            background-color: #555;
-                            border-radius: 4px;
-                        }
-
-                        &::-webkit-scrollbar-thumb:hover {
-                            background-color: #888;
-                        }
-
-                    }
-
-                    .compiler_output__footer {
-                        //background-color: lightcoral;
-                        height: 50%;
-
-                        h3 {
-                            margin-bottom: 0px;
-                        }
-
-                        &::-webkit-scrollbar {
-                            width: 8px;
-                        }
-
-                        &::-webkit-scrollbar-thumb {
-                            background-color: #555;
-                            border-radius: 4px;
-                        }
-
-                        &::-webkit-scrollbar-thumb:hover {
-                            background-color: #888;
-                        }
-                    }
-
-                    .compiler_output__header {
-                        background: #333;
-                        padding: 10px;
-                        font-size: 16px;
-                        font-weight: bold;
-                        text-transform: uppercase;
-                        position: sticky;
-                        top: 0;
-                    }
-
-                    .compiler_output__body {
-                        width: 100%;
-                        padding: 10px;
-                        background: #222;
-                        font-size: 14px;
-                        color: #ddd;
-                        height: 100%;
-                    }
-
-                    .divider {
-                        width: 100%;
-                        height: 8px;
-                        background-color: #000;
-                        cursor: row-resize;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        .resize-handle {
-                            width: 16px;
-                            height: 16px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-
-                            img {
-                                transform: rotate(90deg);
-                                width: 6px;
-                            }
-                        }
-                    }
-                }
+            &::-webkit-scrollbar-thumb {
+              background-color: #555;
+              border-radius: 4px;
             }
 
-            .divider {
-                width: 8px;
-                /* Width of the resize icon */
-                background-color: #333;
-                cursor: col-resize;
-                position: relative;
-                top: 0;
-                bottom: 0;
-                right: 0%;
-                margin: 0px auto;
-                box-shadow: 0px 0px 2px var(--text-color);
-                z-index: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                .resize-handle {
-                    font-size: 24px;
-                    /* Icon size */
-                    color: var(--text-color);
-                }
+            &::-webkit-scrollbar-thumb:hover {
+              background-color: #888;
             }
+          }
+
+          .compiler_output__footer {
+            //background-color: lightcoral;
+            height: 50%;
+
+            h3 {
+              margin-bottom: 0px;
+            }
+
+            &::-webkit-scrollbar {
+              width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background-color: #555;
+              border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+              background-color: #888;
+            }
+          }
+
+          .compiler_output__header {
+            background: #333;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+          }
+
+          .compiler_output__body {
+            width: 100%;
+            padding: 10px;
+            background: #222;
+            font-size: 14px;
+            color: #ddd;
+            height: 100%;
+          }
+
+          .divider {
+            width: 100%;
+            height: 8px;
+            background-color: #000;
+            cursor: row-resize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .resize-handle {
+              width: 16px;
+              height: 16px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                transform: rotate(90deg);
+                width: 6px;
+              }
+            }
+          }
         }
+      }
+
+      .divider {
+        width: 8px;
+        /* Width of the resize icon */
+        background-color: #333;
+        cursor: col-resize;
+        position: relative;
+        top: 0;
+        bottom: 0;
+        right: 0%;
+        margin: 0px auto;
+        box-shadow: 0px 0px 2px var(--text-color);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .resize-handle {
+          font-size: 24px;
+          /* Icon size */
+          color: var(--text-color);
+        }
+      }
     }
+
+    .code-editor-container {
+      background-color: #1e1e1e;
+      /* Editor background color */
+      // border: 1px solid #333; /* Border for the container */
+      height: 100%;
+      /* Full height */
+      overflow: hidden;
+      /* Prevents unnecessary scrolling outside the container */
+      color: #dcdcdc;
+      /* Default text color */
+      position: relative;
+      /* Allows sticky heading */
+      //border-radius: 8px; /* Adds a slight rounded corner to the editor */
+
+      .editor-heading {
+        background-color: #333333;
+        /* Dark background for the heading */
+        color: #dcdcdc;
+        /* Text color for heading */
+        padding: 4.5px 12px;
+        /* Proper padding for better spacing */
+        font-size: 16px;
+        /* Slightly larger font size for visibility */
+        font-weight: bold;
+        /* Bold heading */
+        position: sticky;
+        /* Makes the heading sticky */
+        top: 0;
+        /* Ensures it's always at the top */
+        z-index: 100;
+        /* Stays above other content */
+        //border-bottom: 1px solid #444; /* Subtle border for separation */
+      }
+
+      .code-editor {
+        display: flex;
+        /* Flex layout for line numbers and text area */
+        height: 80vh;
+        /* Sets the height for the editor */
+        overflow: hidden;
+        /* Prevents editor content overflow */
+        font-family: "Courier New", Courier, monospace;
+        /* Consistent font for coding */
+        padding: 0px 10px;
+      }
+
+      .line-numbers {
+        background-color: #252526;
+        /* Background for line numbers */
+        color: #858585;
+        /* Line number text color */
+        padding: 10px;
+        /* Adds padding for spacing */
+        text-align: right;
+        /* Aligns numbers to the right */
+        user-select: none;
+        /* Disables selection for numbers */
+        border-right: 1px solid #444;
+        /* Border to separate line numbers */
+      }
+
+      .line-number {
+        line-height: 1.5;
+        /* Line height for readability */
+        font-size: 14px;
+        /* Font size for line numbers */
+      }
+
+      .code-input {
+        flex: 1;
+        /* Takes the remaining space */
+        background-color: transparent;
+        /* Transparent background */
+        border: none;
+        /* Removes border */
+        color: inherit;
+        /* Inherits text color */
+        padding: 10px;
+        /* Adds padding inside the textarea */
+        resize: none;
+        /* Disables resizing of textarea */
+        outline: none;
+        /* Removes focus outline */
+        overflow: auto;
+        /* Allows scrolling inside textarea */
+        white-space: pre;
+        /* Ensures preformatted text */
+        line-height: 1.5;
+        /* Line height for readability */
+        font-size: 14px;
+        /* Font size for text */
+      }
+
+      textarea::-webkit-scrollbar {
+        width: 8px;
+        /* Custom scrollbar width */
+      }
+
+      textarea::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #d43bd4, #3071ab, #00e8b5);
+        /* Scrollbar thumb color */
+        border-radius: 4px;
+        /* Rounded scrollbar thumb */
+      }
+
+      textarea::-webkit-scrollbar-thumb:hover {
+        background-color: #888;
+        /* Hover color for scrollbar */
+      }
+    }
+  }
 }

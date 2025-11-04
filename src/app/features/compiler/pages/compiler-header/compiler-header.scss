@@ -1,168 +1,165 @@
 .app-heading-btn {
-    padding: 0px;
+  margin-top: 70px;
+  height: 60px;
+  text-align: center;
+  margin-bottom: 0px;
+  font-size: 20px;
+  width: 100%;
+  box-shadow: 2px 2px 0px #0891b2;
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
     height: 60px;
-    text-align: center;
-    margin-bottom: 0px;
-    font-size: 20px;
-    width: 100%;
-    box-shadow: 0px 0px 2px #333;
-    position: sticky;
-    top: 0;
-    z-index: 99;
+    background-color: var(--background-color);
 
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        height: 60px;
-        background-color: var(--background-color);
+    .breadcrumb {
+      font-size: 14px;
 
-        .breadcrumb {
-            font-size: 14px;
+      a {
+        text-decoration: none;
+        color: var(--text-color); // Light blue color for links
+        transition: color 0.3s ease;
 
-            a {
-                text-decoration: none;
-                color: var(--text-color); // Light blue color for links
-                transition: color 0.3s ease;
-
-                &:hover {
-                    color: #0284c7; // Darker blue on hover
-                }
-            }
-
-            &>a:not(:last-child)::after {
-                content: " > ";
-                color: #9ca3af; // Separator color
-                margin: 0 5px;
-            }
+        &:hover {
+          color: #0284c7; // Darker blue on hover
         }
+      }
 
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            .action-btn {
-                display: flex;
-                font-size: 14px;
-                padding: 4px 15px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s;
-                gap: 5px;
-                align-items: center;
-
-                // .mat-icon {
-                //   font-size: 20px;
-                // }
-
-                &.run {
-                    background-color: #22c55e; // Green for run
-                    color: #fff;
-
-                    &:hover {
-                        background-color: #16a34a;
-                    }
-                }
-
-                &.settings,
-                &.share {
-                    background-color: #374151; // Dark background for buttons
-                    color: #fff;
-                    padding: 4px 12px;
-
-                    &:hover {
-                        background-color: #4b5563;
-                    }
-                }
-            }
-
-            .dropdown {
-                position: relative;
-
-                &.open .dropdown-content {
-                    max-height: 200px;
-                    opacity: 1;
-                    min-width: 150px;
-                    pointer-events: auto;
-                }
-
-                .dropdown-btn {
-                    background-color: #374151; // Dark button background
-                    color: #fff;
-                    border: none;
-                    padding: 3px 15px;
-                    border-radius: 4px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    cursor: pointer;
-                    font-size: 14px;
-
-                    &:hover {
-                        background-color: #4b5563;
-                    }
-
-                    .icon {
-                        margin-left: 10px;
-                        transition: transform 0.3s ease;
-                    }
-
-                    .rotate {
-                        transform: rotate(180deg);
-                    }
-                }
-
-                .dropdown-content {
-                    position: absolute;
-                    top: 40px;
-                    max-height: 150px;
-                    left: 0;
-                    background-color: #1e293b;
-                    color: #fff;
-                    border-radius: 4px;
-                    z-index: 2;
-                    overflow-y: auto;
-                    text-align: left;
-                    padding: 0px 5px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    opacity: 0;
-                    pointer-events: none;
-                    transition: max-height 0.3s ease, opacity 0.3s ease;
-
-
-                    /* custom scroll bar */
-                    &::-webkit-scrollbar {
-                        width: 5px;
-                    }
-
-                    &::-webkit-scrollbar-track {
-                        background: transparent;
-                    }
-
-                    &::-webkit-scrollbar-thumb {
-                        background: #26a69a;
-                        border-radius: 10px;
-                    }
-
-                    span {
-                        display: block;
-                        padding: 10px 15px;
-                        cursor: pointer;
-                        transition: background-color 0.3s;
-                        font-size: 14px;
-                        border-radius: 10px;
-
-                        &:hover {
-                            background-color: #374151;
-
-                        }
-                    }
-                }
-            }
-        }
+      & > a:not(:last-child)::after {
+        content: " > ";
+        color: #9ca3af; // Separator color
+        margin: 0 5px;
+      }
     }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+
+      .action-btn {
+        display: flex;
+        font-size: 14px;
+        padding: 4px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        gap: 5px;
+        align-items: center;
+
+        // .mat-icon {
+        //   font-size: 20px;
+        // }
+
+        &.run {
+          background-color: #22c55e; // Green for run
+          color: #fff;
+
+          &:hover {
+            background-color: #16a34a;
+          }
+        }
+
+        &.settings,
+        &.share {
+          background-color: #374151; // Dark background for buttons
+          color: #fff;
+          padding: 4px 12px;
+
+          &:hover {
+            background-color: #4b5563;
+          }
+        }
+      }
+
+      .dropdown {
+        position: relative;
+
+        &.open .dropdown-content {
+          max-height: 200px;
+          opacity: 1;
+          min-width: 150px;
+          pointer-events: auto;
+        }
+
+        .dropdown-btn {
+          background-color: #374151; // Dark button background
+          color: #fff;
+          border: none;
+          padding: 3px 15px;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          font-size: 14px;
+
+          &:hover {
+            background-color: #4b5563;
+          }
+
+          .icon {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+          }
+
+          .rotate {
+            transform: rotate(180deg);
+          }
+        }
+
+        .dropdown-content {
+          position: absolute;
+          top: 40px;
+          max-height: 150px;
+          left: 0;
+          background-color: #1e293b;
+          color: #fff;
+          border-radius: 4px;
+          z-index: 2;
+          overflow-y: auto;
+          text-align: left;
+          padding: 0px 5px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          opacity: 0;
+          pointer-events: none;
+          transition: max-height 0.3s ease, opacity 0.3s ease;
+
+          /* custom scroll bar */
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #26a69a;
+            border-radius: 10px;
+          }
+
+          span {
+            display: block;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            border-radius: 10px;
+
+            &:hover {
+              background-color: #374151;
+            }
+          }
+        }
+      }
+    }
+  }
 }
