@@ -1,5 +1,6 @@
 // import { environment } from "../../../environments/environment.development";
 
+//const API_URL = 'http://satendracoder.eu-north-1.elasticbeanstalk.com';
 const API_URL = 'http://localhost:8080/api/v1';
 //const API_URL = environment.API_URL;
 

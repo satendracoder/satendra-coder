@@ -3,6 +3,8 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
 import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
 import { GlobalContact } from '../../../../shared/components/other/global-contact/global-contact';
 import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
+
 interface Topic {
   name: string;
   category?: string;
@@ -37,6 +39,22 @@ export class RoadmapLayoutComponent {
       items: ['Perf', 'QA', 'Release'],
     },
   ];
+
+  categories: string[] = [
+    'All',
+    'Web',
+    'Mobile',
+    'AI',
+    'Data',
+    'Infra',
+    'Security',
+    'Design',
+    'Games',
+    'Leadership',
+    'Custom',
+  ];
+
+  selectedCategory: string = 'All';
 
   // All topics provided by user (short descriptions + details placeholder)
   topics: Topic[] = [
@@ -470,28 +488,55 @@ export class RoadmapLayoutComponent {
     // add others similarly...
   ];
 
-  // Modal state
-  showModal = false;
-  selectedTopic: Topic | null = null;
+  constructor(private safe: SSafeStorage) {}
 
-  openModal(topic: Topic) {
-    this.selectedTopic = topic;
-    this.showModal = true;
-    // prevent body scroll
-    document.body.style.overflow = 'hidden';
+  ngOnInit(): void {}
+
+  filteredTopics(): Topic[] {
+    if (this.selectedCategory === 'All') return this.topics;
+    return this.topics.filter((t) => t.category === this.selectedCategory);
   }
 
-  closeModal() {
-    this.showModal = false;
-    this.selectedTopic = null;
-    document.body.style.overflow = '';
+  selectCategory(category: string) {
+    this.selectedCategory = category;
   }
 
-  // close on ESC
-  @HostListener('document:keydown.escape', ['$event'])
-  onEsc(event: KeyboardEvent | Event) {
-    if ((event as KeyboardEvent).key === 'Escape' && this.showModal) {
-      this.closeModal();
+  openTopicDetails(topic: Topic) {
+    alert(`${topic.name}\n\n${topic.details}`);
+  }
+
+  ngAfterViewInit(): void {
+    const win = this.safe.nativeWindow;
+    if (!win) return;
+    const canvas = win.document.getElementById(
+      'bgAnimation'
+    ) as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d')!;
+    canvas.width = win.innerWidth;
+    canvas.height = win.innerHeight;
+
+    const dots = Array.from({ length: 200 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 1.5,
+      dy: (Math.random() - 0.5) * 1.5,
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach((dot) => {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#00c6ff';
+        ctx.fill();
+        dot.x += dot.dx;
+        dot.y += dot.dy;
+        if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+        if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+      });
+      requestAnimationFrame(animate);
     }
+    animate();
   }
 }

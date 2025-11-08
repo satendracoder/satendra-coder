@@ -1,6 +1,10 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
+function _window(): any {
+  return typeof window !== 'undefined' ? window : null;
+}
+
 @Injectable({ providedIn: 'root' })
 export class SSafeStorage {
   private isBrowser: boolean;
@@ -28,5 +32,9 @@ export class SSafeStorage {
       sessionStorage.removeItem(key);
       sessionStorage.clear();
     }
+  }
+
+  get nativeWindow(): Window | null {
+    return this.isBrowser ? _window() : null;
   }
 }

@@ -1,77 +1,53 @@
 <app-menu-card></app-menu-card>
 
-<!-- BANNER -->
+<!-- 🌌 Hero Banner Section -->
 <section class="banner">
-    <div class="banner-inner">
-        <div class="banner-text">
-            <h1>Build your future — choose a roadmap</h1>
-            <p>Guided learning paths, skill roadmaps and project ideas to help you grow.</p>
-            <div class="banner-actions">
-                <button class="primary">Get Started</button>
-                <button class="ghost">Explore Roadmaps</button>
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 class="title">Master Your Developer Journey 🚀</h1>
+        <p class="subtitle">
+            Explore language-specific roadmaps and build your coding future with
+            <strong>Satendra Coder</strong>.
+        </p>
+        <button class="btn-start">Get Started</button>
+    </div>
+    <canvas id="bgAnimation"></canvas>
+</section>
+
+
+<!-- 💡 CATEGORY FILTER + ROADMAP LIST -->
+<section class="roadmap-section">
+    <div class="container">
+        <h2 class="section-title">Explore Developer Roadmaps</h2>
+        <p class="section-subtitle">Choose a category and start exploring curated paths for your career.</p>
+
+        <!-- 🔹 Filter Bar -->
+        <div class="category-bar">
+            <div *ngFor="let cat of categories" class="category-chip" [class.active]="cat === selectedCategory"
+                (click)="selectCategory(cat)">
+                <i class="fa fa-layer-group"></i>
+                <span>{{ cat }}</span>
             </div>
         </div>
-        <div class="banner-visual">
-            <!-- simple SVG or placeholder -->
-            <div class="hero-card">
-                <h3>Start</h3>
-                <p>Pick a track and view details</p>
+
+        <!-- 🔹 Topics Grid -->
+        <div class="topics-grid">
+            <div *ngFor="let topic of filteredTopics()" class="topic-card" (click)="openTopicDetails(topic)">
+                <div class="card-header">
+                    <div class="icon-circle">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <div class="title-row">
+                        <h3>{{ topic.name }}</h3>
+                        <span class="category-label">{{ topic.category || 'General' }}</span>
+                    </div>
+                </div>
+                <p class="short">{{ topic.short }}</p>
+                <div *ngIf="topic.newBadge" class="badge">New</div>
             </div>
         </div>
     </div>
 </section>
-
-<!-- ROADMAP (summary) -->
-<section class="roadmap">
-    <h2>Product Roadmap (high level)</h2>
-    <div class="roadmap-list">
-        <div class="card" *ngFor="let ph of roadmap">
-            <h4>{{ ph.title }}</h4>
-            <p class="date">{{ ph.date }}</p>
-            <ul>
-                <li *ngFor="let it of ph.items">{{ it }}</li>
-            </ul>
-            <button class="small"
-                (click)="openModal({ name: ph.title, short: 'Phase details', details: ph.items.join(', ') })">View
-                Details</button>
-        </div>
-    </div>
-</section>
-
-<!-- TOPICS GRID -->
-<section class="topics">
-    <h2>All Topics</h2>
-    <div class="topics-grid">
-        <div class="topic-card" *ngFor="let t of topics">
-            <div class="top-row">
-                <h3>{{ t.name }}</h3>
-                <span *ngIf="t.newBadge" class="badge">New</span>
-            </div>
-            <p class="short">{{ t.short }}</p>
-            <div class="tags">
-                <span class="tag" *ngFor="let tag of t.tags">{{ tag }}</span>
-            </div>
-            <div class="actions">
-                <button (click)="openModal(t)">View Details</button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- MODAL -->
-<div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()">
-    <div class="modal" (click)="$event.stopPropagation()">
-        <button class="close" (click)="closeModal()" aria-label="Close">&times;</button>
-        <h3>{{ selectedTopic?.name }}</h3>
-        <p class="category" *ngIf="selectedTopic?.category">{{ selectedTopic?.category }}</p>
-        <p class="details">{{ selectedTopic?.details }}</p>
-        <div class="modal-actions">
-            <button class="primary">Start Roadmap</button>
-            <button class="ghost" (click)="closeModal()">Close</button>
-        </div>
-    </div>
-</div>
-
 
 <app-global-contact></app-global-contact>
 <app-footer-card></app-footer-card>
