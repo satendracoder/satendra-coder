@@ -16,13 +16,13 @@ export const routes: Routes = [
   },
 
   // Admin Routes is lazy loaded
-  {
-    path: 'admin',
-    loadChildren: () =>
-      import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
-    canActivate: [adminGuard],
-    data: { roles: ['MASTER', 'ADMIN', 'STAFF'] },
-  },
+  // {
+  //   path: 'admin',
+  //   loadChildren: () =>
+  //     import('./admin/admin.routes').then((admin) => admin.Admin_ROUTES),
+  //   canActivate: [adminGuard],
+  //   data: { roles: ['MASTER', 'ADMIN', 'STAFF'] },
+  // },
 
   // Compiler Routes is lazy loaded
   {
