@@ -83,15 +83,6 @@ export const routes: Routes = [
       import('./features/blog/blog.routes').then((blog) => blog.BLOG_ROUTES),
   },
 
-  // e-Book Routes is lazy loaded
-  {
-    path: '',
-    loadChildren: () =>
-      import('./features/ebook/ebook.routes').then(
-        (ebook) => ebook.EBOOK_ROUTES
-      ),
-  },
-
   // ROADMAP_ROUTES Package Routes is lazy loaded
   {
     path: 'roadmap',

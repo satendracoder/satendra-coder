@@ -5,8 +5,10 @@ import {
   isDevMode,
 } from '@angular/core';
 import {
+  PreloadAllModules,
   provideRouter,
   withInMemoryScrolling,
+  withPreloading,
   withViewTransitions,
 } from '@angular/router';
 import {
@@ -43,6 +45,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withViewTransitions(),
+      withPreloading(PreloadAllModules),
       withInMemoryScrolling({
         scrollPositionRestoration: 'enabled',
         anchorScrolling: 'enabled',

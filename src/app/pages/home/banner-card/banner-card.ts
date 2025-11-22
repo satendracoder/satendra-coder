@@ -7,10 +7,12 @@ import {
   OnInit,
 } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
+import { link } from 'fs';
+import { ScButtonComponent } from '../../../shared/components/button/sc-button/sc-button.component';
 
 @Component({
   selector: 'app-banner-card',
-  imports: [MateriallistModule],
+  imports: [MateriallistModule, ScButtonComponent],
   templateUrl: './banner-card.html',
   styleUrls: ['./banner-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,6 +29,7 @@ export class BannerCard implements OnInit, OnDestroy {
         { icon: '🧪', text: 'JS Exercises' },
       ],
       button: 'Start with HTML/CSS/JS',
+      link: '/courses/html-css-js',
       codeFilename: 'index.html',
       codeComment: '<!-- Start of your website -->',
       codeKeyword: '<script>',
@@ -47,6 +50,7 @@ export class BannerCard implements OnInit, OnDestroy {
         { icon: '📦', text: 'Modular Architecture' },
       ],
       button: 'Start with Angular',
+      link: '/courses/angular',
       codeFilename: 'app.component.ts',
       codeComment: '// Angular root component',
       codeKeyword: 'export class',
@@ -67,6 +71,7 @@ export class BannerCard implements OnInit, OnDestroy {
         { icon: '🧩', text: 'Database & JPA' },
       ],
       button: 'Start with Spring Boot',
+      link: '/courses/spring-boot',
       codeFilename: 'HelloController.java',
       codeComment: '// Spring Boot Hello API',
       codeKeyword: '@RestController',

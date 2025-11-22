@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, effect, HostListener, inject, Signal } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-text-pipe';
 import {
@@ -9,6 +9,9 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { LoginPage } from '../../../auth/login-page/login-page';
 import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
+import { ScButtonComponent } from '../../../shared/components/button/sc-button/sc-button.component';
+import { CThemeToggle } from '../../../shared/components/global/c-theme-toggle/c-theme-toggle';
+import { STheme } from '../../../core/service/global/theme/s-theme';
 
 interface MenuItem {
   label: string;
@@ -30,6 +33,8 @@ interface User {
     TruncateTextPipe,
     RouterLink,
     RouterLinkWithHref,
+    ScButtonComponent,
+    CThemeToggle,
   ],
   templateUrl: './menu-card.html',
   styleUrl: './menu-card.scss',
@@ -39,10 +44,12 @@ export class MenuCard {
   isMobileMenuOpen: boolean = false;
   isLoggedIn: boolean = false;
   currentUser: User | null = null;
+  selectedTheme: string = 'light';
+  isDarkTheme: Signal<boolean>;
 
   readonly dialog = inject(MatDialog);
 
-  constructor(private safestorage: SSafeStorage) {
+  constructor(private safestorage: SSafeStorage, private themeService: STheme) {
     const userdata = this.safestorage.getItem('userdata');
     if (userdata) {
       this.isLoggedIn = true;
@@ -55,6 +62,12 @@ export class MenuCard {
     } else {
       this.isLoggedIn = false;
     }
+
+    this.isDarkTheme = this.themeService.isDarkTheme;
+    // Reactively update selectedTheme
+    effect(() => {
+      this.selectedTheme = this.isDarkTheme() ? 'dark' : 'light';
+    });
   }
 
   ngOnInit(): void {}
@@ -73,7 +86,7 @@ export class MenuCard {
 
   menuItems: MenuItem[] = [
     {
-      label: 'Features',
+      label: 'Grow Learn',
       hasDropdown: true,
       dropdownItems: [
         {
@@ -95,30 +108,6 @@ export class MenuCard {
         {
           name: 'DSA & Algorithms',
           link: '/dsa',
-        },
-      ],
-    },
-
-    {
-      label: 'Resources ',
-      hasDropdown: true,
-      dropdownItems: [
-        {
-          name: 'eBooks Library',
-          link: '/ebook',
-        },
-        {
-          name: 'Kids Learning',
-          link: '/kids',
-        },
-
-        {
-          name: 'Webinars & Events',
-          link: '/blog',
-        },
-        {
-          name: 'Become a Member',
-          link: '/become-a-member',
         },
       ],
     },
@@ -200,5 +189,10 @@ export class MenuCard {
         this.activeDropdown = clickedItem;
       }
     }
+  }
+
+  // Change theme based on toggle
+  onThemeChange(theme: string) {
+    this.themeService.setTheme(theme === 'dark'); // 👈 Apply theme
   }
 }

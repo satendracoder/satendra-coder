@@ -46,7 +46,7 @@ export class RegisterPage {
             //console.log('Parsed Response:', response);
             this.toaster.show(response?.message, 'success');
             this.registerForm.reset();
-            this.loginCard();
+           this.router.navigate(['/auth/login']);
           } catch (error) {
             //console.log('Response is not JSON:', response);
           }

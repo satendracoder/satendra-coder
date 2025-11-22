@@ -11,32 +11,27 @@
 
       <ul class="features">
         @for (feature of currentItem.features; track feature) {
-          <li>
-            <span class="icon">{{ feature.icon }}</span> {{ feature.text }}
-          </li>
+        <li>
+          <span class="icon">{{ feature.icon }}</span> {{ feature.text }}
+        </li>
         }
       </ul>
 
-      <button class="cta">
-        {{ currentItem.button }}
-        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
+      <app-sc-button type="button" [routerLink]="currentItem.link" variant="primary" [label]="currentItem.button">
+      </app-sc-button>
+    </div>
 
-      <div class="banner__code">
-        <div class="code-window">
-          <div class="code-header">
-            <div class="dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <span class="filename">{{ currentItem.codeFilename }}</span>
+    <div class="banner__code">
+      <div class="code-window">
+        <div class="code-header">
+          <div class="dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
           </div>
-          <pre class="code">
+          <span class="filename">{{ currentItem.codeFilename }}</span>
+        </div>
+        <pre class="code">
             <span class="comment">{{ currentItem.codeComment }}</span>
             <span class="keyword">{{ currentItem.codeKeyword }}</span> <span class="function">{{ currentItem.className }}</span> &#123;
             <span class="keyword">{{ currentItem.mainSignature }}</span> &#123;
@@ -46,9 +41,9 @@
             <span class="output">Output:</span> {{ currentItem.output }}
           </pre>
 
-          <div class="toast success">{{ currentItem.toastSuccess }}</div>
-          <div class="toast complete">{{ currentItem.toastComplete }}</div>
-        </div>
+        <div class="toast success">{{ currentItem.toastSuccess }}</div>
+        <div class="toast complete">{{ currentItem.toastComplete }}</div>
       </div>
     </div>
   </div>
+</div>

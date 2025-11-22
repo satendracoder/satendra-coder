@@ -1,14 +1,10 @@
 .theme-toggle {
   width: fit-content;
   display: flex;
-  background-color: #f8f8f8;
-  padding: 4px 10px;
-  border-radius: 999px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // border-radius: 999px;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   justify-content: space-evenly;
-  margin-top: 8px;
   gap: 10px;
-
 
   button {
     background: transparent;
@@ -21,18 +17,17 @@
     align-items: center;
     justify-content: center;
 
-
     .material-icons {
-      font-size: 15px;
+      font-size: 22px;
       color: #666;
     }
 
     &.active {
-      background-color: #ffffff;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      //background-color: #ffffff;
+      //box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 
       .material-icons {
-        color: #000;
+        color: var(--text-color);
       }
     }
   }

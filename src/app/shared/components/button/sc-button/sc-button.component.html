@@ -1,0 +1,27 @@
+<button [type]="type" class="sc-btn" [ngClass]="variant" (click)="onClick()">
+
+    <!-- Icon Button Only -->
+    @if (variant === 'icon') {
+    <ng-container>
+        <span>{{ label }}</span>
+        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </ng-container>
+    } @else {
+    <ng-container>
+        <span>{{ label }}</span>
+        <!-- Right Arrow for Primary Button -->
+        @if (variant === 'primary' || 'secondary') {
+        <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        }
+
+    </ng-container>
+    }
+
+
+</button>

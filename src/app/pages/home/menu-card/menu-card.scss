@@ -7,7 +7,8 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
   .nav-container {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -84,13 +85,15 @@
   .nav-items {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.8rem;
   }
 
   .nav-item {
     position: relative;
     cursor: pointer;
-
+    // display: flex;
+    // align-items: center;
+    // gap: 8px;
     .nav-link {
       display: flex;
       align-items: center;
@@ -610,13 +613,8 @@
       padding: 0;
       z-index: 1001;
 
-      .hamburger-line {
-        width: 24px;
-        height: 2px;
-        background-color: var(--text-color);
-        margin: 3px 0;
-        transition: all 0.3s ease;
-        border-radius: 2px;
+      svg {
+        color: var(--text-color);
       }
 
       &.active {

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EbookCardComponent } from './ebook-card.component';
+import { ScButtonComponent } from './sc-button.component';
 
-describe('EbookCardComponent', () => {
-  let component: EbookCardComponent;
-  let fixture: ComponentFixture<EbookCardComponent>;
+describe('ScButtonComponent', () => {
+  let component: ScButtonComponent;
+  let fixture: ComponentFixture<ScButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EbookCardComponent]
+      imports: [ScButtonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EbookCardComponent);
+    fixture = TestBed.createComponent(ScButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

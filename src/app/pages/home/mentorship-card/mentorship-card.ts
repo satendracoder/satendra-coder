@@ -11,8 +11,8 @@ export class MentorshipCard {
   trainers = [
     {
       name: 'Satendra Rajput',
-      role: 'Full Stack Engineer',
-      img: 'assets/images/global/satendra.png',
+      role: 'Software Engineer | Full Stack Developer',
+      img: '/assets/images/global/sate_1.png',
     },
     {
       name: 'Rishi Singh',
