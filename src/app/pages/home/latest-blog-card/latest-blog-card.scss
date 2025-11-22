@@ -1,96 +1,96 @@
 .latest-blogs-wrapper {
-    width: 100%;
-    background: var(--secondary-background);
-    padding: 4rem 1rem;
+  width: 100%;
+  background: var(--secondary-background);
+  padding: 4rem 1rem;
 
-    .latest-blogs-container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
+  .latest-blogs-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
 
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
 
-            h2 {
-                font-size: 2rem;
-                font-weight: bold;
-                color: var(--mentor-color);
+      h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--mentor-color);
 
-                span {
-                    font-size: 12px;
-                    font-weight: 400;
-                }
-            }
-
-            .view-all-btn {
-                background: #002777;
-                color: white;
-                padding: 0.5rem 1.2rem;
-                border-radius: 6px;
-                border: none;
-                cursor: pointer;
-                transition: background 0.3s ease;
-
-                &:hover {
-                    background: #001f5c;
-                }
-            }
+        span {
+          font-size: 12px;
+          font-weight: 400;
         }
+      }
 
-        .blogs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
+      .view-all-btn {
+        background: #002777;
+        color: white;
+        padding: 0.5rem 1.2rem;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
 
-            .blog-card {
-                background: white;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-                cursor: pointer;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-                &:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-
-                    .image-wrapper img {
-                        transform: scale(1.05);
-                    }
-                }
-
-                .image-wrapper {
-                    width: 100%;
-                    height: 180px;
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: transform 0.3s ease;
-                    }
-                }
-
-                .content {
-                    padding: 1rem;
-
-                    h3 {
-                        font-size: 1.2rem;
-                        font-weight: 600;
-                        color: #111827;
-                        margin-bottom: 0.5rem;
-                    }
-
-                    .meta {
-                        font-size: 0.875rem;
-                        color: #6b7280;
-                    }
-                }
-            }
+        &:hover {
+          background: #001f5c;
         }
+      }
     }
+
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+
+      .blog-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+          .image-wrapper img {
+            transform: scale(1.05);
+          }
+        }
+
+        .image-wrapper {
+          width: 100%;
+          height: 180px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        .content {
+          padding: 1rem;
+
+          h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+          }
+
+          .meta {
+            font-size: 0.875rem;
+            color: #6b7280;
+          }
+        }
+      }
+    }
+  }
 }

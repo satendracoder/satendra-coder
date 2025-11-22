@@ -51,7 +51,7 @@
         <!-- Roadmaps Others -->
         <div class="nav-item support-item">
           <span class="nav-link support-link" routerLink="/roadmap">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#26a69a">
               <path
                 d="M360-120q-66 0-113-47t-47-113v-327q-35-13-57.5-43.5T120-720q0-50 35-85t85-35q50 0 85 35t35 85q0 39-22.5 69.5T280-607v327q0 33 23.5 56.5T360-200q33 0 56.5-23.5T440-280v-400q0-66 47-113t113-47q66 0 113 47t47 113v327q35 13 57.5 43.5T840-240q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-39 22.5-70t57.5-43v-327q0-33-23.5-56.5T600-760q-33 0-56.5 23.5T520-680v400q0 66-47 113t-113 47ZM240-680q17 0 28.5-11.5T280-720q0-17-11.5-28.5T240-760q-17 0-28.5 11.5T200-720q0 17 11.5 28.5T240-680Zm480 480q17 0 28.5-11.5T760-240q0-17-11.5-28.5T720-280q-17 0-28.5 11.5T680-240q0 17 11.5 28.5T720-200ZM240-720Zm480 480Z" />
             </svg>
@@ -62,7 +62,7 @@
         <!-- Compilers Others -->
         <div class="nav-item support-item">
           <span class="nav-link support-link" routerLink="/compiler">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#26a69a">
               <path
                 d="M344-336 200-480l144-144 56 57-87 87 87 87-56 57Zm272 0-56-57 87-87-87-87 56-57 144 144-144 144ZM200-120q-33 0-56.5-23.5T120-200v-160h80v160h160v80H200Zm400 0v-80h160v-160h80v160q0 33-23.5 56.5T760-120H600ZM120-600v-160q0-33 23.5-56.5T200-840h160v80H200v160h-80Zm640 0v-160H600v-80h160q33 0 56.5 23.5T840-760v160h-80Z" />
             </svg>
@@ -70,13 +70,25 @@
           </span>
         </div>
 
+        <!-- Blogs Others -->
         <div class="nav-item support-item">
           <span class="nav-link support-link" routerLink="/blog">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#26a69a">
               <path
                 d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h440l200 200v440q0 33-23.5 56.5T760-120H200Zm0-80h560v-400H600v-160H200v560Zm80-80h400v-80H280v80Zm0-320h200v-80H280v80Zm0 160h400v-80H280v80Zm-80-320v160-160 560-560Z" />
             </svg>
             Blogs
+          </span>
+        </div>
+
+        <!-- About Me Others -->
+        <div class="nav-item support-item">
+          <span class="nav-link support-link_1" [routerLink]="'/about'" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg>
+            About Me
           </span>
         </div>
       </div>
@@ -155,7 +167,10 @@
           }
         </div>
         } @else {
+
+
         <app-c-theme-toggle [selectedTheme]="selectedTheme" (themeChanged)="onThemeChange($event)"></app-c-theme-toggle>
+
         <!-- Login Button for Guests -->
         <div routerLink="/auth/login" class="user-profile" (click)="closeMobileMenu()">
           <div class="profile-avatar">
@@ -177,13 +192,24 @@
 
 
     <!-- Mobile Menu Toggle -->
+
     <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+
+      @if (!isMobileMenuOpen) {
       <svg viewBox="64 64 896 896" focusable="false" fill="currentColor" width="1.8em" height="1.8em">
         <path
           d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z">
         </path>
       </svg>
+      } @else {
+      <svg xmlns="http://www.w3.org/2000/svg" height="1.8rem" viewBox="0 -960 960 960" width="1.8em"
+        fill="currentColor">
+        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+      </svg>
+      }
     </button>
+
+
   </div>
 
   <!-- Mobile Menu Overlay -->

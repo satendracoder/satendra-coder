@@ -157,14 +157,6 @@ export const routes: Routes = [
             (company) => company.CDonate
           ),
       },
-      //@_donate routes
-      {
-        path: 'community',
-        loadComponent: () =>
-          import('./pages/about/community-page/community-page').then(
-            (company) => company.CommunityPage
-          ),
-      },
     ],
   },
   //@_ask-me-anything routes

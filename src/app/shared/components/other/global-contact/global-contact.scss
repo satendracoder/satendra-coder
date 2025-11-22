@@ -113,10 +113,13 @@ section {
 }
 
 .connect-section {
+  // width: 90%;
+  // max-width: 1440px;
+  margin: 0 auto;
   text-align: center;
   padding: 3rem 1rem;
-  background: linear-gradient(180deg, #0b1120, #101828);
-  color: #ffffff;
+  background-color: var(--secondary-background);
+  color: var(--text-color);
 
   .contact-btn {
     background-color: #262c3a;
@@ -169,7 +172,7 @@ section {
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
-      color: #fff;
+      color: var(--text-color);
       font-size: 1rem;
       border: 1px solid transparent;
       transition: all 0.3s ease;
