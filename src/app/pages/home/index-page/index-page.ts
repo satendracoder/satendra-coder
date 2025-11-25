@@ -54,10 +54,7 @@ export class IndexPage {
 
   private handleWhoIAmPopup(): void {
     const popupShown = this.safe.getItem('whoAmShown');
-    console.log('Popup shown status:', popupShown);
-    debugger;
     if (!popupShown) {
-      debugger;
       this.showWhoIAm = true;
       this.safe.setItem('whoAmShown', 'true');
     } else {

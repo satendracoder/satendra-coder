@@ -42,8 +42,9 @@
 
         <div class="form-group full-width">
             <label for="content">Content *</label>
-            <quill-editor styles="width:100%" [(ngModel)]="tutorial.content" name="content" [styles]="{height: '400px'}"
-                [modules]="quillConfig" placeholder="Write your tutorial content here...">
+            <quill-editor styles="width:100%" [(ngModel)]="tutorial.content" name="content"
+                (onEditorCreated)="onEditorCreated($event)" [styles]="{height: '400px'}" [modules]="quillConfig"
+                placeholder="Write your tutorial content here...">
             </quill-editor>
         </div>
 

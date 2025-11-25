@@ -11,7 +11,6 @@ import { MateriallistModule } from '../../../../../shared/materiallist/materiall
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { TutoralSidebar } from '../tutoral-sidebar/tutoral-sidebar';
-import { GlobalContact } from '../../../../../shared/components/other/global-contact/global-contact';
 
 @Component({
   selector: 'app-tutorial-layout',
@@ -21,7 +20,6 @@ import { GlobalContact } from '../../../../../shared/components/other/global-con
     TutorialHome,
     MateriallistModule,
     TutoralSidebar,
-    GlobalContact,
   ],
   templateUrl: './tutorial-layout.html',
   styleUrl: './tutorial-layout.scss',

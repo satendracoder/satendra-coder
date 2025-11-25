@@ -195,4 +195,8 @@ export class MenuCard {
   onThemeChange(theme: string) {
     this.themeService.setTheme(theme === 'dark'); // 👈 Apply theme
   }
+
+  openHrefWho(){
+    window.open('https://me.satendracoder.com/', '_blank');
+  }
 }

@@ -266,4 +266,14 @@ export class AdminService {
     const current = this.roadmaps.value;
     this.roadmaps.next(current.filter((r) => r.id !== id));
   }
+
+  uploadImage(file: File): Promise<string> {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http
+      .post<{ url: any }>('/api/upload/image', formData)
+      .toPromise()
+      .then((res) => res?.url);
+  }
 }

@@ -23,6 +23,7 @@ export class AdminTutorialFormComponent {
 
   isEdit = false;
   tutorialId: string | null = null;
+  quillEditor: any;
 
   quillConfig = {
     toolbar: [
@@ -37,6 +38,9 @@ export class AdminTutorialFormComponent {
       ['link', 'image', 'video'],
       ['clean'],
     ],
+    handlers: {
+      image: () => this.customImageHandler(),
+    },
   };
 
   constructor(
@@ -56,6 +60,8 @@ export class AdminTutorialFormComponent {
   }
 
   onSubmit() {
+    console.log(this.tutorial);
+
     if (this.isEdit && this.tutorialId) {
       this.adminService.updateTutorial(this.tutorialId, this.tutorial);
     } else {
@@ -68,5 +74,28 @@ export class AdminTutorialFormComponent {
 
   goBack() {
     this.router.navigate(['/admin/tutorials']);
+  }
+
+  customImageHandler() {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.click();
+
+    input.onchange = async () => {
+      const file = input.files?.[0];
+      if (file) {
+        // STEP-3: Upload to Server
+        const uploadedUrl = await this.adminService.uploadImage(file);
+
+        // STEP-4: Insert URL into Quill Editor
+        const range = this.quillEditor.getSelection();
+        this.quillEditor.insertEmbed(range?.index || 0, 'image', uploadedUrl);
+      }
+    };
+  }
+
+  onEditorCreated(editor: any) {
+    this.quillEditor = editor;
   }
 }

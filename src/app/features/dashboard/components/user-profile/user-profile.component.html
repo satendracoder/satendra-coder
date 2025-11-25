@@ -1,0 +1,155 @@
+<div class="user-profile">
+    <div class="page-header">
+        <h1>User Profile</h1>
+        <p>Manage your account information and preferences</p>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar-section">
+                    <img [src]="previewAvatar || user.avatar" [alt]="user.name" class="profile-avatar">
+                    <label class="avatar-upload-btn">
+                        <i class="fas fa-camera"></i>
+                        Change Photo
+                        <input type="file" (change)="onFileSelected($event)" hidden>
+                    </label>
+                </div>
+                <div class="profile-info">
+                    <h2>{{ user.name }}</h2>
+                    <p class="role-badge" [class]="user.role">{{ user.role | titlecase }}</p>
+                    <p class="join-date">Member since {{ user.created_at| date:'MMMM yyyy' }}</p>
+                </div>
+            </div>
+
+
+            <form (ngSubmit)="saveProfile()" #profileForm="ngForm" class="profile-form">
+                <div class="form-grid">
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="name"><b>Full Name</b></label>
+                        <div *ngIf="!isEditing; else nameInput">{{ user.name }}</div>
+                        <ng-template #nameInput>
+                            <input type="text" id="name" name="name" [(ngModel)]="user.name" required
+                                class="form-control">
+                        </ng-template>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email"><b>Email Address</b></label>
+                        <div *ngIf="!isEditing; else emailInput">{{ user.email }}</div>
+                        <ng-template #emailInput>
+                            <input type="email" id="email" name="email" [(ngModel)]="user.email" required
+                                class="form-control email" disabled>
+                        </ng-template>
+                    </div>
+
+                    <!-- Mobile Number instead of Avatar URL -->
+                    <div class="form-group">
+                        <label for="mobile"><b>Mobile Number</b></label>
+                        <div *ngIf="!isEditing; else mobileInput">{{ user.phone }}</div>
+                        <ng-template #mobileInput>
+                            <input type="tel" id="mobile" name="mobile" [(ngModel)]="user.phone" required
+                                class="form-control" placeholder="Enter your mobile number">
+                        </ng-template>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="designation"><b>Designation</b></label>
+                        <div *ngIf="!isEditing; else designationInput">{{ user.designation || 'Not specified' }}</div>
+                        <ng-template #designationInput>
+                            <input type="text" id="designation" name="designation" [(ngModel)]="user.designation"
+                                class="form-control" placeholder="Enter your designation">
+                        </ng-template>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" *ngIf="!isEditing" (click)="enableEditing()">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+
+                    <button type="submit" class="btn btn-success" *ngIf="isEditing" [disabled]="isUpdating">
+                        <i class="fas fa-save" *ngIf="!isUpdating"></i>
+                        <i class="fas fa-spinner fa-spin" *ngIf="isUpdating"></i>
+                        {{ isUpdating ? 'Saving...' : 'Save Changes' }}
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" *ngIf="isEditing"
+                        (click)="cancelEditing()">Cancel</button>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="stats-card">
+            <h3>Account Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-book"></i>
+                    <div class="stat-content">
+                        <span class="stat-number">{{ stats.tutorials }}</span>
+                        <span class="stat-label">Tutorials Created</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="stat-content">
+                        <span class="stat-number">{{ stats.courses }}</span>
+                        <span class="stat-label">Courses Published</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-blog"></i>
+                    <div class="stat-content">
+                        <span class="stat-number">{{ stats.blogs }}</span>
+                        <span class="stat-label">Blog Posts</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-content">
+                        <span class="stat-number">1,234</span>
+                        <span class="stat-label">Students Reached</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" *ngIf="showDeleteConfirmation" (click)="showDeleteConfirmation = false">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Delete Account</h3>
+                <button class="modal-close" (click)="showDeleteConfirmation = false">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p>Are you sure you want to delete your account? This action cannot be undone and will permanently
+                    remove:</p>
+                <ul>
+                    <li>All your tutorials and courses</li>
+                    <li>Blog posts and content</li>
+                    <li>Account settings and preferences</li>
+                    <li>Transaction history</li>
+                </ul>
+                <p><strong>Type "DELETE" to confirm:</strong></p>
+                <input type="text" [(ngModel)]="deleteConfirmation" class="form-control"
+                    placeholder="Type DELETE to confirm">
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-outline" (click)="showDeleteConfirmation = false">Cancel</button>
+                <button class="btn btn-danger" [disabled]="deleteConfirmation !== 'DELETE'" (click)="deleteAccount()">
+                    <i class="fas fa-trash"></i>
+                    Delete Account
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

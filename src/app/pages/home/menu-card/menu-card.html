@@ -83,12 +83,10 @@
 
         <!-- About Me Others -->
         <div class="nav-item support-item">
-          <span class="nav-link support-link_1" [routerLink]="'/about'" routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
+          <span class="nav-link support-link_1" (click)="openHrefWho()">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
               <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
-            </svg>
-            About Me
+            </svg>Who I Am
           </span>
         </div>
       </div>
@@ -125,7 +123,7 @@
           @if (activeDropdown === 'user-profile') {
           <div class="user-dropdown-menu" (click)="$event.stopPropagation()">
             <div class="user-dropdown-content">
-              <a href="#" class="user-dropdown-item"
+              <a routerLink="/dashboard/user-profile" class="user-dropdown-item"
                 (click)="$event.preventDefault(); $event.stopPropagation(); closeMobileMenu()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" />
