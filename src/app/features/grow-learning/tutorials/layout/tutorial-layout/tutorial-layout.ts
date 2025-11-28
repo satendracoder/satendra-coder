@@ -36,12 +36,12 @@ export class TutorialLayout {
     // this.cdRef.detectChanges();
     if (this.router) {
       const initialUrl = this.router.url.split('?')[0].replace(/\/$/, '');
-      this.isTutorialRoute.set(initialUrl === '/tutorials');
+      this.isTutorialRoute.set(initialUrl === '/handbooks');
       this.router.events
         .pipe(filter((event) => event instanceof NavigationEnd))
         .subscribe((event: NavigationEnd) => {
           const url = event.urlAfterRedirects.split('?')[0].replace(/\/$/, '');
-          this.isTutorialRoute.set(url === '/tutorials');
+          this.isTutorialRoute.set(url === '/handbooks');
         });
     }
   }

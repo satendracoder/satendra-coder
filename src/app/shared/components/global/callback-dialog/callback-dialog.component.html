@@ -1,0 +1,38 @@
+<div class="header">
+    <h2>Request a Callback</h2>
+    <button class="close-btn" mat-dialog-close>×</button>
+</div>
+
+<p class="subtitle">Submit your details, and we'll call you back.</p>
+
+<form [formGroup]="callbackForm" (ngSubmit)="submitForm()" class="form">
+
+    <label>Your Name</label>
+    <input type="text" formControlName="name" placeholder="Enter your name" />
+    <div class="error" *ngIf="callbackForm.get('name')?.touched && callbackForm.get('name')?.invalid">
+        Name is required (min 3 chars)
+    </div>
+
+    <label>Your Email</label>
+    <input type="email" formControlName="email" placeholder="Enter your email" />
+    <div class="error" *ngIf="callbackForm.get('email')?.touched && callbackForm.get('email')?.invalid">
+        Enter valid email
+    </div>
+
+    <label>Phone Number</label>
+    <div class="phone-row">
+        <span class="code">+91</span>
+        <input type="text" maxlength="10" formControlName="phone" placeholder="Enter your phone number" />
+    </div>
+    <div class="error" *ngIf="callbackForm.get('phone')?.touched && callbackForm.get('phone')?.invalid">
+        Enter valid 10-digit number
+    </div>
+
+    <label>When should we call you?</label>
+    <input type="datetime-local" formControlName="date" />
+    <div class="error" *ngIf="callbackForm.get('date')?.touched && callbackForm.get('date')?.invalid">
+        Select date & time
+    </div>
+
+    <button class="submit-btn" type="submit">Submit</button>
+</form>

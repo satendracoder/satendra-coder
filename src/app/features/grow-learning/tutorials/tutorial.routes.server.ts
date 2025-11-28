@@ -2,11 +2,11 @@ import { ServerRoute, RenderMode } from '@angular/ssr';
 
 export const TUTORIAL_SERVER_ROUTES: ServerRoute[] = [
   {
-    path: 'tutorials',
+    path: 'handbooks',
     renderMode: RenderMode.Server, // SSR only (no prerender)
   },
   {
-    path: 'tutorials/:id',
+    path: 'handbooks/:id',
     renderMode: RenderMode.Server, // SSR only (no prerender)
   },
 ];

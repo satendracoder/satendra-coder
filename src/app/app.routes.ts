@@ -58,24 +58,6 @@ export const routes: Routes = [
       import('./features/npm-package/npm.routes').then((npm) => npm.NPM_ROUTES),
   },
 
-  // VSCODE_ROUTES Routes is lazy loaded
-  {
-    path: 'vscode',
-    loadChildren: () =>
-      import('./features/vscode-extension/vscode.routes').then(
-        (vscode) => vscode.VSCODE_ROUTES
-      ),
-  },
-
-  // BROWSER_ROUTES Package Routes is lazy loaded
-  {
-    path: 'browser',
-    loadChildren: () =>
-      import('./features/browser-extension/browser.routes').then(
-        (browser) => browser.BROWSER_ROUTES
-      ),
-  },
-
   // Blog Routes is lazy loaded
   {
     path: '',
@@ -168,13 +150,13 @@ export const routes: Routes = [
       ),
   },
   //@_Become to Membars
-  {
-    path: 'become-a-member',
-    loadComponent: () =>
-      import('./shared/components/other/become-member/become-member').then(
-        (become) => become.BecomeMember
-      ),
-  },
+  // {
+  //   path: 'become-a-member',
+  //   loadComponent: () =>
+  //     import('./shared/components/other/become-member/become-member').then(
+  //       (become) => become.BecomeMember
+  //     ),
+  // },
 
   // Kids Routes is lazy loaded
   {

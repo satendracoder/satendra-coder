@@ -1,49 +1,71 @@
-<div class="banner">
-  <div class="banner__content">
-    <div class="banner__text">
-      <span class="badge">⚡ Interactive Learning Platform</span>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-icon">🚀</span>
+        <span>Interactive Learning Platform</span>
+      </div>
 
-      <h1>
-        {{ currentItem.heading }}
-      </h1>
+      <h1 class="hero-title">Master Coding. Build Your Future.</h1>
 
-      <p>{{ currentItem.description }}</p>
+      <p class="hero-subtitle">
+        Master Full Stack Development (HTML, CSS, JavaScript, Angular, Java & Spring Boot) with DSA practice, Handbooks,
+        Mock Tests and an Online Compiler.
+      </p>
 
-      <ul class="features">
-        @for (feature of currentItem.features; track feature) {
-        <li>
-          <span class="icon">{{ feature.icon }}</span> {{ feature.text }}
-        </li>
-        }
-      </ul>
 
-      <app-sc-button type="button" [routerLink]="currentItem.link" variant="primary" [label]="currentItem.button">
-      </app-sc-button>
-    </div>
+      <div class="hero-actions">
+        <a routerLink="/courses" class="btn btn-primary">
+          <span class="btn-icon">⌯⌲</span>
+          Explore Courses
+        </a>
 
-    <div class="banner__code">
-      <div class="code-window">
-        <div class="code-header">
-          <div class="dots">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <span class="filename">{{ currentItem.codeFilename }}</span>
+        <a routerLink="/auth/register" class="btn btn-outline"> <span class="btn-icon">➜]</span> Sign Up Today </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">DSA Problems</span>
         </div>
-        <pre class="code">
-            <span class="comment">{{ currentItem.codeComment }}</span>
-            <span class="keyword">{{ currentItem.codeKeyword }}</span> <span class="function">{{ currentItem.className }}</span> &#123;
-            <span class="keyword">{{ currentItem.mainSignature }}</span> &#123;
-            {{ currentItem.codeLine }}
-            &#125;
-            &#125;
-            <span class="output">Output:</span> {{ currentItem.output }}
-          </pre>
 
-        <div class="toast success">{{ currentItem.toastSuccess }}</div>
-        <div class="toast complete">{{ currentItem.toastComplete }}</div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Handbooks & Tutorials</span>
+        </div>
+
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Courses</span>
+        </div>
+
+
       </div>
     </div>
+
+
+    <div class="hero-image">
+      <div class="image-container">
+        <img src="/assets/images/global/satu.png" alt="SatendraCoder Learning Illustration" />
+
+        <div class="floating-card card-1">
+          <div class="card-icon">📘</div>
+          <div class="card-content">
+            <span class="card-title">Software Engineer</span>
+            <span class="card-subtitle">•Angular • Java</span>
+          </div>
+        </div>
+
+        <div class="floating-card card-2">
+          <div class="card-icon">🧠</div>
+          <div class="card-content">
+            <span class="card-title">DSA & Problem Solving</span>
+            <span class="card-subtitle">200+ Coding Questions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</section>

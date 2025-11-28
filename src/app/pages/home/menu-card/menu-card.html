@@ -15,14 +15,16 @@
     <!-- Navigation Menu -->
     <div class="nav-menu" [class.mobile-open]="isMobileMenuOpen">
       <div class="nav-items">
+
+        <!-- Dynamic Menu Items -->
         @for (item of menuItems; track item) {
         <div class="nav-item" [class.active]="activeDropdown === item.label">
           <span class="nav-link"
             (click)="item.hasDropdown ? toggleDropdown(item.label) : closeMobileMenu(); $event.stopPropagation()">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#26a69a">
               <path
-                d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
-            </svg> {{ item.label }}
+                d="M480-60q-72-68-165-104t-195-36v-440q101 0 194 36.5T480-498q73-69 166-105.5T840-640v440q-103 0-195.5 36T480-60Zm0-104q63-47 134-75t146-37v-276q-73 13-143.5 52.5T480-394q-66-66-136.5-105.5T200-552v276q75 9 146 37t134 75Zm0-436q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-760q0-33-23.5-56.5T480-840q-33 0-56.5 23.5T400-760q0 33 23.5 56.5T480-680Zm0-80Zm0 366Z" />
+            </svg>{{ item.label }}
             @if (item.hasDropdown) {
             <svg class="dropdown-arrow" [class.rotated]="activeDropdown === item.label" width="12" height="8"
               viewBox="0 0 12 8" fill="none">
@@ -47,6 +49,16 @@
         </div>
         }
 
+        <!-- Course -->
+        <div class="nav-item support-item">
+          <span class="nav-link support-link_1" routerLink="/courses">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
+              <path
+                d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
+            </svg>
+            Courses
+          </span>
+        </div>
 
         <!-- Roadmaps Others -->
         <div class="nav-item support-item">
@@ -81,19 +93,15 @@
           </span>
         </div>
 
-        <!-- About Me Others -->
-        <div class="nav-item support-item">
-          <span class="nav-link support-link_1" (click)="openHrefWho()">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#f97316">
-              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
-            </svg>Who I Am
-          </span>
-        </div>
+
       </div>
 
       <!-- User Actions -->
       <div class="nav-actions">
+        <app-c-theme-toggle [selectedTheme]="selectedTheme" (themeChanged)="onThemeChange($event)"></app-c-theme-toggle>
+
         @if (isLoggedIn) {
+
         <!-- Logged In User Profile -->
         <div class="user-profile-dropdown" [class.active]="activeDropdown === 'user-profile'">
           <div class="user-info" (click)="toggleDropdown('user-profile'); $event.stopPropagation()">
@@ -133,6 +141,15 @@
               </a>
               <a href="#" class="user-dropdown-item"
                 (click)="$event.preventDefault(); $event.stopPropagation(); closeMobileMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                  fill="#1f1f1f">
+                  <path
+                    d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z" />
+                </svg>
+                My Purchases
+              </a>
+              <a href="#" class="user-dropdown-item"
+                (click)="$event.preventDefault(); $event.stopPropagation(); closeMobileMenu()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
@@ -141,15 +158,7 @@
                 </svg>
                 Settings
               </a>
-              <a href="#" class="user-dropdown-item"
-                (click)="$event.preventDefault(); $event.stopPropagation(); closeMobileMenu()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" stroke-width="2" />
-                  <polyline points="16,17 21,12 16,7" stroke="currentColor" stroke-width="2" />
-                  <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" />
-                </svg>
-                Help & Support
-              </a>
+
               <div class="dropdown-divider"></div>
               <a href="#" class="user-dropdown-item logout-item"
                 (click)="$event.preventDefault(); $event.stopPropagation(); toggleLogin(); closeMobileMenu()">
@@ -165,10 +174,8 @@
           }
         </div>
         } @else {
-
-
-        <app-c-theme-toggle [selectedTheme]="selectedTheme" (themeChanged)="onThemeChange($event)"></app-c-theme-toggle>
-
+        <app-sc-button variant="primary" label="Request a Callback" (scClick)="callBack()">
+        </app-sc-button>
         <!-- Login Button for Guests -->
         <div routerLink="/auth/login" class="user-profile" (click)="closeMobileMenu()">
           <div class="profile-avatar">
@@ -179,10 +186,6 @@
           </div>
           <span class="login-text">Login</span>
         </div>
-
-        <app-sc-button routerLink="/invite-satendra" variant="primary" label=" Invite Satendra"
-          (scClick)="closeMobileMenu()">
-        </app-sc-button>
 
         }
       </div>

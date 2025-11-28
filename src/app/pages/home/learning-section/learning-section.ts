@@ -11,64 +11,77 @@ import { RouterLink } from '@angular/router';
 export class LearningSection {
   categories = [
     {
-      title: 'Learn Tutorials',
-      description:
-        'Master programming and development fundamentals with interactive tutorials.',
+      title: 'Handbooks',
+      description: 'Clear, concise handbooks for fast and effective learning.',
       icon: '📘',
-      link: '/tutorials',
+      link: '/handbooks',
     },
     {
-      title: 'Blog',
+      title: 'DSA Sheets',
       description:
-        'Read latest articles, tutorials, and insights on coding and tech.',
+        'Solve curated DSA question sheets to boost problem-solving.',
+      icon: '📄',
+      link: '/dsa-sheets',
+    },
+    {
+      title: 'Generative AI',
+      description: 'Learn AI tools, prompts, workflows, and AI-driven coding.',
+      icon: '🤖',
+      link: '/generative-ai',
+    },
+    {
+      title: 'Mock Tests',
+      description: 'Practice timed tests & evaluate your tech knowledge.',
       icon: '📝',
-      link: '/blog',
+      link: '/mock-tests',
     },
     {
       title: 'Interview Questions',
       description:
-        'Prepare confidently with curated technical interview questions.',
+        'Prepare with frequently asked frontend & backend questions.',
       icon: '💼',
-      link: '/interview',
+      link: '/interview-questions',
     },
     {
-      title: 'Free Quizzes',
-      description: 'Test your knowledge with short, topic-based quizzes.',
-      icon: '❓',
-      link: '/quiz',
+      title: 'Upcoming Courses',
+      description: 'Exclusive premium courses—coming soon to SatendraCoder.',
+      icon: '📚',
+      children: [
+        {
+          title: 'Angular 18 Mastery',
+          link: '/courses/angular-18',
+        },
+        {
+          title: 'Advanced JavaScript',
+          link: '/courses/advanced-js',
+        },
+        {
+          title: 'DSA Prime in JavaScript',
+          link: '/courses/dsa-prime-js',
+        },
+        {
+          title: 'Master Spring Boot',
+          link: '/courses/spring-boot',
+        },
+      ],
     },
     {
-      title: 'Roadmaps',
-      description:
-        'Follow step-by-step learning guides for frontend, backend, and more.',
-      icon: '🗺️',
-      link: '/roadmap',
-    },
-    {
-      title: 'Online Courses',
-      description:
-        'Explore HTML/CSS, JavaScript, Angular & full stack development.',
-      icon: '📖',
-      link: '/courses',
+      title: 'Our Blogs',
+      description: 'Latest updates, coding tips, tutorials & insights.',
+      icon: '📰',
+      link: '/blog',
     },
     {
       title: 'Online Compiler',
-      description: 'Write, run, and debug code instantly from your browser.',
+      description: 'Run code instantly in your browser—no installation needed.',
       icon: '💻',
       link: '/compiler',
     },
     {
-      title: 'Kids Corner',
-      description:
-        'Safe, fun learning—coding, maths, reading, and creativity for kids.',
-      icon: '👩‍👧‍👦',
-      link: '/browser-extension',
-    },
-    {
-      title: 'Communication Skills',
-      description: 'Developers ke liye professional English + soft skills.',
-      icon: '🗣️',
-      link: '/communication-skills',
+      title: 'Roadmaps',
+      description: 'Guided step-by-step learning paths for all developers.',
+      icon: '🗺️',
+      link: '/roadmaps',
     },
   ];
 }

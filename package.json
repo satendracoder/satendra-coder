@@ -30,10 +30,12 @@
     "html2canvas": "^1.4.1",
     "ngx-markdown": "^20.1.0",
     "ngx-quill": "^28.0.1",
+    "pdfjs-dist": "^5.4.394",
     "quill": "^2.0.3",
     "rxjs": "~7.8.0",
     "sc-angular-loader": "^1.2.0",
     "sc-angular-toastify": "^1.7.0",
+    "swiper": "^12.0.3",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
@@ -44,6 +46,7 @@
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
     "@types/qrcode": "^1.5.5",
+    "@types/swiper": "^5.4.3",
     "jasmine-core": "~5.7.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

@@ -12,7 +12,7 @@ import { ScButtonComponent } from '../../../shared/components/button/sc-button/s
 
 @Component({
   selector: 'app-banner-card',
-  imports: [MateriallistModule, ScButtonComponent],
+  imports: [MateriallistModule],
   templateUrl: './banner-card.html',
   styleUrls: ['./banner-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

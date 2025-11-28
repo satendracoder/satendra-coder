@@ -12,6 +12,7 @@ import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-s
 import { ScButtonComponent } from '../../../shared/components/button/sc-button/sc-button.component';
 import { CThemeToggle } from '../../../shared/components/global/c-theme-toggle/c-theme-toggle';
 import { STheme } from '../../../core/service/global/theme/s-theme';
+import { CallbackDialogComponent } from '../../../shared/components/global/callback-dialog/callback-dialog.component';
 
 interface MenuItem {
   label: string;
@@ -90,24 +91,25 @@ export class MenuCard {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: 'Learn Tutorials',
-          link: '/tutorials',
+          name: 'Learn Handbooks',
+          link: '/handbooks',
+        },
+        {
+          name: 'DSA Sheets',
+          link: '/dsa-sheets',
         },
         {
           name: 'Generative AI',
-          link: '/ai',
+          link: '/generative-ai',
+        },
+
+        {
+          name: 'Practice Mock Tests',
+          link: '/mock-tests',
         },
         {
           name: 'Interview Questions',
           link: '/interview',
-        },
-        {
-          name: 'Communication Skills',
-          link: '/communication',
-        },
-        {
-          name: 'DSA & Algorithms',
-          link: '/dsa',
         },
       ],
     },
@@ -196,7 +198,10 @@ export class MenuCard {
     this.themeService.setTheme(theme === 'dark'); // 👈 Apply theme
   }
 
-  openHrefWho(){
-    window.open('https://me.satendracoder.com/', '_blank');
+  callBack() {
+    this.dialog.open(CallbackDialogComponent, {
+      width: '420px',
+      panelClass: 'custom-dialog-container',
+    });
   }
 }

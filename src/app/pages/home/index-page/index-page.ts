@@ -17,7 +17,6 @@ import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-s
   imports: [
     BannerCard,
     FooterCard,
-    GlobalContact,
     MentorshipCard,
     LearningSection,
     FaqCard,
@@ -25,6 +24,7 @@ import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-s
     MateriallistModule,
     LatestBlogCard,
     WhoIAmComponent,
+    GlobalContact,
   ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',

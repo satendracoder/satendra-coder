@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VscodeDetails } from './vscode-details';
+import { CallbackDialogComponent } from './callback-dialog.component';
 
-describe('VscodeDetails', () => {
-  let component: VscodeDetails;
-  let fixture: ComponentFixture<VscodeDetails>;
+describe('CallbackDialogComponent', () => {
+  let component: CallbackDialogComponent;
+  let fixture: ComponentFixture<CallbackDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [VscodeDetails]
+      imports: [CallbackDialogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VscodeDetails);
+    fixture = TestBed.createComponent(CallbackDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
