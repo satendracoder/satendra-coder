@@ -12,6 +12,10 @@
   .faq-title {
     font-size: 2.5rem;
     font-weight: 700;
+    background: linear-gradient(6deg, var(--text-color) 20%, #f97316 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .faq-subtitle {

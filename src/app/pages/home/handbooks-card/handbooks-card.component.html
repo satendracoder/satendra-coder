@@ -1,0 +1,64 @@
+<div class="wrapper">
+    <div class="container">
+
+        <h4 class="sub-title">Top Handbooks</h4>
+        <h2 class="main-title">Popular Developer Handbooks</h2>
+        <p class="sub-desc">Quick learning guides for developers.</p>
+
+        <div class="carousel">
+
+            <!-- Left Arrow -->
+            <button class="arrow left" (click)="prevSlide()" [disabled]="currentIndex === 0">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+
+            <!-- Track -->
+            <div class="carousel-track"
+                [style.transform]="'translateX(-' + (currentIndex * (100 / itemsPerView)) + '%)'">
+
+                @for (book of handbooks; track book) {
+                <div class="handbook-card" [style.flex]="'0 0 ' + (100 / itemsPerView) + '%'">
+
+                    <!-- Ribbon -->
+                    <div class="corner-ribbon">
+                        <span>{{ book.ribbon }}</span>
+                    </div>
+
+                    <!-- Banner -->
+                    <div class="banner">
+                        <img [src]="book.banner" [alt]="book.title">
+                    </div>
+
+                    <div class="card-body">
+
+                        <!-- Badges -->
+                        <div class="badge-row">
+                            @for (b of book.badge; track b) {
+                            <span class="badge">{{ b }}</span>
+                            }
+                        </div>
+
+                        <h3 class="title">{{ book.title }}</h3>
+                        <p class="desc">{{ book.desc }}</p>
+
+                        <div class="action-row">
+                            <button class="btn primary">View</button>
+                            <button class="btn outline" (click)="openViewDialog(book)">Details</button>
+                        </div>
+
+                    </div>
+
+                </div>
+                }
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="arrow right" (click)="nextSlide()"
+                [disabled]="currentIndex >= handbooks.length - itemsPerView">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+
+        </div>
+
+    </div>
+</div>

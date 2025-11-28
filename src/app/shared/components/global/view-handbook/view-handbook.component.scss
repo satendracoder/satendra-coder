@@ -1,0 +1,129 @@
+/* Smooth opening animation */
+@keyframes dialogFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* CLOSE animation */
+@keyframes dialogFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+}
+
+/* LEAVE animation */
+::ng-deep .cdk-overlay-pane.ng-animating .mat-mdc-dialog-container {
+  animation: dialogFadeOut 0.22s ease-in !important;
+}
+
+/* APPLY animation */
+::ng-deep .view-dialog .mat-mdc-dialog-container {
+  padding: 0 !important;
+  border-radius: 14px !important;
+  animation: dialogFadeSlide 0.28s ease-out !important;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-wrapper {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 220px;
+  padding: 10px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+/* Ribbon */
+.corner-ribbon {
+  position: absolute;
+  width: 150px;
+  top: 10px;
+  right: -42px;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: #fff;
+  padding: 4px 20px;
+  font-size: 11px;
+  font-weight: bold;
+  transform: rotate(40deg);
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Content */
+.content {
+  padding: 20px;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+  }
+
+  .badge-row {
+    margin-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .badge {
+      background: #e8efff;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #1b57d0;
+    }
+  }
+
+  .desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .close-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4a4df1;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+  }
+}

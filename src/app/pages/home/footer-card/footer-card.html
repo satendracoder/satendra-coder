@@ -71,10 +71,23 @@
                 <h4>Stay Connected</h4>
                 <p class="newsletter-text">Get the latest newsletter delivered straight to your inbox.</p>
                 <div class="newsletter-form">
-                    <form>
-                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
-                        <button class="newsletter-btn" type="submit">Subscribe</button>
+                    <form #newsletterForm="ngForm" (ngSubmit)="onSubmit(newsletterForm)">
+
+                        <div class="form-group">
+                            <input type="email" name="email" ngModel required #email="ngModel"
+                                placeholder="Enter your email" class="newsletter-input">
+                        </div>
+
+                        <div class="error" *ngIf="email.invalid && email.touched">
+                            Email is required!
+                        </div>
+
+                        <button type="submit" class="newsletter-btn">
+                            Subscribe
+                        </button>
+
                     </form>
+
                 </div>
                 <div class="contact-info">
                     <div class="contact-item">

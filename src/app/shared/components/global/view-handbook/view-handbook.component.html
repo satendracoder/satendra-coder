@@ -1,0 +1,36 @@
+<div class="dialog-wrapper">
+
+    <!-- Top Banner -->
+    <div class="banner">
+        <img [src]="data.banner" [alt]="data.title" />
+    </div>
+
+    <!-- Ribbon -->
+    <div class="corner-ribbon">
+        <span>{{ data.ribbon }}</span>
+    </div>
+
+    <div class="content">
+        <h2>{{ data.title }}</h2>
+
+        <!-- Badges -->
+        <div class="badge-row">
+            @for (b of data.badge; track b) {
+            <span class="badge">{{ b }}</span>
+            }
+        </div>
+
+        <p class="desc">
+            {{ data.details }}
+        </p>
+
+        <p class="badge-row">
+            @for (item of data.topics; track $index) {
+            <span class="badge">{{ item }}</span>
+            }
+
+        </p>
+
+        <button class="close-btn" (click)="closeDialog()">Close</button>
+    </div>
+</div>

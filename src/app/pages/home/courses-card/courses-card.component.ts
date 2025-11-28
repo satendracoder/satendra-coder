@@ -13,7 +13,7 @@ export class CoursesCardComponent {
     {
       title: 'Spring Boot 0 to 100 Cohort 4.0 [AI + DevOps]',
       desc: 'Upgraded with Spring AI and DevOps! You will master Spring Boot, Spring AI, Microservices...',
-      banner: '/assets/images/global/spring.png',
+      banner: '/assets/images/global/jj.png',
       ribbon: 'Coming Soon',
       bestSeller: true,
       cohort: true,

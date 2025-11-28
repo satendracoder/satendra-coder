@@ -160,7 +160,7 @@ export const routes: Routes = [
 
   // Kids Routes is lazy loaded
   {
-    path: 'kids',
+    path: 'kids-corner',
     loadChildren: () =>
       import('./features/kids/kids.routes').then((kids) => kids.KIDS_ROUTES),
   },
