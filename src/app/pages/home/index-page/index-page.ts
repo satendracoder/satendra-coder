@@ -11,6 +11,7 @@ import { SSeo } from '../../../core/service/other/seo/s-seo';
 import { LatestBlogCard } from '../latest-blog-card/latest-blog-card';
 import { WhoIAmComponent } from '../../../shared/components/global/who-i-am/who-i-am.component';
 import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
+import { CoursesCardComponent } from '../courses-card/courses-card.component';
 
 @Component({
   selector: 'app-index-page',
@@ -25,6 +26,7 @@ import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-s
     LatestBlogCard,
     WhoIAmComponent,
     GlobalContact,
+    CoursesCardComponent,
   ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',

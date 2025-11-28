@@ -199,6 +199,7 @@ export class MenuCard {
   }
 
   callBack() {
+    this.dialog.closeAll();
     this.dialog.open(CallbackDialogComponent, {
       width: '420px',
       panelClass: 'custom-dialog-container',

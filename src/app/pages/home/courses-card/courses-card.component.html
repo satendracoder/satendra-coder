@@ -1,0 +1,76 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="carousel-header">
+            <div class="header-content">
+                <h2 class="main-title">Upcoming Courses</h2>
+                <p>Learn industry-ready skills with expert-curated courses.</p>
+            </div>
+
+            <div class="header-content" style="display: flex; gap: 10px;">
+                <!-- Left Arrow -->
+                <button class="arrow left" (click)="prevSlide()" [disabled]="currentIndex === 0">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+
+                <!-- Right Arrow -->
+                <button class="arrow right" (click)="nextSlide()"
+                    [disabled]="currentIndex >= courses.length - itemsPerView">
+                    <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+
+            </div>
+        </div>
+
+
+
+
+        <div class="carousel">
+            <!-- Slide Track -->
+            <div class="carousel-track"
+                [style.transform]="'translateX(-' + (currentIndex * (100 / itemsPerView)) + '%)'">
+
+                @for (course of courses; track course) {
+
+                <!-- COURSE CARD -->
+                <div class="course-card" [style.flex]="'0 0 ' + (100 / itemsPerView) + '%'">
+
+                    <!-- Ribbon -->
+                    <div class="corner-ribbon" *ngIf="course.ribbon">
+                        <span>{{ course.ribbon }}</span>
+                    </div>
+
+                    <!-- Banner -->
+                    <div class="banner">
+                        <img [src]="course.banner" alt="course" />
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="badge-row">
+                            <span class="badge best" *ngIf="course.bestSeller">BEST-SELLER</span>
+                            <span class="badge cohort" *ngIf="course.cohort">COHORT-BASED</span>
+                        </div>
+
+                        <h3 class="title">{{ course.title }}</h3>
+                        <p class="desc">{{ course.desc }}</p>
+
+                        <div class="action-row">
+                            <button class="btn primary">Purchase</button>
+                            <button class="btn outline">More Details</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                }
+
+            </div>
+
+        </div>
+
+        <button class="btn-primary" routerLink="/become-a-member">
+            All View →
+        </button>
+
+    </div>
+</div>

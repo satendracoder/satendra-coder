@@ -42,29 +42,7 @@ export class LearningSection {
       icon: '💼',
       link: '/interview-questions',
     },
-    {
-      title: 'Upcoming Courses',
-      description: 'Exclusive premium courses—coming soon to SatendraCoder.',
-      icon: '📚',
-      children: [
-        {
-          title: 'Angular 18 Mastery',
-          link: '/courses/angular-18',
-        },
-        {
-          title: 'Advanced JavaScript',
-          link: '/courses/advanced-js',
-        },
-        {
-          title: 'DSA Prime in JavaScript',
-          link: '/courses/dsa-prime-js',
-        },
-        {
-          title: 'Master Spring Boot',
-          link: '/courses/spring-boot',
-        },
-      ],
-    },
+
     {
       title: 'Our Blogs',
       description: 'Latest updates, coding tips, tutorials & insights.',
@@ -82,6 +60,13 @@ export class LearningSection {
       description: 'Guided step-by-step learning paths for all developers.',
       icon: '🗺️',
       link: '/roadmaps',
+    },
+    {
+      title: 'Kids Corner',
+      description:
+        'Safe, fun learning—coding, maths, reading, and creativity for kids.',
+      icon: '👩‍👧‍👦',
+      link: '/kids-corner',
     },
   ];
 }

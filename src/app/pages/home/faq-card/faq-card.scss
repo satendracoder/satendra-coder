@@ -46,7 +46,8 @@
       border: 1px solid #e6f1f8;
 
       &:hover {
-        background: #28a6f590;
+        background: #0891b2;
+        color: #fff;
       }
 
       .faq-question {
@@ -75,6 +76,7 @@
 
       &.active {
         background: var(--secondary-background);
+        color: var(--text-color);
       }
     }
   }
