@@ -21,7 +21,7 @@
   width: 450px;
   max-width: 100%;
   margin: auto;
-  padding: 25px 40px;
+  padding: 30px 40px;
   color: #000;
   font-family: Arial, sans-serif;
   position: relative;
@@ -51,6 +51,7 @@
       font-weight: 600;
       padding-bottom: 5px;
       text-decoration: underline;
+      padding: 15px 0px;
     }
 
     .close-btn {
@@ -106,7 +107,8 @@
         border: 1.5px solid #0891b2;
         border-radius: 5px;
         padding: 10px;
-        font-size: 14px;
+        font-size: 1rem;
+        font-weight: 600;
         cursor: pointer;
         transition: transform 0.3s;
 

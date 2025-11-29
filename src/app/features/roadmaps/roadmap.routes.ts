@@ -8,6 +8,15 @@ export const ROADMAP_ROUTES: Routes = [
       import('./layout/roadmap-layout/roadmap-layout.component').then(
         (m) => m.RoadmapLayoutComponent
       ),
-    // children: [],
+    children: [
+      {
+        path: ':id',
+        title: 'Roadmap Details',
+        loadComponent: () =>
+          import('./pages/roadmap-details/roadmap-details.component').then(
+            (m) => m.RoadmapDetailsComponent
+          ),
+      },
+    ],
   },
 ];

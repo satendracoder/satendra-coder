@@ -1,20 +1,6 @@
 <app-menu-card></app-menu-card>
 
-<!-- 🌌 Hero Banner Section -->
-<section class="banner">
-    <div class="overlay"></div>
-    <div class="content">
-        <h1 class="title">Master Your Developer Journey 🚀</h1>
-        <p class="subtitle">
-            Explore language-specific roadmaps and build your coding future with
-            <strong>Satendra Coder</strong>.
-        </p>
-        <button class="btn-start">Get Started</button>
-    </div>
-    <canvas id="bgAnimation"></canvas>
-</section>
-
-
+@if (isRoadmapRoute()) {
 <!-- 💡 CATEGORY FILTER + ROADMAP LIST -->
 <section class="roadmap-section">
     <div class="container">
@@ -48,6 +34,8 @@
         </div>
     </div>
 </section>
-
+} @else {
+<router-outlet (activate)="isRoadmapRoute.set(false)" (deactivate)="isRoadmapRoute.set(true)"></router-outlet>
+}
 <app-global-contact></app-global-contact>
 <app-footer-card></app-footer-card>

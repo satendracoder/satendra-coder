@@ -1,0 +1,41 @@
+<br>
+<br>
+<div class="roadmap-wrap">
+    <header class="hero">
+        <div class="inner">
+            <h1>Roadmap Details</h1>
+            <p class="lead">Follow curated learning steps — click any card to preview or open full page.</p>
+        </div>
+    </header>
+
+    <main class="grid">
+        <article class="card" *ngFor="let item of roadmap">
+            <div class="meta">
+                <span class="id">#{{item.id}}</span>
+                <h2 class="card-title">{{ item.title }}</h2>
+            </div>
+
+            <p class="desc">{{ item.desc }}</p>
+
+            <div class="actions">
+                <a class="link" (click)="openModal(item)" href="javascript:void(0)">Quick View</a>
+                <a class="btn" (click)="goToDetails(item)" role="button">View Page →</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" *ngIf="modalOpen" (click)="closeModal()">
+        <div class="modal" (click)="$event.stopPropagation()">
+            <button class="close" (click)="closeModal()">✕</button>
+            <h3>{{ modalItem?.title }}</h3>
+            <p>{{ modalItem?.desc }}</p>
+            <hr />
+            <p>Deep dive content placeholder — add syllabus, links, tasks, video embed here.</p>
+            <div class="modal-actions">
+                <button (click)="goToDetails(modalItem); closeModal()">Open Full Page</button>
+                <button class="ghost" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

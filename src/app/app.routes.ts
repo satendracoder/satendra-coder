@@ -24,6 +24,15 @@ export const routes: Routes = [
   //   data: { roles: ['MASTER', 'ADMIN', 'STAFF'] },
   // },
 
+  // === Courses ===
+  {
+    path: 'courses',
+    loadChildren: () =>
+      import('./features/courses/courses.route').then(
+        (courses) => courses.Courses_ROUTES
+      ),
+  },
+
   // Compiler Routes is lazy loaded
   {
     path: 'compiler',
@@ -141,6 +150,7 @@ export const routes: Routes = [
       },
     ],
   },
+
   //@_ask-me-anything routes
   {
     path: 'invite-satendra',

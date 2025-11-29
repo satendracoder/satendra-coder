@@ -1,284 +1,279 @@
 .about-container {
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
 
-    @media (max-width: 768px) {
-        padding: 1.5rem 1rem;
-        font-size: 15px;
+  @media (max-width: 768px) {
+    padding: 1.5rem 1rem;
+    font-size: 15px;
+  }
+
+  // About Section
+  .about-container {
+    margin: 0 auto;
+    color: var(--text-color);
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-align: center;
     }
 
-    // About Section
-    .about-container {
-        margin: 0 auto;
-        color: var(--text-color);
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #00c6ff, #0891b2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-top: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 1rem;
-            margin-top: 1rem;
-            color: var(--text-color);
-        }
-
-        .story-card {
-            background-color: #1e1e2f;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 2rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            border: 1px solid #2a2a3d;
-
-            .story-header {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                margin-bottom: 1.5rem;
-
-                .icon-container {
-                    background: linear-gradient(to right, #00c6ff, #8e2de2);
-                    padding: 0.5rem;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    i {
-                        color: white;
-                        font-size: 1.2rem;
-                    }
-                }
-
-                h3 {
-                    font-size: 1.5rem;
-                    margin: 0;
-                    color: #fff;
-                }
-            }
-
-            p {
-                font-size: 1rem;
-                line-height: 1.6;
-                color: #cccccc;
-                margin-bottom: 1rem;
-
-                .highlight {
-                    color: #00c6ff;
-                    font-weight: bold;
-                }
-
-                strong {
-                    font-weight: 600;
-                    color: #ffffff;
-                }
-            }
-        }
+    .gradient-text {
+      background: linear-gradient(to right, #00c6ff, #0891b2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-
-    // infor
-    .info-card {
-        background-color: #1e1e2f;
-        border-radius: 12px;
-        padding: 2rem;
-        margin-top: 2rem;
-        border: 1px solid #2a2a3d;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        color: #cccccc;
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1.2rem;
-
-            .icon-container {
-                padding: 0.5rem;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: white;
-            }
-
-            h3 {
-                font-size: 1.5rem;
-                margin: 0;
-                color: white;
-            }
-
-            &.green .icon-container {
-                background: linear-gradient(to right, #00c853, #64dd17);
-            }
-
-            &.pink .icon-container {
-                background: linear-gradient(to right, #e91e63, #ba68c8);
-            }
-        }
-
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-
-            .highlight-green {
-                color: #00c853;
-                font-weight: bold;
-            }
-
-            strong {
-                color: #ffffff;
-                font-weight: 600;
-            }
-        }
+    h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      color: var(--text-color);
     }
 
-
-    .card-header.orange .icon-container {
-        background: linear-gradient(to right, #ff6a00, #ff8c00);
+    .subtitle {
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: var(--text-color);
     }
 
-    .card-header.blue .icon-container {
-        background: linear-gradient(to right, #4f46e5, #7c3aed);
-    }
+    .story-card {
+      background-color: #1e1e2f;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      border: 1px solid #2a2a3d;
 
-    .achievements-card {
-        .achievement-boxes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-
-            .achievement-box {
-                flex: 1 1 30%;
-                background-color: #12122b;
-                border-radius: 12px;
-                padding: 1.5rem;
-                text-align: center;
-                border: 1px solid rgba(255, 255, 255, 0.05);
-
-                h4 {
-                    font-size: 1.2rem;
-                    margin-bottom: 0.5rem;
-                    font-weight: bold;
-                }
-
-                p {
-                    font-size: 0.95rem;
-                    color: #cccccc;
-                }
-
-                &.blue-box {
-                    background: linear-gradient(to right, #003973, #1cb5e0);
-                    color: white;
-                }
-
-                &.green-box {
-                    background: linear-gradient(to right, #0f9b0f, #00ff95);
-                    color: white;
-                }
-
-                &.purple-box {
-                    background: linear-gradient(to right, #8e2de2, #4a00e0);
-                    color: white;
-                }
-            }
-        }
-    }
-
-
-    .card-header.teal .icon-container {
-        background: linear-gradient(to right, #00bfa5, #1de9b6);
-    }
-
-    .contact-buttons {
+      .story-header {
         display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 1.5rem;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
 
-        .contact-button {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex: 1 1 45%;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            background-color: #12122b;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: background 0.3s ease;
-            cursor: pointer;
+        .icon-container {
+          background: linear-gradient(to right, #00c6ff, #8e2de2);
+          padding: 0.5rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-            i {
-                font-size: 1.5rem;
-                color: white;
-            }
-
-            h4 {
-                font-size: 1.1rem;
-                margin: 0 0 0.3rem;
-                font-weight: 600;
-                color: white;
-            }
-
-            p {
-                margin: 0;
-                color: #cccccc;
-                font-size: 0.95rem;
-            }
-
-            &.blue {
-                background: linear-gradient(to right, #0052d4, #4364f7);
-            }
-
-            &.purple {
-                background: linear-gradient(to right, #bc4e9c, #f80759);
-            }
+          i {
+            color: white;
+            font-size: 1.2rem;
+          }
         }
-    }
-
-    .thank-you-card {
-        text-align: center;
 
         h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: white;
+          font-size: 1.5rem;
+          margin: 0;
+          color: #fff;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #cccccc;
+        margin-bottom: 1rem;
+
+        .highlight {
+          color: #00c6ff;
+          font-weight: bold;
+        }
+
+        strong {
+          font-weight: 600;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  // infor
+  .info-card {
+    background-color: #1e1e2f;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 1px solid #2a2a3d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #cccccc;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+
+      .icon-container {
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin: 0;
+        color: white;
+      }
+
+      &.green .icon-container {
+        background: linear-gradient(to right, #00c853, #64dd17);
+      }
+
+      &.pink .icon-container {
+        background: linear-gradient(to right, #e91e63, #ba68c8);
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+
+      .highlight-green {
+        color: #00c853;
+        font-weight: bold;
+      }
+
+      strong {
+        color: #ffffff;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .card-header.orange .icon-container {
+    background: linear-gradient(to right, #ff6a00, #ff8c00);
+  }
+
+  .card-header.blue .icon-container {
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+  }
+
+  .achievements-card {
+    .achievement-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+
+      .achievement-box {
+        flex: 1 1 30%;
+        background-color: #12122b;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+        h4 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          font-weight: bold;
         }
 
         p {
-            font-size: 1rem;
-            color: #cccccc;
-            margin-bottom: 1rem;
-
-            strong {
-                color: #ffffff;
-            }
-
-            .highlight-purple {
-                color: #d96ce9;
-                font-weight: bold;
-            }
+          font-size: 0.95rem;
+          color: #cccccc;
         }
+
+        &.blue-box {
+          background: linear-gradient(to right, #003973, #1cb5e0);
+          color: white;
+        }
+
+        &.green-box {
+          background: linear-gradient(to right, #0f9b0f, #00ff95);
+          color: white;
+        }
+
+        &.purple-box {
+          background: linear-gradient(to right, #8e2de2, #4a00e0);
+          color: white;
+        }
+      }
+    }
+  }
+
+  .card-header.teal .icon-container {
+    background: linear-gradient(to right, #00bfa5, #1de9b6);
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    .contact-button {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1 1 45%;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      background-color: #12122b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s ease;
+      cursor: pointer;
+
+      i {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      h4 {
+        font-size: 1.1rem;
+        margin: 0 0 0.3rem;
+        font-weight: 600;
+        color: white;
+      }
+
+      p {
+        margin: 0;
+        color: #cccccc;
+        font-size: 0.95rem;
+      }
+
+      &.blue {
+        background: linear-gradient(to right, #0052d4, #4364f7);
+      }
+
+      &.purple {
+        background: linear-gradient(to right, #bc4e9c, #f80759);
+      }
+    }
+  }
+
+  .thank-you-card {
+    text-align: center;
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: white;
     }
 
+    p {
+      font-size: 1rem;
+      color: #cccccc;
+      margin-bottom: 1rem;
 
+      strong {
+        color: #ffffff;
+      }
+
+      .highlight-purple {
+        color: #d96ce9;
+        font-weight: bold;
+      }
+    }
+  }
 }

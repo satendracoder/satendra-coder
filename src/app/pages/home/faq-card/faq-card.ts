@@ -12,44 +12,44 @@ export class FaqCard {
 
   faqs = [
     {
-      question: 'What is Satendra Coder and who is it for?',
+      question: 'What is Satendra Coder?',
       answer:
-        'Satendra Coder is an all-in-one platform built for students, developers, and tech professionals. It offers free learning resources, coding tools, extensions, and guides to help you build skills and stay industry-ready. Whether you’re just starting out or looking to grow, Satendra Coder is for you.',
+        'Satendra Coder is a learning platform that provides handbooks, DSA sheets, mock tests, interview questions, AI resources, blogs, roadmaps, and coding practice for students and developers.',
     },
     {
-      question: 'What features and tools does Satendra Coder offer?',
+      question: 'Who can benefit from Satendra Coder?',
       answer:
-        'Satendra Coder provides a wide range of tools including code formatters, JSON viewers, QR code generators, HTML↔JSX converters, and compilers. It also offers tutorials, interview prep, roadmaps, eBooks, and browser/VS Code extensions — all integrated into one developer ecosystem.',
+        'Beginners, students, and developers who want to learn programming, improve skills, prepare for interviews, or build a full-stack career.',
     },
     {
-      question: 'Is Satendra Coder just a tools platform or more than that?',
+      question: 'Which skills can I learn here?',
       answer:
-        'It’s more than just tools. Satendra Coder is an educational and productivity platform that combines developer utilities with structured learning content, mentorship, and community support. It’s designed to support your full dev journey — from beginner to pro.',
+        'You can learn HTML, CSS, JavaScript, TypeScript, Angular, Java, Spring Boot, Docker, Microservices, MySQL, NoSQL, and AI tools with structured notes and examples.',
     },
     {
-      question: 'How can I get started with Satendra Coder?',
+      question: 'What learning resources are available?',
       answer:
-        'Just visit the website and start using the tools — no sign-up required. To unlock additional features like saving your work, syncing extensions, or accessing mentorship, you can create a free account.',
+        'We offer Handbooks, DSA Sheets, Roadmaps, Interview Questions, Mock Tests, Generative AI guides, Online Compiler, and daily updated blogs.',
     },
     {
-      question: 'Do I need to install anything to use Satendra Coder tools?',
+      question: 'Is all the content free?',
       answer:
-        'No installation is needed for most features. Everything works directly in your browser. However, optional extensions for VS Code and Chrome are available to bring the tools to your daily workflow.',
+        'Yes, most handbooks, sheets, interview questions, and practice resources are free. Some advanced courses may be premium in the future.',
     },
     {
-      question: 'Is the platform completely free to use?',
+      question: 'Do I need to create an account?',
       answer:
-        'Yes, most tools and learning content are free to use. Some advanced features and mentorship offerings may be part of a future premium plan — but the core platform will always remain free and accessible.',
+        'No. You can access most content without login. Creating an account helps track progress and unlock upcoming features.',
     },
     {
-      question: 'Can I contribute to Satendra Coder or suggest features?',
+      question: 'Does Satendra Coder support PWA installation?',
       answer:
-        'Absolutely! Feedback and contributions are welcome. You can reach out via the community section, submit suggestions, or even contribute to open-source tools if published on GitHub.',
+        'Yes, the platform supports PWA. You can install it on desktop or mobile for faster access and app-like performance.',
     },
     {
-      question: 'What makes Satendra Coder different from other dev platforms?',
+      question: 'How can I request new topics or improvements?',
       answer:
-        'Satendra Coder brings tools, learning, community, and productivity under one roof. Unlike most platforms, it doesn’t just focus on one area — it bridges the gap between coding utilities, real-world learning, and developer career growth.',
+        'You can suggest new features, topics, or improvements anytime through the feedback section or the community page.',
     },
   ];
 

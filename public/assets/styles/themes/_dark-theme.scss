@@ -5,18 +5,14 @@ body.dark-theme {
   --secondary-background: #303138;
   --btn-background-color: #26a69a;
 
-  // Mentorship
-  --mentor-bg: #101426;
-  --mentor-color: #ffff;
-
+  // Roadmap Specific
+  --roadmap-background-color: #111827;
 }
 
 body.dark-theme {
   background-color: var(--background-color);
   color: var(--text-color);
 }
-
-
 
 body.dark-theme .dark_mode_1 {
   background-color: var(--menu-background-color) !important;
