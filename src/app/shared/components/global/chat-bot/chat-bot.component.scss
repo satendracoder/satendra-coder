@@ -8,7 +8,7 @@ $mic-color: #000;
 $border-color: #ccc;
 
 .chat-container {
-  width: 320px;
+  width: 350px;
   height: 400px; // Fixed height
   position: fixed;
   bottom: 10px; // Leave space for toggle button
@@ -268,8 +268,8 @@ $border-color: #ccc;
 
 .chat-toggle {
   position: fixed;
-  bottom: 20px;
-  right: 40px;
+  bottom: 44px;
+  right: 30px;
   padding: 5px;
   background-color: $primary-color; // Use your SCSS variable or fallback with #007bff
   color: #fff;

@@ -2,13 +2,16 @@ import {
   Component,
   ElementRef,
   HostListener,
+  Inject,
   NgZone,
+  PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
 import { MateriallistModule } from '../../../materiallist/materiallist-module';
 import { CHAT_DATA } from './chat';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-chat-bot',
@@ -35,17 +38,24 @@ export class ChatBotComponent {
   @ViewChild('voiceBtn') voiceBtn!: ElementRef;
   @ViewChild('chatBox') private chatBox!: ElementRef;
 
+  isBrowser = false;
+
   constructor(
     private eRef: ElementRef,
     private zone: NgZone,
     private sanitizer: DomSanitizer,
-    private safe: SSafeStorage
-  ) {}
+    private safe: SSafeStorage,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit(): void {
     this.userNameTalk = this.safe.getItem('BankuserName') || 'Unkonw';
     // this.initSpeechRecognition();
-    this.setupSpeechSynthesisEvents();
+    if (this.isBrowser) {
+      this.setupSpeechSynthesisEvents();
+    }
   }
   // Scroll chat box to bottom after each view update
   ngAfterViewChecked() {
