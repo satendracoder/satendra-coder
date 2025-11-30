@@ -1,10 +1,10 @@
 /* overlay wrapper at bottom right */
 .whoam-wrap {
   position: fixed;
-  right: 20px;
+  left: 20px;
   bottom: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   pointer-events: none; /* allow clicks only on card */
   z-index: 1000;
   animation: fadeInUp 300ms ease-out;
@@ -53,7 +53,7 @@
 
 /* body */
 .whoam-body {
-  padding: 14px;
+  padding: 18px 15px;
   font-size: 14px;
   color: #222;
 }
@@ -105,7 +105,7 @@
   background: #0891b2;
   border: none;
   color: #fff;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 13px;

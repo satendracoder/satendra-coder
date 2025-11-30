@@ -1,0 +1,99 @@
+<!-- Chat Toggle Button -->
+<!-- Chat Toggle Button with Animation -->
+<button *ngIf="!showChatBox" class="chat-toggle" (click)="toggleChat()">
+    <span class="robot-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="30px" fill="white">
+            <path
+                d="M160-120v-200q0-33 23.5-56.5T240-400h480q33 0 56.5 23.5T800-320v200H160Zm200-320q-83 0-141.5-58.5T160-640q0-83 58.5-141.5T360-840h240q83 0 141.5 58.5T800-640q0 83-58.5 141.5T600-440H360ZM240-200h480v-120H240v120Zm120-320h240q50 0 85-35t35-85q0-50-35-85t-85-35H360q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-80q17 0 28.5-11.5T400-640q0-17-11.5-28.5T360-680q-17 0-28.5 11.5T320-640q0 17 11.5 28.5T360-600Zm240 0q17 0 28.5-11.5T640-640q0-17-11.5-28.5T600-680q-17 0-28.5 11.5T560-640q0 17 11.5 28.5T600-600Z" />
+        </svg>
+    </span>
+</button>
+
+<!-- Chat Box -->
+<div class="chat-container" *ngIf="showChatBox">
+    <div class="chat-header">
+        <div class="left">
+            <h3> <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
+                    fill="white">
+                    <path
+                        d="M160-120v-200q0-33 23.5-56.5T240-400h480q33 0 56.5 23.5T800-320v200H160Zm200-320q-83 0-141.5-58.5T160-640q0-83 58.5-141.5T360-840h240q83 0 141.5 58.5T800-640q0 83-58.5 141.5T600-440H360ZM240-200h480v-120H240v120Zm120-320h240q50 0 85-35t35-85q0-50-35-85t-85-35H360q-50 0-85 35t-35 85q0 50 35 85t85 35Zm0-80q17 0 28.5-11.5T400-640q0-17-11.5-28.5T360-680q-17 0-28.5 11.5T320-640q0 17 11.5 28.5T360-600Zm240 0q17 0 28.5-11.5T640-640q0-17-11.5-28.5T600-680q-17 0-28.5 11.5T560-640q0 17 11.5 28.5T600-600Z" />
+                </svg></h3>
+        </div>
+
+        <div class="center">
+            <button class="lang-btn" [class.active]="selectedLanguage === 'hi'" (click)="setLanguage('hi')">
+                <img *ngIf="selectedLanguage==='hi'" src="/assets/images/dashboard/transaction_succes.png" alt="">
+                <span>Hindi</span>
+            </button>
+
+            <button class="lang-btn" [class.active]="selectedLanguage === 'en'" (click)="setLanguage('en')">
+                <img *ngIf="selectedLanguage==='en'" src="/assets/images/dashboard/transaction_succes.png" alt="">
+                <span>English</span>
+            </button>
+        </div>
+
+
+        <div class="right">
+            <button class="close-btn" (click)="toggleChat()">✖</button>
+        </div>
+    </div>
+
+
+    <div class="chat-box" #chatBox>
+        <div *ngFor="let msg of messages" [ngClass]="msg.sender" class="chat-message">
+            <strong>{{ msg.sender === 'user' ? userNameTalk : 'Bot' }}:</strong>
+
+            <!-- TEXT message -->
+            <span *ngIf="!msg.type || msg.type === 'text'">{{ msg.text }}</span>
+
+            <!-- LINK message -->
+            <a *ngIf="msg.type === 'link'" [href]="msg.text" target="" rel="noopener noreferrer">
+                {{ msg.text }}
+            </a>
+
+            <!-- VIDEO message (MP4) -->
+            <video *ngIf="msg.type === 'video' && msg.text.endsWith('.mp4')" controls width="250">
+                <source [src]="msg.text" type="video/mp4" />
+                Aapka browser video play nahi kar sakta.
+            </video>
+
+            <!-- VIDEO message (YouTube) -->
+            <iframe *ngIf="msg.type === 'video' && msg.text.includes('youtu')" width="100%" height="100%"
+                [src]="getSafeYoutubeUrl(msg.text)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+
+            <!-- Voice button for bot -->
+            <button *ngIf="msg.sender === 'bot'" class="voice-btn" (click)="speak(msg.text)"
+                [ngClass]="{ recording: msg.isSpeaking }" aria-label="Speak">
+                🔊
+            </button>
+        </div>
+    </div>
+
+
+    <div class="chat-input">
+        <div class="input-container">
+            <input [(ngModel)]="userInput" placeholder="Apna prashn likhiye ya boliye..." (keyup.enter)="sendMessage()"
+                (input)="onInputChange()" />
+
+            <!-- Suggestions List -->
+            <ul *ngIf="filteredSuggestions.length > 0" class="suggestions-list">
+                <li *ngFor="let suggestion of filteredSuggestions" (click)="selectSuggestion(suggestion)">
+                    {{ suggestion }}
+                </li>
+            </ul>
+        </div>
+
+        <button (click)="sendMessage()">
+            <mat-icon>send</mat-icon>
+        </button>
+
+        <!-- Mic button to indicate voice recognition is active -->
+        <button class="mic-btn" title="Sun rahe hain...">
+            <mat-icon>record_voice_over</mat-icon>
+        </button>
+    </div>
+</div>
