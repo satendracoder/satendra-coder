@@ -8,6 +8,7 @@ import {
 import { MateriallistModule } from '../../../materiallist/materiallist-module';
 import { CHAT_DATA } from './chat';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
 
 @Component({
   selector: 'app-chat-bot',
@@ -37,11 +38,12 @@ export class ChatBotComponent {
   constructor(
     private eRef: ElementRef,
     private zone: NgZone,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private safe: SSafeStorage
   ) {}
 
   ngOnInit(): void {
-    this.userNameTalk = localStorage.getItem('BankuserName') || 'Unkonw';
+    this.userNameTalk = this.safe.getItem('BankuserName') || 'Unkonw';
     // this.initSpeechRecognition();
     this.setupSpeechSynthesisEvents();
   }
