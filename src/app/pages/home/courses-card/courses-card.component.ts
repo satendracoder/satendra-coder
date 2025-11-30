@@ -1,52 +1,45 @@
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { MateriallistModule } from '../../../shared/materiallist/materiallist-module';
 import { isPlatformBrowser } from '@angular/common';
+import { TruncateTextPipe } from '../../../shared/pipes/truncate-text/truncate-text-pipe';
 
 @Component({
   selector: 'app-courses-card',
-  imports: [MateriallistModule],
+  imports: [MateriallistModule, TruncateTextPipe],
   templateUrl: './courses-card.component.html',
   styleUrl: './courses-card.component.scss',
 })
 export class CoursesCardComponent {
   courses = [
     {
-      title: 'Spring Boot 0 to 100 Cohort 4.0 [AI + DevOps]',
-      desc: 'Upgraded with Spring AI and DevOps! You will master Spring Boot, Spring AI, Microservices...',
-      banner: '/assets/images/global/jj.png',
+      title: 'HTML & CSS Mastery — Build Beautiful, Responsive Websites',
+      desc: 'Learn how to structure, style, and design modern web pages using HTML5 and CSS3. From essential tags to layouts, flexbox, grid, animations, and responsive design — this course takes you from beginner to project-ready.',
+      banner: '/assets/images/global/html_courses.png',
       ribbon: 'Coming Soon',
       bestSeller: true,
       cohort: true,
     },
     {
-      title: 'Angular 17 Zero to Mastery',
-      desc: 'Routing, RxJS, Signals, Standalone Components.',
-      banner: '/assets/images/global/angu.png',
+      title: 'JavaScript Zero to Hero — Master the Language of the Web',
+      desc: 'A complete JavaScript course that takes you from fundamentals to advanced concepts. Build dynamic and interactive web experiences while understanding DOM manipulation, ES6+, asynchronous JS, APIs, and real-world projects.',
+      banner: '/assets/images/global/js_courses.png',
       ribbon: 'Coming Soon',
       bestSeller: false,
       cohort: true,
     },
     {
-      title: 'Java + DSA Interview Prep',
-      desc: 'Master Java + DSA with 250 problems + mock interviews.',
-      banner: '/assets/images/global/java.png',
+      title: 'Angular 17+ Complete Guide — From Basics to Advanced Mastery',
+      desc: 'A full Angular roadmap covering components, services, routing, forms, RxJS, state management (NgRx), performance optimization, folder structure, and real-world project development. Perfect for beginners and professionals.',
+      banner: '/assets/images/global/angular_courses.png',
       bestSeller: true,
       cohort: false,
     },
     {
-      title: 'Full Stack Developer Roadmap',
-      desc: 'HTML, CSS, JS, Angular, Java, Spring Boot, DevOps.',
-      banner: '/assets/images/global/fullstack.png',
+      title: 'Frontend Engineer Program — Complete Job-Ready Bundle',
+      desc: 'A combined training program covering HTML, CSS, JavaScript, Angular, RxJS, Standalone Components, real banking projects, and interview preparation. Everything you need to become a professional frontend engineer.',
+      banner: '/assets/images/global/frontend_combo_courses.png',
       ribbon: 'New',
-      bestSeller: false,
-      cohort: false,
-    },
-    {
-      title: 'Full Stack Developer Roadmap',
-      desc: 'HTML, CSS, JS, Angular, Java, Spring Boot, DevOps.',
-      banner: '/assets/images/global/fullstack.png',
-      ribbon: 'New',
-      bestSeller: false,
+      bestSeller: true,
       cohort: false,
     },
   ];

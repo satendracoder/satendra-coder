@@ -52,8 +52,7 @@
                         </div>
 
                         <h3 class="title">{{ course.title }}</h3>
-                        <p class="desc">{{ course.desc }}</p>
-
+                        <p class="desc">{{ course.desc | truncateText:80 }}</p>
                         <div class="action-row">
                             <button class="btn primary">Purchase</button>
                             <button class="btn outline">More Details</button>
