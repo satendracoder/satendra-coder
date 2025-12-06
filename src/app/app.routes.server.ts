@@ -11,6 +11,7 @@ export const serverRoutes: ServerRoute[] = [
   ...NPM_SERVER_ROUTES,
   ...ADMIN_SERVER_ROUTES,
   ...ROADMAP_SERVER_ROUTES,
+  ...ADMIN_SERVER_ROUTES,
 
   {
     path: '**',
