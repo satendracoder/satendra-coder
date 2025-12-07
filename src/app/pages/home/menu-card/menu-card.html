@@ -106,10 +106,10 @@
         <div class="user-profile-dropdown" [class.active]="activeDropdown === 'user-profile'">
           <div class="user-info" (click)="toggleDropdown('user-profile'); $event.stopPropagation()">
             <div class="user-avatar">
-              @if (currentUser?.avatar) {
-              <span>{{ currentUser?.avatar }}</span>
+              @if (avatarUser) {
+              <span>{{ avatarUser?.name | avatarPipe }}</span>
               }
-              @if (!currentUser?.avatar) {
+              @if (!avatarUser) {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" />
                 <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" fill="none" />

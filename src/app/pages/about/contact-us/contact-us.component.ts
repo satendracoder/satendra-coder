@@ -4,10 +4,12 @@ import { SSeo } from '../../../core/service/other/seo/s-seo';
 import { Router } from '@angular/router';
 import { ToastService } from 'sc-angular-toastify';
 import { SAskme } from '../../../core/service/global/askme/s-askme';
+import { MaskPhonePipe } from '../../../shared/pipes/maskphone/mask-phone.pipe';
+import { MaskEmailPipe } from '../../../shared/pipes/maskemail/mask-email.pipe';
 
 @Component({
   selector: 'app-contact-us',
-  imports: [FormsModule],
+  imports: [FormsModule, MaskPhonePipe, MaskEmailPipe],
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
 })

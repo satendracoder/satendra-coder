@@ -13,7 +13,7 @@
   .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-    gap: 2rem;
+    gap: 1.6rem;
     padding: 3rem 0 1.5rem 0rem;
 
     .footer-section {
@@ -149,6 +149,10 @@
         color: white;
         font-size: 0.9rem;
 
+        @media (max-width: 480px) {
+          width: 100%;
+        }
+
         &::placeholder {
           color: #9ca3af;
         }
@@ -238,7 +242,7 @@
   @media (max-width: 768px) {
     .footer-content {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 1.8rem;
       padding: 2rem 0 1.5rem;
     }
 

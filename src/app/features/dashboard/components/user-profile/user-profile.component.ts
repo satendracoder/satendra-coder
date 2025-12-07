@@ -13,10 +13,13 @@ import { AdminService } from '../../../../admin/services/admin.service';
 import { forkJoin } from 'rxjs';
 import { SAuth } from '../../../../auth/service/s-auth';
 import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
+import { TimeAgoPipe } from '../../../../shared/pipes/timeago/time-ago.pipe';
+import { LogMethodCall } from '../../../../shared/decorators/log-method.decorator';
+import { Throttle } from '../../../../shared/decorators/throttle.decorator';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [CommonModule, ReactiveFormsModule, MateriallistModule],
+  imports: [CommonModule, ReactiveFormsModule, MateriallistModule, TimeAgoPipe],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.scss',
 })
@@ -44,6 +47,12 @@ export class UserProfileComponent {
   ngOnInit() {
     this.loadStats();
     console.log(this.user);
+    this.saveData(this.user.name);
+  }
+
+  @LogMethodCall()
+  saveData(data: string) {
+    console.log('Data saved:', data);
   }
 
   enableEditing() {
@@ -76,6 +85,7 @@ export class UserProfileComponent {
     );
   }
 
+  @Throttle(2000)
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {

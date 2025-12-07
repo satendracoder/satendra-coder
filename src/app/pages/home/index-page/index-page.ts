@@ -46,11 +46,11 @@ export class IndexPage {
   private initSeo() {
     this.seo.updateMeta({
       title:
-        'Satendra Coder – Learn Full Stack Development, Generative AI, DSA, and Communication Skills',
+        'Satendra Coder – Learn Full Stack Development, AI Engineer, DSA, and Communication Skills',
       description:
-        'Satendra Coder is your complete learning hub to master Full Stack Development, Generative AI, DSA, and Communication Skills.',
+        'Satendra Coder is your complete learning hub to master Full Stack Development, AI Engineer, DSA, and Communication Skills.',
       keywords:
-        'Satendra Coder, Full Stack Development, Generative AI, Angular, Java, DSA, Fintech, Coding, Satendra Rajput',
+        'Satendra Coder, Full Stack Development, AI Engineer, Angular, Java, DSA, Fintech, Coding, Satendra Rajput',
       url: 'https://satendracoder.com',
       image: 'https://satendracoder.com/assets/favicon.ico',
     });

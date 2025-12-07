@@ -29,7 +29,7 @@ export class FaqCard {
     {
       question: 'What learning resources are available?',
       answer:
-        'We offer Handbooks, DSA Sheets, Roadmaps, Interview Questions, Mock Tests, Generative AI guides, Online Compiler, and daily updated blogs.',
+        'We offer Handbooks, DSA Sheets, Roadmaps, Interview Questions, Mock Tests, AI Engineer guides, Online Compiler, and daily updated blogs.',
     },
     {
       question: 'Is all the content free?',

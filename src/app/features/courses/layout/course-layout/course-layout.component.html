@@ -1,0 +1,80 @@
+<app-menu-card></app-menu-card>
+<div class="courses-width">
+    <div class="container">
+        <div class="breadcrumb">
+            <a routerLink="/">Home</a>
+            <span class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px">
+                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                </svg>
+            </span>
+            <span class="current" [routerLink]="'/' + currentUrl()">{{currentUrl()}}</span>
+            <span class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px">
+                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                </svg>
+            </span>
+            <span class="current">{{urldetails()}}</span>
+        </div>
+
+        @if (isCoursesRoute()) {
+        <div class="top-section">
+            <div class="header-section">
+                <h2 class="title">Explore Our Course Catalog</h2>
+                <p class="subtitle">Browse through our extensive list of courses designed to enhance your skills and
+                    knowledge.</p>
+            </div>
+            <!-- Search box -->
+            <!-- <div class="search-box">
+                <input type="text" placeholder="Search for courses..." [(ngModel)]="searchText" />
+                <button>
+                    <span class="material-icons">search</span>
+                </button>
+            </div> -->
+        </div>
+
+        <!-- Course list -->
+        <div class="course-grid">
+
+            @for (course of courses; track course) {
+            <!-- COURSE CARD -->
+            <div class="course-card">
+
+                <!-- Ribbon -->
+                <div class="corner-ribbon" *ngIf="course.ribbon">
+                    <span>{{ course.ribbon }}</span>
+                </div>
+
+                <!-- Banner -->
+                <div class="banner">
+                    <img [src]="course.banner" alt="course" />
+                </div>
+
+                <div class="card-body">
+
+                    <div class="badge-row">
+                        <span class="badge best" *ngIf="course.bestSeller">BEST-SELLER</span>
+                        <span class="badge cohort" *ngIf="course.cohort">COHORT-BASED</span>
+                    </div>
+
+                    <h3 class="title">{{ course.title }}</h3>
+                    <p class="desc">{{ course.desc | truncateText:60 }}</p>
+                    <div class="action-row">
+                        <button class="btn primary">Purchase</button>
+                        <button class="btn outline" [routerLink]="'/courses/' + course.link">More Details</button>
+                    </div>
+
+                </div>
+            </div>
+            }
+        </div>
+        } @else {
+        <router-outlet (activate)="isCoursesRoute.set(false)" (deactivate)="isCoursesRoute.set(true)"></router-outlet>
+        }
+
+
+    </div>
+</div>
+
+<app-global-contact></app-global-contact>
+<app-footer-card></app-footer-card>

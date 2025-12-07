@@ -19,14 +19,14 @@ export class UserService {
     const mockUser: User = {
       id: '12',
       avatar: 'https://i.pravatar.cc/150?img=3',
-      created_at: '2024-01-20',
+      createdAt: '2024-01-20',
       designation: 'Senior Developer',
       email: 'demo@example.com',
-      is_active: true,
+      isActive: true,
       name: 'Satendra Kumar',
       phone: '9876543210',
       role: 'admin',
-      updated_at: '2024-02-01',
+      updatedAt: '2024-02-01',
     };
 
     return of(mockUser);

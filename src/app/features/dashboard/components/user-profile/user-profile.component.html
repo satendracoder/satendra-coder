@@ -18,7 +18,7 @@
                 <div class="profile-info">
                     <h2>{{ user.name }}</h2>
                     <p class="role-badge" [class]="user.role">{{ user.role | titlecase }}</p>
-                    <p class="join-date">Member since {{ user.created_at| date:'MMMM yyyy' }}</p>
+                    <p class="join-date">Member since <b>{{ user.createdAt | timeAgo }}</b></p>
                 </div>
             </div>
 

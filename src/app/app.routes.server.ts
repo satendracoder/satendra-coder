@@ -4,6 +4,7 @@ import { TUTORIAL_SERVER_ROUTES } from './features/grow-learning/tutorials/tutor
 import { ADMIN_SERVER_ROUTES } from './admin/admin.routes.server';
 import { NPM_SERVER_ROUTES } from './features/npm-package/npm.routes.server';
 import { ROADMAP_SERVER_ROUTES } from './features/roadmaps/roadmap.routes.server';
+import { COURSES_SERVER_ROUTES } from './features/courses/courses.routes.server';
 
 export const serverRoutes: ServerRoute[] = [
   ...BLOG_SERVER_ROUTES,
@@ -11,6 +12,7 @@ export const serverRoutes: ServerRoute[] = [
   ...NPM_SERVER_ROUTES,
   ...ADMIN_SERVER_ROUTES,
   ...ROADMAP_SERVER_ROUTES,
+  ...COURSES_SERVER_ROUTES,
   ...ADMIN_SERVER_ROUTES,
 
   {

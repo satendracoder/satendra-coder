@@ -13,6 +13,7 @@ import { ScButtonComponent } from '../../../shared/components/button/sc-button/s
 import { CThemeToggle } from '../../../shared/components/global/c-theme-toggle/c-theme-toggle';
 import { STheme } from '../../../core/service/global/theme/s-theme';
 import { CallbackDialogComponent } from '../../../shared/components/global/callback-dialog/callback-dialog.component';
+import { AvatarPipePipe } from '../../../shared/pipes/avatar/avatar-pipe.pipe';
 
 interface MenuItem {
   label: string;
@@ -36,6 +37,7 @@ interface User {
     RouterLinkWithHref,
     ScButtonComponent,
     CThemeToggle,
+    AvatarPipePipe,
   ],
   templateUrl: './menu-card.html',
   styleUrl: './menu-card.scss',
@@ -47,17 +49,18 @@ export class MenuCard {
   currentUser: User | null = null;
   selectedTheme: string = 'light';
   isDarkTheme: Signal<boolean>;
+  avatarUser: any = '';
 
   readonly dialog = inject(MatDialog);
 
   constructor(private safestorage: SSafeStorage, private themeService: STheme) {
     const userdata = this.safestorage.getItem('userdata');
+    this.avatarUser = userdata;
     if (userdata) {
       this.isLoggedIn = true;
       this.currentUser = {
         name: userdata?.name,
         email: userdata?.email,
-        avatar: this.getInitials(userdata?.name),
       };
       this.closeDropdowns();
     } else {
@@ -73,18 +76,6 @@ export class MenuCard {
 
   ngOnInit(): void {}
 
-  getInitials(fullName: string): string {
-    if (!fullName) return '';
-    const names = fullName.trim().split(' ');
-    if (names.length === 1) {
-      return names[0].charAt(0).toUpperCase();
-    }
-    return (
-      names[0].charAt(0).toUpperCase() +
-      names[names.length - 1].charAt(0).toUpperCase()
-    );
-  }
-
   menuItems: MenuItem[] = [
     {
       label: 'Grow Learn',
@@ -99,7 +90,7 @@ export class MenuCard {
           link: '/dsa-sheets',
         },
         {
-          name: 'Generative AI',
+          name: 'AI Engineer',
           link: '/generative-ai',
         },
 

@@ -24,7 +24,7 @@ export class LearningSection {
       link: '/dsa-sheets',
     },
     {
-      title: 'Generative AI',
+      title: 'AI Engineer',
       description: 'Learn AI tools, prompts, workflows, and AI-driven coding.',
       icon: '🤖',
       link: '/generative-ai',
