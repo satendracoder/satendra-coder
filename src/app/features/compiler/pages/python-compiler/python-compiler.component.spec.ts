@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CompilerEditor } from './compiler-editor';
+import { PythonCompilerComponent } from './python-compiler.component';
 
-describe('CompilerEditor', () => {
-  let component: CompilerEditor;
-  let fixture: ComponentFixture<CompilerEditor>;
+describe('PythonCompilerComponent', () => {
+  let component: PythonCompilerComponent;
+  let fixture: ComponentFixture<PythonCompilerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CompilerEditor]
+      imports: [PythonCompilerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CompilerEditor);
+    fixture = TestBed.createComponent(PythonCompilerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

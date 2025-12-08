@@ -24,11 +24,13 @@
     "@angular/service-worker": "^20.3.0",
     "@angular/ssr": "^20.3.4",
     "@fortawesome/fontawesome-free": "^7.0.1",
+    "@monaco-editor/loader": "^1.7.0",
     "@stripe/stripe-js": "^8.0.0",
     "angularx-qrcode": "^20.0.0",
     "express": "^5.1.0",
     "html2canvas": "^1.4.1",
     "ngx-markdown": "^20.1.0",
+    "ngx-monaco-editor-v2": "^20.3.0",
     "ngx-quill": "^28.0.1",
     "pdfjs-dist": "^5.4.394",
     "quill": "^2.0.3",
@@ -52,7 +54,6 @@
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.9.2"
+    "karma-jasmine-html-reporter": "~2.1.0"
   }
 }

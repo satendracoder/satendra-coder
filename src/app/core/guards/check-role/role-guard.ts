@@ -13,6 +13,7 @@ export const roleGuard: CanActivateFn = (route, state) => {
   const allowedRoles = route.data?.['roles'] as string[];
 
   if (user && allowedRoles?.includes(user.role)) {
+    router.navigate(['/admin']);
     return true;
   } else {
     // Optional: redirect to not-authorized or login

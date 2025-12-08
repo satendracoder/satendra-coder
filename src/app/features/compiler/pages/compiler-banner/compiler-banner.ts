@@ -1,25 +1,27 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { HoverGradient } from '../../../../shared/directives/global/hover-gradient/hover-gradient';
+import { ScButtonComponent } from '../../../../shared/components/button/sc-button/sc-button.component';
+import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 
 @Component({
   selector: 'app-compiler-banner',
-  imports: [HoverGradient],
+  imports: [ScButtonComponent, MateriallistModule],
   templateUrl: './compiler-banner.html',
-  styleUrl: './compiler-banner.scss'
+  styleUrl: './compiler-banner.scss',
 })
 export class CompilerBanner {
-
   texts: string[] = [
-    'Online_Courses','Skills_Contest','Tutorials_Library',
-    'Online_Interview'
+    'Online_Courses',
+    'Skills_Contest',
+    'Tutorials_Library',
+    'Online_Interview',
   ];
   colors: string[] = [
-  '#3357FF', // Color for 'Web Development'
-  '#b562d9', // Color for 'Learn Programming'
-  '#00000', // Color for 'App Development'
-  '#ff45c4'
-];
+    '#3357FF', // Color for 'Web Development'
+    '#b562d9', // Color for 'Learn Programming'
+    '#00000', // Color for 'App Development'
+    '#ff45c4',
+  ];
   currentText: string = '';
   currentColor: string = '';
   index: number = 0;
@@ -45,11 +47,11 @@ export class CompilerBanner {
     // Calculate the width based on the currentText length
     this.textWidth = `${this.currentText.length}ch`;
 
-     // Set the steps for the animation based on the text length
+    // Set the steps for the animation based on the text length
     this.stepsCount = `steps(${this.currentText.length})`;
   }
 
-  goToRedirect(url:string): void {
+  goToRedirect(url: string): void {
     this._router.navigate([url]);
   }
 }

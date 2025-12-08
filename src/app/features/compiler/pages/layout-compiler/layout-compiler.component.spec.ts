@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AngularCompiler } from './angular-compiler';
+import { LayoutCompilerComponent } from './layout-compiler.component';
 
-describe('AngularCompiler', () => {
-  let component: AngularCompiler;
-  let fixture: ComponentFixture<AngularCompiler>;
+describe('LayoutCompilerComponent', () => {
+  let component: LayoutCompilerComponent;
+  let fixture: ComponentFixture<LayoutCompilerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AngularCompiler]
+      imports: [LayoutCompilerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AngularCompiler);
+    fixture = TestBed.createComponent(LayoutCompilerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

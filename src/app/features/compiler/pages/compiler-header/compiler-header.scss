@@ -1,165 +1,59 @@
-.app-heading-btn {
-  margin-top: 70px;
-  height: 60px;
-  text-align: center;
-  margin-bottom: 0px;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0d1224;
+  padding: 10px 16px;
+  border-bottom: 1px solid #1e2840;
+  color: #e1e8f5;
+}
+
+.left h2 {
+  margin: 0;
   font-size: 20px;
-  width: 100%;
-  box-shadow: 2px 2px 0px #0891b2;
-  position: sticky;
-  top: 0px;
-  z-index: 99;
+  font-weight: 600;
+  color: #f0f4ff;
+}
 
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    height: 60px;
-    background-color: var(--background-color);
+.middle input {
+  background: #1a233a;
+  border: 1px solid #27324a;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: #fff;
+  width: 200px;
+}
 
-    .breadcrumb {
-      font-size: 14px;
+.middle input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
 
-      a {
-        text-decoration: none;
-        color: var(--text-color); // Light blue color for links
-        transition: color 0.3s ease;
+.right button,
+.upload-btn {
+  margin-left: 10px;
+  padding: 6px 14px;
+  background: #1f2937;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
 
-        &:hover {
-          color: #0284c7; // Darker blue on hover
-        }
-      }
+.upload-btn:hover,
+.right button:hover {
+  background: #334155;
+}
 
-      & > a:not(:last-child)::after {
-        content: " > ";
-        color: #9ca3af; // Separator color
-        margin: 0 5px;
-      }
-    }
+.run-btn {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
 
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-
-      .action-btn {
-        display: flex;
-        font-size: 14px;
-        padding: 4px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        gap: 5px;
-        align-items: center;
-
-        // .mat-icon {
-        //   font-size: 20px;
-        // }
-
-        &.run {
-          background-color: #22c55e; // Green for run
-          color: #fff;
-
-          &:hover {
-            background-color: #16a34a;
-          }
-        }
-
-        &.settings,
-        &.share {
-          background-color: #374151; // Dark background for buttons
-          color: #fff;
-          padding: 4px 12px;
-
-          &:hover {
-            background-color: #4b5563;
-          }
-        }
-      }
-
-      .dropdown {
-        position: relative;
-
-        &.open .dropdown-content {
-          max-height: 200px;
-          opacity: 1;
-          min-width: 150px;
-          pointer-events: auto;
-        }
-
-        .dropdown-btn {
-          background-color: #374151; // Dark button background
-          color: #fff;
-          border: none;
-          padding: 3px 15px;
-          border-radius: 4px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          cursor: pointer;
-          font-size: 14px;
-
-          &:hover {
-            background-color: #4b5563;
-          }
-
-          .icon {
-            margin-left: 10px;
-            transition: transform 0.3s ease;
-          }
-
-          .rotate {
-            transform: rotate(180deg);
-          }
-        }
-
-        .dropdown-content {
-          position: absolute;
-          top: 40px;
-          max-height: 150px;
-          left: 0;
-          background-color: #1e293b;
-          color: #fff;
-          border-radius: 4px;
-          z-index: 2;
-          overflow-y: auto;
-          text-align: left;
-          padding: 0px 5px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          opacity: 0;
-          pointer-events: none;
-          transition: max-height 0.3s ease, opacity 0.3s ease;
-
-          /* custom scroll bar */
-          &::-webkit-scrollbar {
-            width: 5px;
-          }
-
-          &::-webkit-scrollbar-track {
-            background: transparent;
-          }
-
-          &::-webkit-scrollbar-thumb {
-            background: #26a69a;
-            border-radius: 10px;
-          }
-
-          span {
-            display: block;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 14px;
-            border-radius: 10px;
-
-            &:hover {
-              background-color: #374151;
-            }
-          }
-        }
-      }
-    }
-  }
+.run-btn:hover {
+  background: #2563eb;
 }

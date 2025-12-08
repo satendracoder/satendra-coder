@@ -1,0 +1,24 @@
+.body {
+  height: calc(100vh - 62px);
+  display: flex;
+  gap: 16px;
+  background: #0a0f1e;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* LEFT PANEL: EDITOR */
+.left {
+  flex: 1;
+  background: #111827;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  overflow: hidden;
+}
+
+/* RIGHT PANEL: OUTPUT */
+.right {
+  width: 350px;
+  background: #101820;
+  border-radius: 10px;
+}

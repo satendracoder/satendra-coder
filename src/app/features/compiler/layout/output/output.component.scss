@@ -1,0 +1,30 @@
+.output-box {
+  background: #101820;
+  border: 1px solid #1b2737;
+  padding: 14px;
+  border-radius: 10px;
+  color: #dbeafe;
+  height: 100%;
+  font-family: monospace;
+  overflow-y: auto;
+}
+
+.output-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.output-box pre {
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #a5f3fc;
+}
+
+.err {
+  color: #fb7185;
+  font-weight: 700;
+}

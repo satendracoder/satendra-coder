@@ -9,10 +9,33 @@ export const Compiler_ROUTES: Routes = [
       ),
     children: [
       {
-        path: 'html-compiler',
+        path: 'javascript-compiler',
         loadComponent: () =>
-          import('./pages/web/html-compiler/html-compiler').then(
-            (hcom) => hcom.HtmlCompiler
+          import(
+            './pages/javascript-compiler/javascript-compiler.component'
+          ).then((jscom) => jscom.JavascriptCompilerComponent),
+      },
+
+      {
+        path: 'python-compiler',
+        loadComponent: () =>
+          import('./pages/python-compiler/python-compiler.component').then(
+            (pycom) => pycom.PythonCompilerComponent
+          ),
+      },
+      {
+        path: 'cpp-compiler',
+        loadComponent: () =>
+          import('./pages/cpp-compiler/cpp-compiler.component').then(
+            (cppcom) => cppcom.CppCompilerComponent
+          ),
+      },
+
+      {
+        path: 'go-compiler',
+        loadComponent: () =>
+          import('./pages/go-compiler/go-compiler.component').then(
+            (gocom) => gocom.GoCompilerComponent
           ),
       },
     ],

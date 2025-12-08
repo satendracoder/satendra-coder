@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HtmlCompiler } from './html-compiler';
+import { CppCompilerComponent } from './cpp-compiler.component';
 
-describe('HtmlCompiler', () => {
-  let component: HtmlCompiler;
-  let fixture: ComponentFixture<HtmlCompiler>;
+describe('CppCompilerComponent', () => {
+  let component: CppCompilerComponent;
+  let fixture: ComponentFixture<CppCompilerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HtmlCompiler]
+      imports: [CppCompilerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HtmlCompiler);
+    fixture = TestBed.createComponent(CppCompilerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

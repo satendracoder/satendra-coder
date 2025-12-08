@@ -2,12 +2,54 @@
     <app-menu-card></app-menu-card>
 
     @if (router.url === '/compiler') {
-    <app-compiler-banner></app-compiler-banner>
-    <app-compiler-list></app-compiler-list>
-    } @else {
-    <router-outlet></router-outlet>
-    }
+    <!--
+    <app-compiler-list></app-compiler-list> -->
 
-    <app-global-contact></app-global-contact>
+    <!-- HERO / HEADER SECTION -->
+    <br><br>
+    <app-compiler-banner></app-compiler-banner>
+
+    <!-- LANGUAGES SECTION -->
+    <section class="languages">
+        <h2>Supported Languages</h2>
+        <div class="language-list">
+            @for (lang of languages; track $index) {
+            <div class="language-card" (click)="goToRedirect(lang.link)">
+                <div class="icon-wrapper">
+                    <img [src]="lang.icon" [alt]="lang.name" />
+                </div>
+                <h3>{{ lang.name }}</h3>
+                <p>{{ lang.desc }}</p>
+            </div>
+            }
+
+        </div>
+    </section>
+
+    <!-- HOW TO USE SECTION -->
+    <section class="how-to-use">
+        <h2>How to Use</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <p>Select a language</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <p>Write your code</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <p>Run & see output</p>
+            </div>
+        </div>
+    </section>
+
+
+    } @else {
+    <br><br><br>
+    <router-outlet></router-outlet>
+
+    }
     <app-footer-card></app-footer-card>
 </div>

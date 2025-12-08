@@ -22,7 +22,7 @@ export class CoursesCardComponent {
   ) {}
 
   ngOnInit() {
-    this.courses = this.courseapi.courses;
+    this.courses = [...this.courseapi.courses, ...this.courseapi.courses];
     this.updateItemsPerView();
   }
 
@@ -47,14 +47,11 @@ export class CoursesCardComponent {
   }
 
   nextSlide() {
-    if (this.currentIndex < this.courses.length - this.itemsPerView) {
-      this.currentIndex++;
-    }
+    this.currentIndex = (this.currentIndex + 1) % this.courses.length;
   }
 
   prevSlide() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
+    this.currentIndex =
+      (this.currentIndex - 1 + this.courses.length) % this.courses.length;
   }
 }

@@ -1,0 +1,21 @@
+<!-- TOP HEADER -->
+<app-compiler-header [title]="title" [fileName]="fileName" (run)="run()" (save)="save()" (onUpload)="upload($event)">
+</app-compiler-header>
+
+<!-- BODY: LEFT (EDITOR) + RIGHT (OUTPUT) -->
+<div class="body">
+
+    <!-- LEFT SIDE (EDITOR) -->
+
+    <div class="left">
+        <app-editor [language]="language" [value]="defaultCode">
+        </app-editor>
+    </div>
+
+    <!-- RIGHT SIDE (OUTPUT) -->
+    <div class="right">
+        <app-output [stdout]="stdout" [stderr]="stderr">
+        </app-output>
+    </div>
+
+</div>
