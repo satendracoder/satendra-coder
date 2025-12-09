@@ -4,7 +4,6 @@ import { MenuCard } from '../../../../pages/home/menu-card/menu-card';
 import { CompilerBanner } from '../../pages/compiler-banner/compiler-banner';
 import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
-import { link } from 'fs';
 
 @Component({
   selector: 'app-compiler-layout',

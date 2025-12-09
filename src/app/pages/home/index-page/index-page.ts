@@ -13,6 +13,7 @@ import { WhoIAmComponent } from '../../../shared/components/global/who-i-am/who-
 import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
 import { CoursesCardComponent } from '../courses-card/courses-card.component';
 import { HandbooksCardComponent } from '../handbooks-card/handbooks-card.component';
+import { CompilerBanner } from '../../../features/compiler/pages/compiler-banner/compiler-banner';
 
 @Component({
   selector: 'app-index-page',
@@ -21,14 +22,13 @@ import { HandbooksCardComponent } from '../handbooks-card/handbooks-card.compone
     FooterCard,
     MentorshipCard,
     LearningSection,
-    FaqCard,
     MenuCard,
     MateriallistModule,
     LatestBlogCard,
     WhoIAmComponent,
-    GlobalContact,
     CoursesCardComponent,
     HandbooksCardComponent,
+    FaqCard,
   ],
   templateUrl: './index-page.html',
   styleUrl: './index-page.scss',

@@ -6,7 +6,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import loader from '@monaco-editor/loader';
+import { loader } from '@monaco-editor/loader';
 
 @Component({
   selector: 'app-editor',

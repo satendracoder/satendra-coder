@@ -59,7 +59,7 @@ export class LearningSection {
       title: 'Roadmaps',
       description: 'Guided step-by-step learning paths for all developers.',
       icon: '🗺️',
-      link: '/roadmaps',
+      link: '/roadmap',
     },
     {
       title: 'Kids Corner',
