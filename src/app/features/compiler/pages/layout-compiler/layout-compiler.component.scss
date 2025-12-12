@@ -1,24 +1,65 @@
-.body {
-  height: calc(100vh - 62px);
+.top-header {
+  height: 60px;
   display: flex;
-  gap: 16px;
-  background: #0a0f1e;
-  padding: 16px;
-  box-sizing: border-box;
+  align-items: center;
+  padding: 10px;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
 }
 
-/* LEFT PANEL: EDITOR */
-.left {
-  flex: 1;
-  background: #111827;
+.top-header .middle input {
+  width: 70%;
+  padding: 10px;
   border-radius: 10px;
-  border: 1px solid #1f2937;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: white;
+}
+
+.top-header button,
+.upload-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.run-btn {
+  background: linear-gradient(90deg, #22c1c3, #7c5cff);
+}
+
+.overflow-guard {
+  padding: 10px !important;
+  border-radius: 10px !important;
+  background-color: #22c1c3 !important;
+}
+
+.work-area {
+  flex: 1;
+  margin-top: 0px;
+  display: flex;
+  height: calc(100vh - 90px);
+  position: relative;
   overflow: hidden;
 }
 
-/* RIGHT PANEL: OUTPUT */
-.right {
-  width: 350px;
-  background: #101820;
-  border-radius: 10px;
+.panel {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  border-radius: 0px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.splitter {
+  width: 10px;
+  cursor: col-resize;
+  background: #000000;
+  margin: 0 0px;
+  background-image: url("/assets/images/compiler/col-resize.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }

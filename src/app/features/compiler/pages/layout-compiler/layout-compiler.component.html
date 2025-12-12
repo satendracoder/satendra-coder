@@ -1,21 +1,38 @@
 <!-- TOP HEADER -->
-<app-compiler-header [title]="title" [fileName]="fileName" (run)="run()" (save)="save()" (onUpload)="upload($event)">
-</app-compiler-header>
-
-<!-- BODY: LEFT (EDITOR) + RIGHT (OUTPUT) -->
-<div class="body">
-
-    <!-- LEFT SIDE (EDITOR) -->
-
+<div class="top-header">
     <div class="left">
-        <app-editor [language]="language" [value]="defaultCode">
-        </app-editor>
+        <h2>{{ title }}</h2>
     </div>
 
-    <!-- RIGHT SIDE (OUTPUT) -->
+    <div class="middle">
+        <input type="text" [(ngModel)]="fileName" placeholder="filename.ext" />
+    </div>
+
     <div class="right">
-        <app-output [stdout]="stdout" [stderr]="stderr">
-        </app-output>
+        <label class="upload-btn">
+            Upload
+            <input type="file" hidden (change)="handleUpload($event)" />
+        </label>
+
+        <button (click)="save()">Save</button>
+        <button class="run-btn" (click)="run()">Run</button>
+    </div>
+</div>
+
+<!-- BODY -->
+<div class="work-area">
+
+    <!-- LEFT PANEL -->
+    <div class="panel left-panel" #leftPanel>
+        <app-editor [language]="language" [value]="defaultCode"></app-editor>
+    </div>
+
+    <!-- DRAG HANDLE -->
+    <div class="splitter" (mousedown)="startResize($event)"></div>
+
+    <!-- RIGHT PANEL -->
+    <div class="panel right-panel" #rightPanel>
+        <app-output [stdout]="stdout" [stderr]="stderr"></app-output>
     </div>
 
 </div>

@@ -1,11 +1,17 @@
 <div class="output-box">
+    <div class="output-flex">
+        <div class="output-header">
+            <h3>Output</h3>
+        </div>
 
-    <h3>Output</h3>
+        <!-- // Output Body -->
+        <div class="output-body">
+            <!-- STANDARD OUTPUT -->
+            <pre *ngIf="stdout">{{ stdout }}</pre>
 
-    <!-- STANDARD OUTPUT -->
-    <pre *ngIf="stdout">{{ stdout }}</pre>
+            <!-- ERROR OUTPUT -->
+            <pre class="err" *ngIf="stderr">{{ stderr }}</pre>
 
-    <!-- ERROR OUTPUT -->
-    <pre class="err" *ngIf="stderr">{{ stderr }}</pre>
-
+        </div>
+    </div>
 </div>

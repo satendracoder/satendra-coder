@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -13,6 +15,7 @@ import loader from '@monaco-editor/loader';
   imports: [],
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorComponent {
   @ViewChild('editorRef') editorRef!: ElementRef;
@@ -20,6 +23,14 @@ export class EditorComponent {
 
   @Input() language: string = 'javascript';
   @Input() value: string = `console.log("Hello World");`;
+
+  constructor(private changeDetection: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.changeDetection.detectChanges();
+  }
 
   @Output() codeChange = new EventEmitter<string>();
 
@@ -43,6 +54,7 @@ export class EditorComponent {
 
   // Parent can get code
   getCode() {
+    debugger;
     return this.editor.getValue();
   }
 

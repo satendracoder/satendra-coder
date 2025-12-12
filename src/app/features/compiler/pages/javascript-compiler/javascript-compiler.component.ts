@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { LayoutCompilerComponent } from '../layout-compiler/layout-compiler.component';
 import { CompilerService } from '../../service/compiler.service';
+import { JsCompilerService } from '../../service/js/js-compiler.service';
 
 @Component({
   selector: 'app-javascript-compiler',
@@ -10,30 +11,19 @@ import { CompilerService } from '../../service/compiler.service';
   styleUrl: './javascript-compiler.component.scss',
 })
 export class JavascriptCompilerComponent {
-  defaultJS = `console.log("Hello JavaScript");`;
+  constructor(private js: JsCompilerService) {}
 
-  constructor(private compiler: CompilerService) {}
+  defaultJS = `// Online Javascript Editor for free
+//Write, Edit and Run your Javascript code using JS Online Compiler
+console.log("Hello JavaScript");
+  `;
+
   onRun(code: string, layout: LayoutCompilerComponent) {
-    const result: any = this.compiler.runJS(code);
-    layout.setOutput(result, '');
-    try {
-      let logs: string[] = [];
-      const old = console.log;
+    debugger;
+    console.log(code, layout);
 
-      console.log = (...args: any[]) => {
-        logs.push(args.join(' '));
-        old(...args);
-      };
-
-      let result = code;
-
-      console.log = old;
-
-      if (result !== undefined) logs.push(String(result));
-
-      layout.setOutput(logs.join('\n'), '');
-    } catch (err: any) {
-      layout.setOutput('', err.toString());
-    }
+    const result = this.js.run(code);
+    layout.setOutput(result.stdout, result.stderr);
+    console.log(code, layout);
   }
 }
