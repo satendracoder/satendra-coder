@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { STheme } from '../../../../core/service/global/theme/s-theme';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { Dialog } from '@angular/cdk/dialog';
+import {
+  EditorSettings,
+  SettingService,
+} from '../../service/setting/setting.service';
 
 @Component({
   selector: 'app-compiler-setting',
@@ -10,27 +14,51 @@ import { Dialog } from '@angular/cdk/dialog';
   styleUrl: './compiler-setting.scss',
 })
 export class CompilerSetting {
-  isDarkTheme: boolean = false;
+  settings!: EditorSettings;
 
-  constructor(private themeService: STheme, private dialogs: Dialog) {}
+  local = {
+    autoSuggestion: true,
+    fontFamily: '',
+    fontSize: 14,
+    tabSize: 2,
+    lineHeight: 20,
+  };
 
-  ngOnInit(): void {
-    this.isDarkTheme = this.themeService.isDarkTheme();
+  fontOptions = [
+    'Inter, Roboto, Arial, sans-serif',
+    'Roboto Mono, monospace',
+    'Fira Code, monospace',
+    'Source Sans Pro, sans-serif',
+  ];
+
+  constructor(private themeService: SettingService, private dialog: Dialog) {
+    effect(() => {
+      const s = this.themeService.settings();
+      this.settings = s;
+      this.local.autoSuggestion = s.autoSuggestion;
+      this.local.fontFamily = s.fontFamily;
+      this.local.fontSize = s.fontSize;
+      this.local.tabSize = s.tabSize;
+      this.local.lineHeight = s.lineHeight;
+    });
   }
 
-  isDarkModeMethod() {
-    debugger;
-    this.themeService.isDarkTheme();
-    this.isDarkTheme = this.themeService.isDarkTheme();
+  ngOnInit(): void {}
+
+  applyLive() {
+    this.themeService.setSettings({ ...this.local });
   }
 
-  onReset() {}
+  onReset() {
+    this.themeService.reset();
+  }
 
   onSave() {
-    //console.log('Settings saved:');
+    this.applyLive();
+    this.dialog.closeAll();
   }
 
   close() {
-    this.dialogs.closeAll();
+    this.dialog.closeAll();
   }
 }

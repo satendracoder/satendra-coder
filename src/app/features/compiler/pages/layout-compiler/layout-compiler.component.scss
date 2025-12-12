@@ -44,6 +44,11 @@
   height: calc(100vh - 90px);
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .panel {
