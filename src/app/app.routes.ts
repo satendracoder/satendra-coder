@@ -100,15 +100,7 @@ export const routes: Routes = [
         (layout) => layout.AboutLayout
       ),
     children: [
-      //@_about-us routes
-      {
-        path: 'about',
-        loadComponent: () =>
-          import('./pages/about/c-about-us/c-about-us').then(
-            (company) => company.CAboutUs
-          ),
-      },
-      //@_about-us routes
+      //@_contact-us routes
       {
         path: 'contact-us',
         loadComponent: () =>
@@ -151,12 +143,12 @@ export const routes: Routes = [
     ],
   },
 
-  //@_ask-me-anything routes
+  //@_about-us routes
   {
-    path: 'invite-satendra',
+    path: 'about',
     loadComponent: () =>
-      import('./shared/components/other/ask-me-anything/ask-me-anything').then(
-        (company) => company.AskMeAnything
+      import('./pages/about/c-about-us/c-about-us').then(
+        (about) => about.CAboutUs
       ),
   },
   //@_Become to Membars

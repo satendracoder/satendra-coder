@@ -22,7 +22,9 @@ export class CoursesCardComponent {
   ) {}
 
   ngOnInit() {
-    this.courses = [...this.courseapi.courses, ...this.courseapi.courses];
+    const cour = this.courseapi.courses;
+    const cour_2 = this.courseapi.courses;
+    this.courses = [...cour, ...cour_2]; // Duplicate the array for infinite loop effect
     this.updateItemsPerView();
   }
 
