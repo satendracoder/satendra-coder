@@ -44,6 +44,14 @@ export class EditorComponent {
       automaticLayout: true,
       fontSize: 14,
       minimap: { enabled: true },
+      fontFamily: 'Fira Code, Consolas, monospace',
+      quickSuggestions: false,
+      autoClosingBrackets: 'always',
+      autoClosingQuotes: 'always',
+      formatOnPaste: true,
+      formatOnType: true,
+      lineHeight: 20,
+      renderLineHighlight: 'all',
     });
 
     // On code change send to parent

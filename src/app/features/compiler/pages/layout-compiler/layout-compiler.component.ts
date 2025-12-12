@@ -8,6 +8,8 @@ import {
 import { EditorComponent } from '../../layout/editor/editor.component';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { OutputComponent } from '../../layout/output/output.component';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { CompilerSetting } from '../compiler-setting/compiler-setting';
 
 @Component({
   selector: 'app-layout-compiler',
@@ -34,6 +36,8 @@ export class LayoutCompilerComponent {
   isResizing = false;
   startX = 0;
   leftWidth = 0;
+
+  constructor(private dialog: Dialog) {}
 
   handleUpload(event: any) {
     const file = event.target.files?.[0];
@@ -101,4 +105,8 @@ export class LayoutCompilerComponent {
     document.removeEventListener('mousemove', this.resizeMove);
     document.removeEventListener('mouseup', this.stopResize);
   };
+
+  settingOpen() {
+    this.dialog.open(CompilerSetting);
+  }
 }

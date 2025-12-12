@@ -7,12 +7,12 @@ import {
   Renderer2,
   RendererFactory2,
   computed,
-  signal
+  signal,
 } from '@angular/core';
 import { SSafeStorage } from '../safe-storage/s-safe-storage';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class STheme {
   private renderer: Renderer2;
@@ -35,23 +35,20 @@ export class STheme {
     }
   }
 
-setTheme(isDark: boolean) {
-  this._isDarkTheme.set(isDark);
-  this.storageService.setItem('isDarkTheme', JSON.stringify(isDark));
-  this.applyTheme(isDark);
-}
-
-
-private applyTheme(isDark: boolean) {
-  const body = document.body;
-  if (isDark) {
-    this.renderer.removeClass(body, 'light-theme');
-    this.renderer.addClass(body, 'dark-theme');
-  } else {
-    this.renderer.removeClass(body, 'dark-theme');
-    this.renderer.addClass(body, 'light-theme');
+  setTheme(isDark: boolean) {
+    this._isDarkTheme.set(isDark);
+    this.storageService.setItem('isDarkTheme', JSON.stringify(isDark));
+    this.applyTheme(isDark);
   }
-}
 
-  
+  private applyTheme(isDark: boolean) {
+    const body = document.body;
+    if (!isDark) {
+      this.renderer.removeClass(body, 'light-theme');
+      this.renderer.addClass(body, 'dark-theme');
+    } else {
+      this.renderer.removeClass(body, 'dark-theme');
+      this.renderer.addClass(body, 'light-theme');
+    }
+  }
 }

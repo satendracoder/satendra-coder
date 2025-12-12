@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { STheme } from '../../../../core/service/global/theme/s-theme';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-compiler-setting',
@@ -10,7 +11,8 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
 })
 export class CompilerSetting {
   isDarkTheme: boolean = false;
-  constructor(private themeService: STheme) {}
+
+  constructor(private themeService: STheme, private dialogs: Dialog) {}
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.isDarkTheme();
@@ -26,5 +28,9 @@ export class CompilerSetting {
 
   onSave() {
     //console.log('Settings saved:');
+  }
+
+  close() {
+    this.dialogs.closeAll();
   }
 }
