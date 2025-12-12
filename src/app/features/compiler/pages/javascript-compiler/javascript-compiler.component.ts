@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { CompilerLayout } from '../../layout/compiler-layout/compiler-layout';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { LayoutCompilerComponent } from '../layout-compiler/layout-compiler.component';
 import { CompilerService } from '../../service/compiler.service';
@@ -11,7 +10,6 @@ import { CompilerService } from '../../service/compiler.service';
   styleUrl: './javascript-compiler.component.scss',
 })
 export class JavascriptCompilerComponent {
-  
   defaultJS = `console.log("Hello JavaScript");`;
 
   constructor(private compiler: CompilerService) {}

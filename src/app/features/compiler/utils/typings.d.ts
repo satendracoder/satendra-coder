@@ -1,1 +1,1 @@
-// declare module '@monaco-editor/loader';
+declare module '@monaco-editor/loader';
