@@ -20,7 +20,6 @@ import { LearningSection } from '../../home/learning-section/learning-section';
     TestimonialsComponent,
     MenuCard,
     MateriallistModule,
-    LearningSection,
   ],
   templateUrl: './c-about-us.html',
   styleUrl: './c-about-us.scss',
