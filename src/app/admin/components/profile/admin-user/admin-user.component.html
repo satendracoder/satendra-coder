@@ -8,7 +8,7 @@
         <div class="profile-card">
             <div class="profile-header">
                 <div class="avatar-section">
-                    <img [src]="previewAvatar || user.avatar" [alt]="user.name" class="profile-avatar">
+                    <img [src]="previewAvatar || user().avatar" [alt]="user().name" class="profile-avatar">
                     <label class="avatar-upload-btn">
                         <i class="fas fa-camera"></i>
                         Change Photo
@@ -16,9 +16,9 @@
                     </label>
                 </div>
                 <div class="profile-info">
-                    <h2>{{ user.name }}</h2>
-                    <p class="role-badge" [class]="user.role">{{ user.role | titlecase }}</p>
-                    <p class="join-date">Member since {{ user.createdAt | date:'MMMM yyyy' }}</p>
+                    <h2>{{ user().name }}</h2>
+                    <p class="role-badge" [class]="user().role">{{ user().role | titlecase }}</p>
+                    <p class="join-date">Member since {{ user().createdAt | date:'MMMM yyyy' }}</p>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                     <!-- Full Name -->
                     <div class="form-group">
                         <label for="name"><b>Full Name</b></label>
-                        <div *ngIf="!isEditing; else nameInput">{{ user.name }}</div>
+                        <div *ngIf="!isEditing; else nameInput">{{ user().name }}</div>
                         <ng-template #nameInput>
                             <input type="text" id="name" name="name" [(ngModel)]="user.name" required
                                 class="form-control">
@@ -38,9 +38,9 @@
                     <!-- Email -->
                     <div class="form-group">
                         <label for="email"><b>Email Address</b></label>
-                        <div *ngIf="!isEditing; else emailInput">{{ user.email }}</div>
+                        <div *ngIf="!isEditing; else emailInput">{{ user().email }}</div>
                         <ng-template #emailInput>
-                            <input type="email" id="email" name="email" [(ngModel)]="user.email" required
+                            <input type="email" id="email" name="email" [(ngModel)]="user().email" required
                                 class="form-control email" disabled>
                         </ng-template>
                     </div>
@@ -48,18 +48,18 @@
                     <!-- Mobile Number instead of Avatar URL -->
                     <div class="form-group">
                         <label for="mobile"><b>Mobile Number</b></label>
-                        <div *ngIf="!isEditing; else mobileInput">{{ user.phone }}</div>
+                        <div *ngIf="!isEditing; else mobileInput">{{ user().phone }}</div>
                         <ng-template #mobileInput>
-                            <input type="tel" id="mobile" name="mobile" [(ngModel)]="user.phone" required
+                            <input type="tel" id="mobile" name="mobile" [(ngModel)]="user().phone" required
                                 class="form-control" placeholder="Enter your mobile number">
                         </ng-template>
                     </div>
 
                     <div class="form-group">
                         <label for="designation"><b>Designation</b></label>
-                        <div *ngIf="!isEditing; else designationInput">{{ user.designation || 'Not specified' }}</div>
+                        <div *ngIf="!isEditing; else designationInput">{{ user().designation || 'Not specified' }}</div>
                         <ng-template #designationInput>
-                            <input type="text" id="designation" name="designation" [(ngModel)]="user.designation"
+                            <input type="text" id="designation" name="designation" [(ngModel)]="user().designation"
                                 class="form-control" placeholder="Enter your designation">
                         </ng-template>
                     </div>
@@ -70,10 +70,10 @@
                         <i class="fas fa-edit"></i> Edit Profile
                     </button>
 
-                    <button type="submit" class="btn btn-success" *ngIf="isEditing" [disabled]="isUpdating">
-                        <i class="fas fa-save" *ngIf="!isUpdating"></i>
-                        <i class="fas fa-spinner fa-spin" *ngIf="isUpdating"></i>
-                        {{ isUpdating ? 'Saving...' : 'Save Changes' }}
+                    <button type="submit" class="btn btn-success" *ngIf="isEditing" [disabled]="isUpdating()">
+                        <i class="fas fa-save" *ngIf="!isUpdating()"></i>
+                        <i class="fas fa-spinner fa-spin" *ngIf="isUpdating()"></i>
+                        {{ isUpdating() ? 'Saving...' : 'Save Changes' }}
                     </button>
 
                     <button type="button" class="btn btn-secondary" *ngIf="isEditing"
@@ -89,21 +89,21 @@
                 <div class="stat-item">
                     <i class="fas fa-book"></i>
                     <div class="stat-content">
-                        <span class="stat-number">{{ stats.tutorials }}</span>
+                        <span class="stat-number">{{ stats().tutorials }}</span>
                         <span class="stat-label">Tutorials Created</span>
                     </div>
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-graduation-cap"></i>
                     <div class="stat-content">
-                        <span class="stat-number">{{ stats.courses }}</span>
+                        <span class="stat-number">{{ stats().courses }}</span>
                         <span class="stat-label">Courses Published</span>
                     </div>
                 </div>
                 <div class="stat-item">
                     <i class="fas fa-blog"></i>
                     <div class="stat-content">
-                        <span class="stat-number">{{ stats.blogs }}</span>
+                        <span class="stat-number">{{ stats().blogs }}</span>
                         <span class="stat-label">Blog Posts</span>
                     </div>
                 </div>
@@ -119,11 +119,11 @@
     </div>
 
     <!-- Delete Confirmation Modal -->
-    <div class="modal-overlay" *ngIf="showDeleteConfirmation" (click)="showDeleteConfirmation = false">
+    <div class="modal-overlay" *ngIf="showDeleteConfirmation()" (click)="showDeleteConfirmation.set(false)">
         <div class="modal-content" (click)="$event.stopPropagation()">
             <div class="modal-header">
                 <h3>Delete Account</h3>
-                <button class="modal-close" (click)="showDeleteConfirmation = false">
+                <button class="modal-close" (click)="showDeleteConfirmation.set(false)">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -144,8 +144,8 @@
                     placeholder="Type DELETE to confirm">
             </div>
             <div class="modal-actions">
-                <button class="btn btn-outline" (click)="showDeleteConfirmation = false">Cancel</button>
-                <button class="btn btn-danger" [disabled]="deleteConfirmation !== 'DELETE'" (click)="deleteAccount()">
+                <button class="btn btn-outline" (click)="showDeleteConfirmation.set(false)">Cancel</button>
+                <button class="btn btn-danger" [disabled]="deleteConfirmation() !== 'DELETE'" (click)="deleteAccount()">
                     <i class="fas fa-trash"></i>
                     Delete Account
                 </button>

@@ -11,6 +11,7 @@ import { CompilerService } from '../../service/compiler.service';
   styleUrl: './javascript-compiler.component.scss',
 })
 export class JavascriptCompilerComponent {
+  
   defaultJS = `console.log("Hello JavaScript");`;
 
   constructor(private compiler: CompilerService) {}

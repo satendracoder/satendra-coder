@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { AdminService } from '../../../services/admin.service';
 import { User } from '../../../model/admin.model';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
@@ -13,90 +13,101 @@ import { forkJoin } from 'rxjs';
   styleUrl: './admin-user.component.scss',
 })
 export class AdminUserComponent {
-  user: User;
-  OriginalUser!: User;
-  isUpdating = false;
-  isEditing = false;
-  showDeleteConfirmation = false;
-  deleteConfirmation = '';
-  previewAvatar: string | null = null;
+  // ---------- SIGNALS ----------
+  user = signal<User>({} as User);
+  originalUser = signal<User>({} as User);
+  isUpdating = signal(false);
+  isEditing = signal(false);
+  showDeleteConfirmation = signal(false);
+  deleteConfirmation = signal('');
+  previewAvatar = signal<string | null>(null);
 
-  stats = { tutorials: 0, courses: 0, blogs: 0 };
+  stats = signal({ tutorials: 0, courses: 0, blogs: 0 });
 
   constructor(
     private adminService: AdminService,
     private authapi: SAuth,
     private safe: SSafeStorage
-  ) {
-    const userdata = this.safe.getItem('userdata');
-    this.user = userdata;
-    this.OriginalUser = { ...userdata };
-  }
+  ) {}
 
   ngOnInit() {
-    this.loadStats();
-    console.log(this.user);
+    const userdata = this.safe.getItem('userdata');
+    this.user.set(userdata);
+    this.originalUser.set({ ...userdata });
+    setTimeout(() => {
+      this.loadStats();
+    }, 100);
+
+    // Reset preview if user data changes externally
+    effect(() => {
+      this.loadStats();
+    });
   }
 
+  // ---------- ACTIONS ----------
   enableEditing() {
-    this.isEditing = true;
+    this.isEditing.set(true);
   }
 
   cancelEditing() {
-    this.isEditing = false;
-    this.user = this.safe.getItem('userdata');
+    this.isEditing.set(false);
+    this.user.set(this.safe.getItem('userdata'));
   }
 
   saveProfile() {
-    debugger;
+    this.isUpdating.set(true);
 
-    const name$ = this.authapi.updateName(this.user.name);
-    const phone$ = this.authapi.updatePhone(this.user.phone);
-    const designation$ = this.authapi.updateDesignation(this.user.designation);
+    const updated = this.user();
 
-    forkJoin([name$, phone$, designation$]).subscribe(
-      ([userResponse, postsResponse, settingsResponse]) => {
-        //console.log('User:', userResponse);
-        //onsole.log('Posts:', postsResponse);
-        //console.log('Settings:', settingsResponse);
-        this.isEditing = false;
+    forkJoin([
+      this.authapi.updateName(updated.name),
+      this.authapi.updatePhone(updated.phone),
+      this.authapi.updateDesignation(updated.designation),
+    ]).subscribe(
+      () => {
+        this.isUpdating.set(false);
+        this.isEditing.set(false);
+
+        // Update local storage safely
+        this.safe.setItem('userdata', updated);
+        this.originalUser.set({ ...updated });
       },
-      (error) => {
-        this.isUpdating = false;
-        console.error('Error in API calls', error);
+      () => {
+        this.isUpdating.set(false);
       }
     );
   }
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewAvatar = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+    if (!file) return;
 
-      // TODO: send `file` to backend API for upload
-    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.previewAvatar.set(reader.result as string);
+    };
+    reader.readAsDataURL(file);
   }
 
   deleteAccount() {
-    if (this.deleteConfirmation === 'DELETE') {
-      //console.log('Account deleted');
-      this.showDeleteConfirmation = false;
+    if (this.deleteConfirmation() === 'DELETE') {
+      this.showDeleteConfirmation.set(false);
+      // Call delete API
     }
   }
 
+  // ---------- LOAD STATS ----------
   private loadStats() {
-    this.adminService
-      .getTutorials()
-      .subscribe((t) => (this.stats.tutorials = t.length));
-    this.adminService
-      .getCourses()
-      .subscribe((c) => (this.stats.courses = c.length));
-    this.adminService
-      .getBlogs()
-      .subscribe((b) => (this.stats.blogs = b.length));
+    forkJoin([
+      this.adminService.getTutorials(),
+      this.adminService.getCourses(),
+      this.adminService.getBlogs(),
+    ]).subscribe(([t, c, b]) => {
+      this.stats.set({
+        tutorials: t.length,
+        courses: c.length,
+        blogs: b.length,
+      });
+    });
   }
 }

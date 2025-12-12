@@ -22,7 +22,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const allowedRoles = route.data['roles'] as string[];
 
   if (allowedRoles && allowedRoles.includes(userData.role)) {
-    debugger;
+    // router.navigateByUrl('/admin');
     return true;
   } else {
     toast.show('Access denied - Admins only', 'error');
