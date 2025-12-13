@@ -4,14 +4,14 @@ import { LayoutCompilerComponent } from '../layout-compiler/layout-compiler.comp
 import { SSeo } from '../../../../core/service/other/seo/s-seo';
 
 @Component({
-  selector: 'app-ts-compiler',
+  selector: 'app-typescript-compiler',
   imports: [LayoutCompilerComponent],
-  templateUrl: './ts-compiler.component.html',
-  styleUrl: './ts-compiler.component.scss',
+  templateUrl: './typescript-compiler.component.html',
+  styleUrl: './typescript-compiler.component.scss',
 })
-export class TsCompilerComponent {
+export class TypescriptCompilerComponent {
   title = 'TypeScript Compiler';
-  fileName = 'main.ts';
+  fileName = 'main.Typescript';
 
   defaultCode = `function greet(name: string): string {
   return "Hello " + name;
@@ -21,31 +21,31 @@ console.log(greet("TypeScript"));
 `;
 
   constructor(
-    private tsCompiler: TypescriptCompilerService,
+    private TypescriptCompiler: TypescriptCompilerService,
     private seo: SSeo
   ) {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.initSeo();
+    //Add 'implemenTypescript OnInit' to the class.
+    this.iniseo();
   }
 
   onRun(code: string, layout: LayoutCompilerComponent) {
-    const result = this.tsCompiler.run(code);
+    const result = this.TypescriptCompiler.run(code);
     layout.setOutput(result.stdout, result.stderr);
   }
 
   // This is method for SEO
-  private initSeo() {
+  private iniseo() {
     this.seo.updateMeta({
-      title: 'JavaScript Online Compiler – Run JS Code Online | Satendra Coder',
+      title: 'TypeScript Online Compiler – Run JS Code Online | Satendra Coder',
       description:
-        'Run JavaScript code online using Satendra Coder’s JavaScript compiler. Write, execute, and test JS code instantly with a fast, browser-based editor and real-time output.',
+        'Run TypeScript code online using Satendra Coder’s TypeScript compiler. Write, execute, and test JS code instantly with a fast, browser-based editor and real-time output.',
       keywords:
-        'javascript online compiler, js compiler online, run javascript online, javascript editor online, free javascript compiler, execute js code online, javascript playground, satendra coder javascript compiler',
+        'TypeScript online compiler, js compiler online, run TypeScript online, TypeScript editor online, free TypeScript compiler, execute js code online, TypeScript playground, satendra coder TypeScript compiler',
       url: 'https://satendracoder.com',
-      image: 'https://satendracoder.com/assets/favicon.ico',
+      image: 'https://satendracoder.com/asseTypescript/favicon.ico',
       auther: 'Satendra Rajput (Software Engineer)',
     });
   }
