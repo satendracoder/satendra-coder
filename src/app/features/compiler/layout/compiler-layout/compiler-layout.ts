@@ -5,6 +5,7 @@ import { CompilerBanner } from '../../pages/compiler-banner/compiler-banner';
 import { FooterCard } from '../../../../pages/home/footer-card/footer-card';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 import { filter } from 'rxjs';
+import { SSeo } from '../../../../core/service/other/seo/s-seo';
 
 @Component({
   selector: 'app-compiler-layout',
@@ -25,7 +26,7 @@ export class CompilerLayout {
   currentUrl = signal<string>('');
   urldetails = signal<string>('');
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private seo: SSeo) {}
 
   languages = [
     {
@@ -73,6 +74,7 @@ export class CompilerLayout {
         this.currentUrl.set('compiler');
         this.urldetails.set('');
         this.isCompilerRoute.set(true);
+        this.initSeo();
       } else {
         this.currentUrl.set(first);
         this.urldetails.set(second);
@@ -95,5 +97,19 @@ export class CompilerLayout {
 
   goToRedirect(url: string) {
     this.router.navigate([url]);
+  }
+
+  private initSeo() {
+    this.seo.updateMeta({
+      title:
+        'Online Compiler – Run JavaScript, Python, C++, Go Code Online | Satendra Coder',
+      description:
+        'Satendra Coder online compiler lets you write, run, and test JavaScript, Python, C++, and Go code instantly in your browser. Fast, free, and secure online code editor with real-time output.',
+      keywords:
+        'online compiler, code compiler online, javascript compiler, python compiler online, c++ compiler online, go compiler online, run code online, browser based compiler, free online compiler, satendra coder',
+      url: 'https://satendracoder.com',
+      image: 'https://satendracoder.com/assets/favicon.ico',
+      auther: 'Satendra Rajput (Software Engineer)',
+    });
   }
 }

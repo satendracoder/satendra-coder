@@ -3,6 +3,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { EditorComponent } from '../../layout/editor/editor.component';
@@ -10,6 +11,8 @@ import { MateriallistModule } from '../../../../shared/materiallist/materiallist
 import { OutputComponent } from '../../layout/output/output.component';
 import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { CompilerSetting } from '../compiler-setting/compiler-setting';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-layout-compiler',
@@ -19,15 +22,17 @@ import { CompilerSetting } from '../compiler-setting/compiler-setting';
 })
 export class LayoutCompilerComponent {
   @Input() title: string = 'Compiler';
-  @Input() fileName: string = 'main.txt';
   @Input() language: string = 'javascript'; // DYNAMIC EDITOR LANGUAGE
   @Input() defaultCode: string = ''; // DYNAMIC DEFAULT CODE
 
   @Output() onRun = new EventEmitter<string>(); // send code to page
   @Output() onSave = new EventEmitter<void>();
-  @Output() onUpload = new EventEmitter<File>();
 
   @ViewChild(EditorComponent) editor!: EditorComponent;
+
+  // Route
+  currentUrl = signal<string>('');
+  urldetails = signal<string>('');
 
   stdout: string = '';
   stderr: string = '';
@@ -37,11 +42,52 @@ export class LayoutCompilerComponent {
   startX = 0;
   leftWidth = 0;
 
-  constructor(private dialog: Dialog) {}
+  constructor(private dialog: Dialog, private router: Router) {}
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    const processUrl = (url: string) => {
+      const cleanUrl = url.split('?')[0].replace(/\/$/, '');
+      const segments = cleanUrl.split('/'); // ["", "courses", "angular"]
+
+      const first = segments[1] || '';
+      const second = segments[2] || '';
+
+      // If only '/courses' then do NOT show urldetails
+      if (first === 'compiler' && !second) {
+        this.currentUrl.set('compiler');
+        this.urldetails.set('');
+      } else {
+        this.currentUrl.set(first);
+        this.urldetails.set(second);
+      }
+    };
+
+    // Initial load
+    processUrl(this.router.url);
+
+    // On route change
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        processUrl(event.urlAfterRedirects);
+      });
+  }
 
   handleUpload(event: any) {
+    debugger;
     const file = event.target.files?.[0];
-    if (file) this.onUpload.emit(file);
+    if (file) this.upload(file);
+  }
+
+  onLanguageChange(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const route = target.value;
+
+    if (route) {
+      this.router.navigateByUrl(route);
+    }
   }
 
   run() {
@@ -54,15 +100,6 @@ export class LayoutCompilerComponent {
     debugger;
     this.stdout = stdout;
     this.stderr = stderr;
-  }
-
-  save() {
-    debugger;
-    const blob = new Blob([this.editor.getCode()], { type: 'text/plain' });
-    const a = document.createElement('a');
-    a.download = this.fileName;
-    a.href = URL.createObjectURL(blob);
-    a.click();
   }
 
   upload(file: File) {

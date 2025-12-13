@@ -12,6 +12,17 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
   <link rel="manifest" href="manifest.webmanifest">
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline';
+    connect-src 'self';
+    img-src 'self' data:;
+    font-src 'self' data:;
+    worker-src 'self' blob:;
+  " />
+
   <meta name="theme-color" content="#0891b2">
   <meta name="google-adsense-account" content="ca-pub-4388503921119657">
   <!-- Google tag (gtag.js) -->

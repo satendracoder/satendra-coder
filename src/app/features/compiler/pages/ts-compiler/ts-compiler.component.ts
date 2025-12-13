@@ -1,23 +1,29 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { Component } from '@angular/core';
+import { TypescriptCompilerService } from '../../service/ts/typescript-compiler.service';
 import { LayoutCompilerComponent } from '../layout-compiler/layout-compiler.component';
-import { CompilerService } from '../../service/compiler.service';
-import { JsCompilerService } from '../../service/js/js-compiler.service';
 import { SSeo } from '../../../../core/service/other/seo/s-seo';
 
 @Component({
-  selector: 'app-javascript-compiler',
-  imports: [MateriallistModule, LayoutCompilerComponent],
-  templateUrl: './javascript-compiler.component.html',
-  styleUrl: './javascript-compiler.component.scss',
+  selector: 'app-ts-compiler',
+  imports: [LayoutCompilerComponent],
+  templateUrl: './ts-compiler.component.html',
+  styleUrl: './ts-compiler.component.scss',
 })
-export class JavascriptCompilerComponent {
-  constructor(private js: JsCompilerService, private seo: SSeo) {}
+export class TsCompilerComponent {
+  title = 'TypeScript Compiler';
+  fileName = 'main.ts';
 
-  defaultJS = `// Online Javascript Editor for free
-//Write, Edit and Run your Javascript code using JS Online Compiler
-console.log("Hello JavaScript");
-  `;
+  defaultCode = `function greet(name: string): string {
+  return "Hello " + name;
+}
+
+console.log(greet("TypeScript"));
+`;
+
+  constructor(
+    private tsCompiler: TypescriptCompilerService,
+    private seo: SSeo
+  ) {}
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -26,12 +32,8 @@ console.log("Hello JavaScript");
   }
 
   onRun(code: string, layout: LayoutCompilerComponent) {
-    debugger;
-    console.log(code, layout);
-
-    const result = this.js.run(code);
+    const result = this.tsCompiler.run(code);
     layout.setOutput(result.stdout, result.stderr);
-    console.log(code, layout);
   }
 
   // This is method for SEO

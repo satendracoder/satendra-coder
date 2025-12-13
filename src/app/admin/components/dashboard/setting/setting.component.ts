@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminService } from '../../../services/admin.service';
 import { AuthService } from '../../../services/auth.service';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
 
 @Component({
   selector: 'app-setting',
@@ -59,7 +60,8 @@ export class SettingComponent {
 
   constructor(
     private authService: AuthService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private safe: SSafeStorage
   ) {}
 
   ngOnInit() {
@@ -68,7 +70,8 @@ export class SettingComponent {
 
   loadSettings() {
     // In a real app, load settings from backend
-    const savedSettings = localStorage.getItem('appSettings');
+
+    const savedSettings = this.safe.getItem('appSettings');
     if (savedSettings) {
       this.settings = { ...this.settings, ...JSON.parse(savedSettings) };
     }
@@ -79,7 +82,7 @@ export class SettingComponent {
 
     // Simulate API call
     setTimeout(() => {
-      localStorage.setItem('appSettings', JSON.stringify(this.settings));
+      this.safe.setItem('appSettings', JSON.stringify(this.settings));
       this.isSaving = false;
 
       // Show success message (you can implement a toast service)
@@ -93,7 +96,7 @@ export class SettingComponent {
         'Are you sure you want to reset all settings to defaults? This action cannot be undone.'
       )
     ) {
-      localStorage.removeItem('appSettings');
+      this.safe.removeItem('appSettings');
       this.ngOnInit(); // Reload default settings
     }
   }

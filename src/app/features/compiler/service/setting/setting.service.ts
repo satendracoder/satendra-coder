@@ -1,4 +1,5 @@
 import { effect, Injectable, signal } from '@angular/core';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
 
 export interface EditorSettings {
   autoSuggestion: boolean;
@@ -23,16 +24,16 @@ export class SettingService {
   private STORAGE_KEY = 'compiler_editor_settings_v2';
   settings = signal<EditorSettings>(this.load() || DEFAULT_SETTINGS);
 
-  constructor() {
+  constructor(private safe: SSafeStorage) {
     effect(() => {
       const s = this.settings();
-      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(s));
+      this.safe.setItem(this.STORAGE_KEY, JSON.stringify(s));
     });
   }
 
   private load(): EditorSettings | null {
     try {
-      return JSON.parse(localStorage.getItem(this.STORAGE_KEY) || 'null');
+      return JSON.parse(this.safe.getItem(this.STORAGE_KEY) || 'null');
     } catch {
       return null;
     }

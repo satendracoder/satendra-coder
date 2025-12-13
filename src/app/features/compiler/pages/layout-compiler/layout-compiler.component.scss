@@ -2,33 +2,108 @@
   height: 60px;
   display: flex;
   align-items: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 10px 30px;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(8px);
   border-radius: 12px;
-}
 
-.top-header .middle input {
-  width: 70%;
-  padding: 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: white;
-}
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+    padding: auto;
+  }
 
-.top-header button,
-.upload-btn {
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.08);
-}
+  .left {
+    width: 100%;
+    display: flex;
+    gap: 10px;
 
-.run-btn {
-  background: linear-gradient(90deg, #22c1c3, #7c5cff);
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      color: #777;
+      gap: 5px;
+
+      a {
+        color: #5a36f0;
+        font-weight: 500;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .divider {
+        margin-top: 4px;
+        svg {
+          fill: var(--text-color);
+        }
+      }
+
+      .current {
+        color: var(--text-color);
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .right {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    @media (max-width: 600px) {
+      justify-content: flex-start;
+    }
+
+    button,
+    .upload-btn {
+      padding: 6px 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      color: var(--text-color);
+      background-color: var(--secondary-background);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 0.5px solid #e5e5e5;
+      box-shadow: 0 0 6px #00000014;
+    }
+
+    .run-btn {
+      display: flex;
+      background: #22c55e;
+      align-items: center;
+      gap: 10px;
+      &:hover {
+        background-color: #22c55eb7;
+      }
+    }
+
+    select {
+      padding: 10px 6px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      background-color: var(--secondary-background);
+      color: var(--text-color) !important;
+
+      &:focus {
+        outline: none;
+        border-color: #1976d2;
+        box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+      }
+    }
+  }
 }
 
 .overflow-guard {

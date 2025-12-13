@@ -1,7 +1,13 @@
 <div class="editor-box">
     <div class="editor-flex">
         <div class="editor-header">
-            JavaScript
+            <div class="language">
+                {{language.toUpperCase()}}
+            </div>
+            <div class="language_save">
+                <input type="text" [(ngModel)]="fileName" placeholder="filename.ext" />
+                <button type="button" class="btn" (click)="save()">Save</button>
+            </div>
         </div>
 
         <!-- this is editor body -->

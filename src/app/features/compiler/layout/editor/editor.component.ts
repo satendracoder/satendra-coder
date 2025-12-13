@@ -14,10 +14,11 @@ import {
   EditorSettings,
   SettingService,
 } from '../../service/setting/setting.service';
+import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
 
 @Component({
   selector: 'app-editor',
-  imports: [],
+  imports: [MateriallistModule],
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,6 +27,7 @@ export class EditorComponent {
   @ViewChild('editorRef') editorRef!: ElementRef;
   editor: any;
 
+  @Input() fileName: string = 'main.js';
   @Input() language: string = 'javascript';
   @Input() value: string = `console.log("Hello World");`;
 
@@ -41,6 +43,8 @@ export class EditorComponent {
       this.local.fontSize = s.fontSize;
       this.local.tabSize = s.tabSize;
       this.local.lineHeight = s.lineHeight;
+      // 🔥 LIVE UPDATE MONACO
+      this.updateEditorSettings();
     });
   }
 
@@ -71,6 +75,7 @@ export class EditorComponent {
   @Output() codeChange = new EventEmitter<string>();
 
   async ngAfterViewInit() {
+    debugger;
     const monaco = await loader.init();
 
     this.editor = monaco.editor.create(this.editorRef.nativeElement, {
@@ -90,9 +95,23 @@ export class EditorComponent {
       renderLineHighlight: 'all',
     });
 
+    this.updateEditorSettings(); // ✅ initial sync
     // On code change send to parent
     this.editor.onDidChangeModelContent(() => {
       this.codeChange.emit(this.editor.getValue());
+    });
+  }
+
+  private updateEditorSettings() {
+    if (!this.editor) return;
+
+    this.editor.updateOptions({
+      fontSize: this.local.fontSize,
+      fontFamily: this.local.fontFamily,
+      tabSize: this.local.tabSize,
+      lineHeight: this.local.lineHeight,
+      quickSuggestions: this.local.autoSuggestion,
+      automaticLayout: true,
     });
   }
 
@@ -105,5 +124,14 @@ export class EditorComponent {
   // Parent can set code
   setCode(v: string) {
     this.editor.setValue(v);
+  }
+
+  save() {
+    debugger;
+    const blob = new Blob([this.getCode()], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.download = this.fileName;
+    a.href = URL.createObjectURL(blob);
+    a.click();
   }
 }

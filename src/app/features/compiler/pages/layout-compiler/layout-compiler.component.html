@@ -1,24 +1,54 @@
 <!-- TOP HEADER -->
 <div class="top-header">
-    <div class="left">
-        <h2>{{ title }}</h2>
-    </div>
 
-    <div class="middle">
-        <input type="text" [(ngModel)]="fileName" placeholder="filename.ext" />
-    </div>
-    <div class="middle">
-        <button class="run-btn" (click)="settingOpen()">Setting</button>
+    <!-- this is left side with breadcrumb  -->
+    <div class="left">
+        <div class="breadcrumb">
+            <a routerLink="/">Home</a>
+            <span class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px">
+                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                </svg>
+            </span>
+            <span class="current" [routerLink]="'/' + currentUrl()">{{currentUrl()}}</span>
+            <span class="divider">
+                <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px">
+                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                </svg>
+            </span>
+            <span class="current">{{urldetails()}}</span>
+        </div>
     </div>
 
     <div class="right">
+
+        <!-- this is runing btn -->
+        <button type="button" class="run-btn" (click)="run()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff">
+                <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+            </svg> Run
+        </button>
+
         <label class="upload-btn">
             Upload
             <input type="file" hidden (change)="handleUpload($event)" />
         </label>
 
-        <button (click)="save()">Save</button>
-        <button class="run-btn" (click)="run()">Run</button>
+        <button type="button" (click)="settingOpen()">Setting</button>
+
+        <!-- all language choose you mind -->
+        <select (change)="onLanguageChange($event)">
+            <option value="" disabled selected>Choose Language</option>
+
+            <option value="/compiler/javascript-compiler">JavaScript</option>
+            <option value="/compiler/typescript-compiler">TypeScript</option>
+            <option value="/compiler/python-compiler">Python</option>
+            <option value="/compiler/c-compiler">C</option>
+            <option value="/compiler/cpp-compiler">C++</option>
+            <option value="/compiler/go-compiler">Go</option>
+        </select>
+
     </div>
 </div>
 

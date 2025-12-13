@@ -17,6 +17,14 @@ export const Compiler_ROUTES: Routes = [
       },
 
       {
+        path: 'typescript-compiler',
+        loadComponent: () =>
+          import('./pages/ts-compiler/ts-compiler.component').then(
+            (tscom) => tscom.TsCompilerComponent
+          ),
+      },
+
+      {
         path: 'python-compiler',
         loadComponent: () =>
           import('./pages/python-compiler/python-compiler.component').then(
