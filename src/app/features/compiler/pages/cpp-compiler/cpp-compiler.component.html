@@ -1,1 +1,3 @@
-<p>cpp-compiler works!</p>
+<app-layout-compiler #layout title="C / C++ Compiler (Demo)" fileName="main.cpp" language="cpp"
+    [defaultCode]="defaultCode" (onRun)="onRun($event, layout)">
+</app-layout-compiler>

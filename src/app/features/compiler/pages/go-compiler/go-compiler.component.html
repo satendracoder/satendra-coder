@@ -1,1 +1,3 @@
-<p>go-compiler works!</p>
+<app-layout-compiler #layout title="Go Compiler" fileName="main.js" language="go" [defaultCode]="defaultCode"
+    (onRun)="onRun($event, layout)">
+</app-layout-compiler>

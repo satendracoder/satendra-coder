@@ -1,1 +1,3 @@
-<p>python-compiler works!</p>
+<app-layout-compiler #layout title="python Compiler" fileName="main.js" language="python" [defaultCode]="defaultCode"
+    (onRun)="onRun($event, layout)">
+</app-layout-compiler>
