@@ -7,218 +7,253 @@
 
   <url>
     <loc>https://www.satendracoder.com/</loc>
-    <lastmod>2025-08-13T06:28:58+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:39+00:00</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/learn</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/courses</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/core</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/auth/register</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/interview</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/handbooks</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/quiz</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/dsa-sheets</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/roadmap</loc>
-    <lastmod>2025-08-13T06:28:58+00:00</lastmod>
+    <loc>https://www.satendracoder.com/generative-ai</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/ebook</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/mock-tests</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/interview-questions</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/blog</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/community</loc>
-    <lastmod>2025-08-13T06:28:59+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/compiler</loc>
-    <lastmod>2025-08-13T06:28:59+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:41+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/mentorship</loc>
-    <lastmod>2025-08-13T06:28:59+00:00</lastmod>
+    <loc>https://www.satendracoder.com/roadmap</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/tools</loc>
-    <lastmod>2025-08-13T06:28:59+00:00</lastmod>
+    <loc>https://www.satendracoder.com/kids-corner</loc>
+    <lastmod>2025-12-13T16:39:41+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/vscode-extension</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/interview</loc>
+    <lastmod>2025-12-13T16:39:41+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/browser-extension</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/courses/html-css-mastery</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/npm-package</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/courses/angular-complete-guide</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/maven-library</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/courses/javascript-zero-to-hero</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/course</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/tools/json-formatter</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/tools/base64-encoder-decoder</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/tools/json-to-csv</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/tools/qr-code-generator</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/tools/robots-txt-generator</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/courses/frontend-combo-package</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/about</loc>
-    <lastmod>2025-08-13T02:51:27+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:42+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/contact</loc>
-    <lastmod>2025-08-13T02:51:27+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.satendracoder.com/terms-and-conditions</loc>
-    <lastmod>2025-08-13T06:29:00+00:00</lastmod>
+    <loc>https://www.satendracoder.com/contact-us</loc>
+    <lastmod>2025-12-13T16:39:42+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/privacy-policy</loc>
-    <lastmod>2025-08-13T06:29:00+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:42+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/terms-and-conditions</loc>
+    <lastmod>2025-12-13T16:39:42+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/pricing-policy</loc>
-    <lastmod>2025-08-13T02:56:50+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:43+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/ask-me-anything</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/tools</loc>
+    <lastmod>2025-12-13T16:39:43+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/donate</loc>
-    <lastmod>2025-08-13T06:29:01+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:43+00:00</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://www.satendracoder.com/invite-satendra</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/auth/login</loc>
+    <lastmod>2025-12-13T16:39:44+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/compiler/blog</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/kids-corner/blog</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/about/blog</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/tools/json-formatter</loc>
+    <lastmod>2025-12-13T16:39:44+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/tools/base64-encoder-decoder</loc>
+    <lastmod>2025-12-13T16:39:44+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
     <loc>https://www.satendracoder.com/tools/url-encoder-decoder</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:44+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/password-hash-generator</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:45+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/fake-name-generator</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:45+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/tools/json-to-xml</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/tools/json-to-xml-converter</loc>
+    <lastmod>2025-12-13T16:39:45+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/xml-viewer-editor</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:45+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/tools/json-to-csv-converter</loc>
+    <lastmod>2025-12-13T16:39:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/csv-to-json</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://www.satendracoder.com/tools/html-to-jsx</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <loc>https://www.satendracoder.com/tools/html-to-jsx-converter</loc>
+    <lastmod>2025-12-13T16:39:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/js-to-ts</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/ts-to-js</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/css-formatter</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/html-formatter</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/javascript-formatter</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:47+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/php-formatter</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:47+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
     <loc>https://www.satendracoder.com/tools/html-video-editor</loc>
-    <lastmod>2025-08-13T02:51:25+00:00</lastmod>
+    <lastmod>2025-12-13T16:39:47+00:00</lastmod>
     <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/tools/qr-code-generator</loc>
+    <lastmod>2025-12-13T16:39:47+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/tools/robots-txt-generator</loc>
+    <lastmod>2025-12-13T16:39:47+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/tools/blog</loc>
+    <lastmod>2025-12-13T16:39:40+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.satendracoder.com/auth/forgot-password</loc>
+    <lastmod>2025-12-13T16:39:48+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
 
 
