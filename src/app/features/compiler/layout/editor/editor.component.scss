@@ -1,6 +1,6 @@
 .editor-box {
   width: 100%;
-  background-color: #111827;
+  background-color: var(--compiler-bg-color);
   .editor-flex {
     display: flex;
     flex-direction: column;

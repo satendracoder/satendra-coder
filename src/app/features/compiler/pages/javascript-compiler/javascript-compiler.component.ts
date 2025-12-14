@@ -26,12 +26,8 @@ console.log("Hello JavaScript");
   }
 
   onRun(code: string, layout: LayoutCompilerComponent) {
-    debugger;
-    console.log(code, layout);
-
     const result = this.js.run(code);
     layout.setOutput(result.stdout, result.stderr);
-    console.log(code, layout);
   }
 
   // This is method for SEO

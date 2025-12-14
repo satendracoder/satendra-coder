@@ -7,10 +7,13 @@
         <!-- // Output Body -->
         <div class="output-body">
             <!-- STANDARD OUTPUT -->
-            <pre *ngIf="stdout">{{ stdout }}</pre>
-
+            @if (stdout) {
+            <pre>{{ stdout }}</pre>
+            }
             <!-- ERROR OUTPUT -->
-            <pre class="err" *ngIf="stderr">{{ stderr }}</pre>
+            @if (stderr) {
+            <pre class="err">{{ stderr }}</pre>
+            }
 
         </div>
     </div>

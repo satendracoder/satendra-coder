@@ -15,6 +15,8 @@ import {
   SettingService,
 } from '../../service/setting/setting.service';
 import { MateriallistModule } from '../../../../shared/materiallist/materiallist-module';
+import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
+import { STheme } from '../../../../core/service/global/theme/s-theme';
 
 @Component({
   selector: 'app-editor',
@@ -33,10 +35,19 @@ export class EditorComponent {
 
   constructor(
     private changeDetection: ChangeDetectorRef,
-    private themeService: SettingService
+    private themeService: SettingService,
+    private safe: SSafeStorage,
+    private theme: STheme
   ) {
     effect(() => {
       const s = this.themeService.settings();
+      const isDark = this.theme.isDarkTheme();
+      if (isDark === true) {
+        s.theme = 'vs-light';
+      } else {
+        s.theme = 'vs-dark';
+      }
+      this.local.theme = s.theme;
       this.settings = s;
       this.local.autoSuggestion = s.autoSuggestion;
       this.local.fontFamily = s.fontFamily;
@@ -44,7 +55,9 @@ export class EditorComponent {
       this.local.tabSize = s.tabSize;
       this.local.lineHeight = s.lineHeight;
       // 🔥 LIVE UPDATE MONACO
-      this.updateEditorSettings();
+      if (this.editor) {
+        this.updateEditorSettings();
+      }
     });
   }
 
@@ -52,6 +65,7 @@ export class EditorComponent {
   settings!: EditorSettings;
 
   local = {
+    theme: 'vs-dark',
     autoSuggestion: true,
     fontFamily: '',
     fontSize: 14,
@@ -75,13 +89,12 @@ export class EditorComponent {
   @Output() codeChange = new EventEmitter<string>();
 
   async ngAfterViewInit() {
-    debugger;
     const monaco = await loader.init();
 
     this.editor = monaco.editor.create(this.editorRef.nativeElement, {
       value: this.value,
       language: this.language,
-      theme: 'vs-dark',
+      theme: this.local.theme,
       automaticLayout: this.local.autoSuggestion,
       fontSize: this.local.fontSize,
       minimap: { enabled: true },
@@ -105,7 +118,16 @@ export class EditorComponent {
   private updateEditorSettings() {
     if (!this.editor) return;
 
+    const getTheme = this.safe.getItem('isDarkTheme');
+
+    console.log(getTheme);
+    if (getTheme === 'true') {
+      this.local.theme = 'vs-light';
+    } else {
+      this.local.theme = 'vs-dark';
+    }
     this.editor.updateOptions({
+      theme: this.local.theme,
       fontSize: this.local.fontSize,
       fontFamily: this.local.fontFamily,
       tabSize: this.local.tabSize,
@@ -117,7 +139,6 @@ export class EditorComponent {
 
   // Parent can get code
   getCode() {
-    debugger;
     return this.editor.getValue();
   }
 
@@ -127,7 +148,6 @@ export class EditorComponent {
   }
 
   save() {
-    debugger;
     const blob = new Blob([this.getCode()], { type: 'text/plain' });
     const a = document.createElement('a');
     a.download = this.fileName;

@@ -2,6 +2,7 @@ import { effect, Injectable, signal } from '@angular/core';
 import { SSafeStorage } from '../../../../core/service/global/safe-storage/s-safe-storage';
 
 export interface EditorSettings {
+  theme: string;
   autoSuggestion: boolean;
   fontFamily: string;
   fontSize: number;
@@ -10,6 +11,7 @@ export interface EditorSettings {
 }
 
 const DEFAULT_SETTINGS: EditorSettings = {
+  theme: 'vs-dark',
   autoSuggestion: false,
   fontFamily: 'Inter, Roboto, Arial, sans-serif',
   fontSize: 14,

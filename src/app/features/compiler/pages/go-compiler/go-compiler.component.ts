@@ -25,7 +25,6 @@ func main() {
 
   async onRun(_: string, layout: LayoutCompilerComponent) {
     layout.setOutput('Running Go program...', '');
-
     const result = await this.go.run();
     layout.setOutput(result.stdout, result.stderr);
   }

@@ -23,7 +23,6 @@ for i in range(1, 6):
   async onRun(code: string, layout: LayoutCompilerComponent) {
     debugger;
     layout.setOutput('Running Python...', '');
-
     const result = await this.python.run(code);
     layout.setOutput(result.stdout, result.stderr);
   }

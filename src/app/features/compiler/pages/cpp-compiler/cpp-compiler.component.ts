@@ -25,7 +25,6 @@ int main() {
 
   async onRun(_: string, layout: LayoutCompilerComponent) {
     layout.setOutput('Running C++ WASM...', '');
-
     const result = await this.cpp.run();
     layout.setOutput(result.stdout, result.stderr);
   }

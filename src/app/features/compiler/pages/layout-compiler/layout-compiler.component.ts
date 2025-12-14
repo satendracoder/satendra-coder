@@ -76,7 +76,6 @@ export class LayoutCompilerComponent {
   }
 
   handleUpload(event: any) {
-    debugger;
     const file = event.target.files?.[0];
     if (file) this.upload(file);
   }
@@ -91,13 +90,11 @@ export class LayoutCompilerComponent {
   }
 
   run() {
-    debugger;
     const code = this.editor.getCode();
     this.onRun.emit(code);
   }
 
   setOutput(stdout: string, stderr: string = '') {
-    debugger;
     this.stdout = stdout;
     this.stderr = stderr;
   }

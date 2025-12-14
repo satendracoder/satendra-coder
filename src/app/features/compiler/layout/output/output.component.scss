@@ -1,6 +1,6 @@
 .output-box {
-  background: #101820;
-  border: 1px solid #1b2737;
+  background-color: var(--compiler-bg-color);
+
   padding: 0px;
   border-radius: 0px;
   color: #dbeafe;
@@ -33,7 +33,7 @@
         line-height: 1.4;
         white-space: pre-wrap;
         word-break: break-word;
-        color: #a5f3fc;
+        color: var(--text-color);
       }
 
       .err {

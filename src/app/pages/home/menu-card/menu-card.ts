@@ -14,6 +14,7 @@ import { CThemeToggle } from '../../../shared/components/global/c-theme-toggle/c
 import { STheme } from '../../../core/service/global/theme/s-theme';
 import { CallbackDialogComponent } from '../../../shared/components/global/callback-dialog/callback-dialog.component';
 import { AvatarPipePipe } from '../../../shared/pipes/avatar/avatar-pipe.pipe';
+import { BehaviorSubject } from 'rxjs';
 
 interface MenuItem {
   label: string;

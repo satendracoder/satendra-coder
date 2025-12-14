@@ -30,13 +30,6 @@ export class CAboutUs {
   private toaster = inject(ToastService);
   private sAskapi = inject(SAskme);
 
-  memberData = {
-    name: '',
-    email: '',
-    mobile: '',
-    message: '',
-  };
-
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -49,26 +42,5 @@ export class CAboutUs {
       url: 'https://satendracoder.com/invite-satendra',
       image: 'https://satendracoder.com/assets/cover-image.png',
     });
-  }
-
-  submitMemberForm(form: NgForm) {
-    if (form.valid) {
-      debugger;
-      //console.log('Contact Submitted:', this.memberData);
-      this.sAskapi.sendMessage(this.memberData).subscribe({
-        next: (res) => {
-          // console.log(res);
-          this.toaster.show(res?.message, 'success');
-          form.resetForm();
-        },
-        error: () => {
-          alert('Failed to send message.');
-        },
-      });
-    }
-  }
-
-  closeAndRedirect() {
-    this.route.navigate(['/']);
   }
 }
