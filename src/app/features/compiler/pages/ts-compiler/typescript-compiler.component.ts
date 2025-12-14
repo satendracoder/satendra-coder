@@ -39,11 +39,11 @@ console.log(greet("TypeScript"));
   // This is method for SEO
   private iniseo() {
     this.seo.updateMeta({
-      title: 'TypeScript Online Compiler – Run JS Code Online | Satendra Coder',
+      title: 'TypeScript Online Compiler – Run TS Code Online | Satendra Coder',
       description:
-        'Run TypeScript code online using Satendra Coder’s TypeScript compiler. Write, execute, and test JS code instantly with a fast, browser-based editor and real-time output.',
+        ' Run TypeScript code online with Satendra Coder’s TypeScript compiler. Write, transpile, and execute TS code instantly in your browser using a fast VS Code-style editor.',
       keywords:
-        'TypeScript online compiler, js compiler online, run TypeScript online, TypeScript editor online, free TypeScript compiler, execute js code online, TypeScript playground, satendra coder TypeScript compiler',
+        'typescript online compiler, ts compiler online, run typescript online, typescript editor online, typescript playground, execute typescript code online, free typescript compiler, satendra coder typescript',
       url: 'https://satendracoder.com',
       image: 'https://satendracoder.com/asseTypescript/favicon.ico',
       auther: 'Satendra Rajput (Software Engineer)',
