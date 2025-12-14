@@ -84,6 +84,17 @@ export class EditorComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.changeDetection.detectChanges();
+    if (this.language === 'javascript') {
+      this.fileName = 'index.js';
+    } else if (this.language === 'typescript') {
+      this.fileName = 'index.ts';
+    } else if (this.language === 'python') {
+      this.fileName = 'main.py';
+    } else if (this.language === 'cpp') {
+      this.fileName = 'main.cpp';
+    } else if (this.language === 'go') {
+      this.fileName = 'main.go';
+    }
   }
 
   @Output() codeChange = new EventEmitter<string>();

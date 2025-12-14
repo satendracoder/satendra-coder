@@ -45,6 +45,7 @@ export class LayoutCompilerComponent {
   constructor(private dialog: Dialog, private router: Router) {}
 
   ngOnInit(): void {
+    this.selectedLang = this.router.url;
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     const processUrl = (url: string) => {
@@ -80,12 +81,14 @@ export class LayoutCompilerComponent {
     if (file) this.upload(file);
   }
 
-  onLanguageChange(event: Event) {
-    const target = event.target as HTMLSelectElement;
-    const route = target.value;
+  // Change Language
+  selectedLang = '';
 
+  onLanguageChange(event: Event) {
+    const route = (event.target as HTMLSelectElement).value;
     if (route) {
       this.router.navigateByUrl(route);
+      // ngModel already bound, so select dikhega
     }
   }
 

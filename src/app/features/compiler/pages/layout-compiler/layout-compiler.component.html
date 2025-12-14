@@ -38,9 +38,8 @@
         <button type="button" (click)="settingOpen()">Setting</button>
 
         <!-- all language choose you mind -->
-        <select (change)="onLanguageChange($event)">
-            <option value="" disabled selected>Choose Language</option>
-
+        <select [(ngModel)]="selectedLang" (change)="onLanguageChange($event)">
+            <option value="" disabled>Choose Language</option>
             <option value="/compiler/javascript-compiler">JavaScript</option>
             <option value="/compiler/typescript-compiler">TypeScript</option>
             <option value="/compiler/python-compiler">Python</option>
