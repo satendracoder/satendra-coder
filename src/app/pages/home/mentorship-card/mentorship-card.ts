@@ -12,38 +12,38 @@ export class MentorshipCard {
     {
       name: 'Satendra Rajput',
       role: 'Software Engineer | Full Stack Developer',
-      img: '/assets/images/global/sate_1.png',
+      img: '/assets/images/global/sate_1.webp',
     },
     {
       name: 'Rishi Singh',
       role: 'Sr. Full Stack Engineer(Dot Net)',
-      img: 'assets/images/global/rishi.png',
+      img: 'assets/images/global/rishi.webp',
     },
     {
       name: 'Mutawakkil Shahid',
       role: 'Sr. UI/UX Engineer',
-      img: 'assets/images/global/mutawakkil.png',
+      img: 'assets/images/global/mutawakkil.webp',
     },
 
     {
       name: 'Govind Singh',
       role: 'Sr. Full Stack Engineer(Dot Net)',
-      img: 'assets/images/global/govind.png',
+      img: 'assets/images/global/govind.webp',
     },
     {
       name: 'Vishal Tiwari',
       role: 'Backend Developer(ASP Dot Net)',
-      img: '/assets/images/global/vishals.jpg',
+      img: '/assets/images/global/vishals.webp',
     },
     {
       name: 'Prashant Yadav',
       role: 'Accounting and Financials Professional',
-      img: 'assets/images/global/prashant.png',
+      img: 'assets/images/global/prashant.webp',
     },
     {
       name: 'Rohan Vishwakarma',
       role: 'Business & Operations Manager',
-      img: 'assets/images/global/rohan.png',
+      img: 'assets/images/global/rohan.webp',
     },
   ];
 
