@@ -51,22 +51,6 @@ export const routes: Routes = [
       ),
   },
 
-  // DevTools Routes is lazy loaded
-  {
-    path: '',
-    loadChildren: () =>
-      import('./features/dev-tool/tools.routes').then(
-        (tools) => tools.TOOLS_ROUTES
-      ),
-  },
-
-  // NPM Package Routes is lazy loaded
-  {
-    path: '',
-    loadChildren: () =>
-      import('./features/npm-package/npm.routes').then((npm) => npm.NPM_ROUTES),
-  },
-
   // Blog Routes is lazy loaded
   {
     path: '',
