@@ -108,9 +108,15 @@
       transition: all 0.2s ease;
       border-bottom: 2px solid transparent;
 
+      mat-icon {
+        color: #26a69a !important;
+      }
       &:hover {
         color: #0891b2;
         border-bottom-color: #0891b2;
+        mat-icon {
+          color: #0891b2 !important;
+        }
       }
 
       .dropdown-arrow {
@@ -126,6 +132,9 @@
     &.active .nav-link {
       color: var(--text-color);
       border-bottom-color: #0891b2;
+      mat-icon {
+        color: #0891b2 !important;
+      }
     }
 
     &.support-item {

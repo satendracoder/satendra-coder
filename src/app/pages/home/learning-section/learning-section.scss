@@ -81,7 +81,7 @@
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+      box-shadow: 6px 6px 2px var(--text-color);
       background: linear-gradient(135deg, #06b6d4, #0891b2);
       color: white;
 

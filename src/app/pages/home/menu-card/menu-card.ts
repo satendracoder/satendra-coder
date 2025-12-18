@@ -20,6 +20,7 @@ interface MenuItem {
   label: string;
   link?: string;
   hasDropdown: boolean;
+  iconPath: string;
   dropdownItems?: any[];
 }
 
@@ -81,6 +82,7 @@ export class MenuCard {
     {
       label: 'Grow Learn',
       hasDropdown: true,
+      iconPath: 'local_library',
       dropdownItems: [
         {
           name: 'Learn Handbooks',
@@ -102,6 +104,35 @@ export class MenuCard {
         {
           name: 'Interview Questions',
           link: '/interview',
+        },
+      ],
+    },
+
+    {
+      label: 'Compilers',
+      hasDropdown: true,
+      iconPath: 'code_blocks',
+      dropdownItems: [
+        {
+          name: 'Javascript Compiler',
+          link: '/compiler/javascript-compiler',
+        },
+        {
+          name: 'Typescript Compiler',
+          link: '/compiler/typescript-compiler',
+        },
+        {
+          name: 'Python Compiler',
+          link: '/compiler/python-compiler',
+        },
+
+        {
+          name: 'C/C++ Compiler',
+          link: '/compiler/cpp-compiler',
+        },
+        {
+          name: 'Go Compiler',
+          link: '/compiler/go-compiler',
         },
       ],
     },

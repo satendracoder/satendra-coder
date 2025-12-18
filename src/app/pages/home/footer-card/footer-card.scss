@@ -17,11 +17,12 @@
     padding: 3rem 0 1.5rem 0rem;
 
     .footer-section {
-      .title {
-        border-bottom: 6px double #0891b2;
-        border-radius: 5%;
-        background: linear-gradient(135deg, #eff1f1, #0891b2);
+      .logo-icon {
+        img {
+          width: 40px;
+        }
       }
+
       h3,
       h4 {
         margin-bottom: 1rem;
@@ -53,20 +54,24 @@
       .logo-content {
         display: flex;
         align-items: center;
-        // gap: 0.75rem;
-        margin-bottom: 1rem;
+        justify-content: flex-start;
+        gap: 6px;
 
         .logo-icon {
           font-size: 2rem;
           filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
-        h3 {
-          margin: 0;
-          background: linear-gradient(45deg, #ffffff, #e0e7ff);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+        .title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #1f2937;
+          display: flex;
+          flex-direction: column;
+          background: linear-gradient(135deg, #06b6d4, #0891b2);
           background-clip: text;
+          color: transparent;
+          margin-bottom: 0.8rem;
         }
       }
 
