@@ -3,6 +3,7 @@ import { MateriallistModule } from '../../../materiallist/materiallist-module';
 import { Router } from '@angular/router';
 import { SAskme } from '../../../../core/service/global/askme/s-askme';
 import { ToastService } from 'sc-angular-toastify';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-become-member',
@@ -14,6 +15,7 @@ export class BecomeMember {
   private route = inject(Router);
   private becomeapi = inject(SAskme);
   private toaster = inject(ToastService);
+  readonly dialog = inject(MatDialog);
 
   onSubmit(form: any) {
     if (form.valid) {
@@ -32,6 +34,6 @@ export class BecomeMember {
   }
 
   closeAndRedirect() {
-    this.route.navigate(['/']);
+    this.dialog.closeAll();
   }
 }

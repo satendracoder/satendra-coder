@@ -1,144 +1,133 @@
-.become-member-wrapper {
-    width: 100%;
-    padding: 0 15px; // thoda left-right space
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: #f0f0f0;
-    background-image: radial-gradient(at 17% 0%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 98% 1%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 33% 87%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 65% 86%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 61% 21%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 36% 1%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 31% 31%, rgba(105, 82, 255, 0.8) 0, transparent 50%),
-        radial-gradient(at 42% 32%, #9d8ff5 0, transparent 50%),
-        radial-gradient(at 0% 1%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 10% 66%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 64% 56%, #30e8bd 0, transparent 50%),
-        radial-gradient(at 68% 46%, #54bbbb 0, transparent 50%),
-        radial-gradient(at 99% 98%, #f0f0f0 0, transparent 50%),
-        radial-gradient(at 67% 59%, #75dfff 0, transparent 50%);
+::ng-deep .mat-mdc-dialog-inner-container {
+  margin-top: 70px !important;
+  min-width: 700px;
+}
 
+.become-member-wrapper {
+  width: 100%;
+  padding: 0px; // thoda left-right space
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .become-member-container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 25px;
-    background: #fff;
-    height: fit-content;
-    position: relative;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 1200px;
+  padding: 25px;
+  background: #fff;
+  height: fit-content;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 
-    .close {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        font-size: 35px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #333;
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
 
-        &:hover {
-            color: #26a69a;
-        }
+    &:hover {
+      color: #26a69a;
     }
+  }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        color: #1a1a1a;
-        font-size: 24px;
-    }
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+    font-size: 24px;
+  }
 
-    .member-form {
+  .member-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .form-flex {
+      display: flex;
+      gap: 25px;
+
+      .form-left,
+      .form-right {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-
-        .form-flex {
-            display: flex;
-            gap: 25px;
-
-            .form-left,
-            .form-right {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 18px;
-            }
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-
-            label {
-                font-weight: 600;
-                margin-bottom: 6px;
-                font-size: 14px;
-                color: #1a1a1a;
-            }
-
-            textarea {
-                height: 120px;
-            }
-
-            input,
-            select,
-            textarea {
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 6px;
-                font-size: 14px;
-                transition: border-color 0.3s;
-
-                &:focus {
-                    outline: none;
-                    border-color: #007bff;
-                }
-            }
-
-            .error {
-                font-size: 12px;
-                color: #d9534f;
-                margin-top: 4px;
-            }
-        }
-
-        .form-submit {
-            text-align: center;
-
-            button {
-                background: #007bff;
-                color: #fff;
-                padding: 12px 20px;
-                font-size: 15px;
-                border: none;
-                border-radius: 6px;
-                cursor: pointer;
-                transition: background 0.3s;
-
-                &:hover {
-                    background: #0056b3;
-                }
-
-                &:disabled {
-                    background: #ccc;
-                    cursor: not-allowed;
-                }
-            }
-        }
+        gap: 18px;
+      }
     }
 
-    /* Responsive: stack on mobile */
-    @media (max-width: 768px) {
-        .form-flex {
-            flex-direction: column;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        font-size: 14px;
+        color: #1a1a1a;
+      }
+
+      textarea {
+        height: 120px;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+
+        &:focus {
+          outline: none;
+          border-color: #007bff;
         }
+      }
+
+      .error {
+        font-size: 12px;
+        color: #d9534f;
+        margin-top: 4px;
+      }
     }
+
+    .form-submit {
+      text-align: center;
+
+      button {
+        background: #007bff;
+        color: #fff;
+        padding: 12px 20px;
+        font-size: 15px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: #0056b3;
+        }
+
+        &:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  /* Responsive: stack on mobile */
+  @media (max-width: 768px) {
+    .form-flex {
+      flex-direction: column;
+    }
+  }
 }

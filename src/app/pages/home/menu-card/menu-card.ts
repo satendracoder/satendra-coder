@@ -88,10 +88,7 @@ export class MenuCard {
           name: 'Learn Handbooks',
           link: '/handbooks',
         },
-        {
-          name: 'DSA Sheets',
-          link: '/dsa-sheets',
-        },
+
         {
           name: 'AI Engineer',
           link: '/generative-ai',

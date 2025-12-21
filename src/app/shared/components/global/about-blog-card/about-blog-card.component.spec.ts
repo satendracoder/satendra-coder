@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JsToTsConvert } from './js-to-ts-convert';
+import { AboutBlogCardComponent } from './about-blog-card.component';
 
-describe('JsToTsConvert', () => {
-  let component: JsToTsConvert;
-  let fixture: ComponentFixture<JsToTsConvert>;
+describe('AboutBlogCardComponent', () => {
+  let component: AboutBlogCardComponent;
+  let fixture: ComponentFixture<AboutBlogCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JsToTsConvert]
+      imports: [AboutBlogCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JsToTsConvert);
+    fixture = TestBed.createComponent(AboutBlogCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

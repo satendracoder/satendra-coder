@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { MenuCard } from '../menu-card/menu-card';
 import { BannerCard } from '../banner-card/banner-card';
 import { FooterCard } from '../footer-card/footer-card';
-import { GlobalContact } from '../../../shared/components/other/global-contact/global-contact';
 import { MentorshipCard } from '../mentorship-card/mentorship-card';
 import { LearningSection } from '../learning-section/learning-section';
 import { FaqCard } from '../faq-card/faq-card';
@@ -13,7 +12,6 @@ import { WhoIAmComponent } from '../../../shared/components/global/who-i-am/who-
 import { SSafeStorage } from '../../../core/service/global/safe-storage/s-safe-storage';
 import { CoursesCardComponent } from '../courses-card/courses-card.component';
 import { HandbooksCardComponent } from '../handbooks-card/handbooks-card.component';
-import { CompilerBanner } from '../../../features/compiler/pages/compiler-banner/compiler-banner';
 
 @Component({
   selector: 'app-index-page',

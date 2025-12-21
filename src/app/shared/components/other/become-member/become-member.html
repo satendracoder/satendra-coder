@@ -1,7 +1,7 @@
 <div class="become-member-wrapper">
     <div class="become-member-container">
         <button class="close" (click)="closeAndRedirect()">×</button>
-        <h2>Become a Member</h2>
+        <h2>Invite Satendra – Fill Out the Contact Form</h2>
 
         <form (ngSubmit)="onSubmit(memberForm)" #memberForm="ngForm" class="member-form">
 
@@ -35,34 +35,6 @@
                         }
 
                     </div>
-
-                    <!-- Qualification -->
-                    <div class="form-group">
-                        <label for="qualification">Qualification *</label>
-                        <input type="text" id="qualification" name="qualification" ngModel #qualification="ngModel"
-                            required minlength="2" placeholder="Enter your qualification (e.g., B.Tech, MCA)" />
-                        @if (qualification.invalid && qualification.touched) {
-                        <small class="error">
-                            Qualification is required.
-                        </small>
-                        }
-
-                    </div>
-
-                    <!-- WhatsApp -->
-                    <div class="form-group">
-                        <label for="whatsapp">WhatsApp Number *</label>
-                        <input type="tel" id="whatsapp" name="whatsapp" ngModel #whatsapp="ngModel" required
-                            pattern="^[0-9]{10}$" placeholder="Enter 10-digit WhatsApp number" />
-
-                        @if (whatsapp.invalid && whatsapp.touched) {
-                        <small class="error">
-                            Enter a valid 10-digit WhatsApp number.
-                        </small>
-                        }
-
-                    </div>
-
                 </div>
 
                 <!-- RIGHT SIDE -->
@@ -70,23 +42,17 @@
 
                     <!-- Interest Dropdown -->
                     <div class="form-group">
-                        <label for="interest">I am interested in *</label>
+                        <label for="interest">Purpose of Invite *</label>
                         <select id="interest" name="interest" ngModel #interest="ngModel" required>
                             <option value="" disabled selected>Select one</option>
-                            <option value="tutorials">📘 Learn Tutorials</option>
-                            <option value="core-subjects">📚 Core Subjects</option>
-                            <option value="interview">💼 Interview Questions</option>
-                            <option value="quizzes">❓ Free Quizzes</option>
-                            <option value="roadmaps">🗺️ Roadmaps</option>
-                            <option value="ebooks">📖 eBooks Library</option>
-                            <option value="blog">📝 Blog</option>
-                            <option value="compiler">💻 Online Compiler</option>
-                            <option value="mentorship">🎓 Mentorship</option>
-                            <option value="dev-tools">🛠️ Dev-Tools</option>
-                            <option value="vscode">🧩 VSCode Extension</option>
-                            <option value="browser">🌐 Browser Extension</option>
-                            <option value="npm">📦 NPM Package</option>
-                            <option value="maven">☕ Maven Library</option>
+                            <option value="university">University / College</option>
+                            <option value="event">Event / Webinar</option>
+                            <option value="workshop">Workshop / Training</option>
+                            <option value="interview">Interview / Hiring</option>
+                            <option value="collaboration">Project Collaboration</option>
+                            <option value="learning-access">Course / Learning Access</option>
+                            <option value="community">Community / Meetup</option>
+                            <option value="others">Others</option>
                         </select>
 
                         @if (interest.invalid && interest.touched) {
@@ -111,23 +77,18 @@
                         }
 
                     </div>
-
-
-                    <!-- Message -->
-                    <div class="form-group">
-                        <label for="message">Message (Optional)</label>
-                        <textarea id="message" name="message" ngModel rows="3"
-                            placeholder="Write your message..."></textarea>
-                    </div>
-
-
-
                 </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" ngModel rows="3" placeholder="Write your message..."></textarea>
             </div>
 
             <!-- Submit -->
             <div class="form-submit">
-                <button type="submit" [disabled]="!memberForm.valid">Become a Member</button>
+                <button type="submit" [disabled]="!memberForm.valid">Invite Satendra</button>
             </div>
         </form>
     </div>

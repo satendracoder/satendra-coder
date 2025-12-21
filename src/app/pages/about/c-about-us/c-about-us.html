@@ -2,25 +2,56 @@
     <app-menu-card></app-menu-card>
     <br><br>
     <!-- Banner Section with Background & Left-side Image -->
-    <section class="banner-section">
-        <div class="overlay"></div>
-        <div class="container">
-            <!-- Left image -->
-            <div class="left-image">
-                <img src="/assets/images/global/sate_1.png" alt="Satendra Rajput">
+    <section class="about-section">
+        <div class="about-container">
+
+            <!-- LEFT IMAGE AREA -->
+            <div class="image-wrapper">
+                <img src="/assets/images/global/satu.webp" alt="Satendra Rajput" class="main-image" />
+
+                <!-- Experience Badge -->
+                <div class="experience-badge">
+                    <h3>3.5+</h3>
+                    <p>Years of<br />Experience</p>
+                </div>
+
+                <!-- Small Speaker Image -->
+                <div class="secondary-image">
+                    <img src="/assets/images/global/sate_1.webp" alt="Satendra Rajput Speack" />
+                </div>
             </div>
 
-            <!-- Right text content -->
-            <div class="banner-content">
-                <h1>Satendra Rajput</h1>
-                <p>Hello! I'm Satendra Rajput, the solo developer behind SatendraCoder — a platform created to support
-                    learners and developers at every step of their journey.
+            <!-- RIGHT CONTENT -->
+            <div class="content-wrapper">
+                <h1>
+                    Meet Your Software Engineer, Coach & Speaker –
+                    <span>Satendra Rajput</span>
+                </h1>
 
-
+                <p>
+                    I’m Satendra Rajput — an
+                    <strong>Software Engineer Architect</strong> and Trainer from India with
+                    3.5+ years of experience building enterprise-grade Software Engineer
+                    applications and mentoring developers worldwide.
                 </p>
-                <button>Invite Me</button> <button routerLink="/mentorship"
-                    style="margin-left: 10px;">Mentorship</button>
+
+                <p>
+                    Beyond my work, I’m passionate about coaching developers,
+                    mentoring Students, and speaking at industry events to empower
+                    others in mastering Software developers technologies. I specialize in
+                    turning complex business challenges into practical,
+                    high-impact architectures that drive results and inspire
+                    innovation.
+                </p>
+
+                <a href="https://me.satendracoder.com/" target="_blank">
+                    <button class="about-btn">
+                        Who am I?</button>
+                </a>
+
+                <app-sc-button variant="primary" label="Invite Satendra" (scClick)="inviteBack()"></app-sc-button>
             </div>
+
         </div>
     </section>
 
@@ -30,7 +61,7 @@
         <div class="container">
             <!-- Left: Text & Credentials -->
             <div class="text-content">
-                <h2>Why Invite Me?</h2>
+                <h2>Why Choose Satendra Coder?</h2>
                 <p>
                     With years of experience in software engineering, teaching, and mentoring, I help learners bridge
                     the gap
@@ -39,8 +70,9 @@
                     is to make learning simple, practical, and impactful.
                 </p>
                 <ul class="credentials">
-                    <li>Expert in Java, Spring Boot, Angular & JavaScript</li>
-                    <li>Strong foundation in AI/ML, DSA & System Design</li>
+                    <li>Expert in JavaScript and Angular Developer Specialist.</li>
+                    <li>Expert in Java, Spring Boot,Microservices architecture, MySQL </li>
+                    <li>Strong foundation in DSA & System Design</li>
                     <li>3+ Years mentoring students and professionals</li>
                     <li>Corporate Trainer & Career Guide for IT aspirants</li>
                     <li>Built <strong>Satendra Coder</strong> – a platform for coding & communication</li>
@@ -50,18 +82,58 @@
 
             <!-- Right: Image -->
             <div class="image-content">
-                <img src="/assets/images/global/satu.png" alt="Your Photo">
+                <img src="/assets/images/global/sate_1.webp" alt="Your Photo">
             </div>
         </div>
     </section>
-    <app-testimonials></app-testimonials>
-    <br>
-    <h1 style="text-align: center;">We’d Love to Hear From You!</h1>
-    <p style="text-align: center; width: 1000px; margin: auto;">We’d love to hear from you. Please fill out our contact
-        Have questions, feedback, or ideas to share? Fill out our contact form, and we’ll get back to you as quickly as
-        possible. Your message matters to us!</p>
-    <br>
 
+    <!-- /What We Do -->
+
+    <section class="what-we-do">
+        <h2 class="title">What We Do</h2>
+
+        <div class="card-wrapper">
+            <div class="card">
+                <h3>Programming Tutorials</h3>
+                <p>
+                    In-depth tutorials on Angular, Java, Spring Boot, JavaScript, and TypeScript.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Online Code Compiler</h3>
+                <p>
+                    Run and test code online for JS, Python, TypeScript, C++, and Go.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>DSA & Interviews</h3>
+                <p>
+                    Data Structures, Algorithms, and interview preparation for developers.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Real-World Projects</h3>
+                <p>
+                    Hands-on fintech and SaaS projects based on real industry use cases.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Career-Focused Content</h3>
+                <p>
+                    Developer content focused on career growth, skills, and industry insights.
+                </p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <blockquote>
+        “If your fundamentals are strong, any programming language becomes easy.”
+    </blockquote>
+    <br>
     <app-global-contact></app-global-contact>
     <app-footer-card></app-footer-card>
 </section>
